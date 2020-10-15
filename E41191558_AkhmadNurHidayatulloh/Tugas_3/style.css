@@ -1,0 +1,42 @@
+body {
+    background-color: #2d6187;
+}
+header {
+    background-color: #effad3;
+    min-height: 100px;
+    text-align: center;
+    font-family: Arial;
+    padding-bottom: 10px;
+    padding-top: 40px;
+    font-size: 20px;
+}
+.profile {
+    width: 270px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    
+}
+section {
+    background-color: #a8dda8;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+    min-height: 200px;
+}
+.description {
+    font-family: Arial;
+    font-size: 18px;
+    margin: 10px 10px 10px 10px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    border-width: 1px;
+}
+.grid-item {
+    padding: 20px;
+    border-width: 1px;
+}
