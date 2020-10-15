@@ -1,0 +1,26 @@
+body{
+    background-color:rgb(74, 139, 112)
+}
+
+center{
+    padding-top: 20px;
+}
+h1{
+    color: rgb(247, 234, 166);
+    font-style: italic;    
+}
+h2{
+    color: rgb(247, 234, 166);
+    padding-top: 40px;
+    font-style: normal;
+}
+h3{
+    font-size: 20;
+}
+
+h4{
+    padding-top: 100px;
+    color: rgb(243, 223, 126);
+    
+ 
+}
