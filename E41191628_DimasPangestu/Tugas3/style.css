@@ -1,0 +1,86 @@
+
+        body {
+            font-family: sans-serif;
+            background: #fff8dc;
+            color: #1c170f;
+            padding: 0;
+        }
+        a:visited {
+            color: #1c170f;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:active {
+            color: #6495ed;
+        }
+        .judul {
+            background: transparent;
+            color: #1c170f;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            font-weight: bold;
+            font-size: 20px;   
+        }
+        .judul a:hover {
+            color: #6495ed;
+        }
+        .judul_box {
+            display: inline-block;
+        }
+        .nav_box {
+            display: inline-block;
+            margin-left: 60%;
+        }
+        .nav {
+            display: inline-block;
+            margin-right: 40px;
+            font-weight: bold;
+            font-size: small;
+        }
+        .tengah {
+            background: linear-gradient( #fff8dc);
+            margin: 0px;
+            padding-top: 5%;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-bottom: 10%;
+
+        }
+        p {
+            text-indent: 20px;
+            line-height: 1.5em;
+        }
+        .btn {
+            background: transparent;
+            border: solid 3px #1c170f;
+            border-radius: 100px;
+            padding: 10px;
+        }
+        .btn:hover {
+            background: #6495ed;
+            border: solid 3px #6495ed;
+            border-radius: 100px;
+            padding: 10px;
+            color: #fff8dc;
+        }
+        h6 {
+            background: #1c170f;
+            color: #fff8dc;
+            text-align: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            margin-top: 60px;
+            line-height: 1.5em;
+        }
+        h6 a:link {
+            color: #fff8dc;
+        }
+        h6 a:visited {
+            color: #fff8dc;
+        }
+        h6 a:hover {
+            color: #6495ed;
+        }

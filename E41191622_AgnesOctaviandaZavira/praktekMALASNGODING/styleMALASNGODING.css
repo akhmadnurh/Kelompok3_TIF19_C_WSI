@@ -1,0 +1,23 @@
+body{
+    background-color: olive;   
+}
+
+h4{
+    font-family: monospace;
+    font-size: 30px;
+}
+
+.kotak{
+	padding: 50px;
+	width: 100px;
+	color: #fff;
+	margin: 10px;
+	background: rgb(205, 216, 51);	
+}
+ 
+#kotak{
+	width: 400px;
+	color: #fff;
+	background: blue;
+	padding: 50px;
+}
