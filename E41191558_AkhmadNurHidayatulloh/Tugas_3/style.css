@@ -26,9 +26,11 @@ section {
     min-height: 200px;
 }
 .description {
+    text-indent: 50px;
     font-family: Arial;
     font-size: 18px;
     margin: 10px 10px 10px 10px;
+    text-align: justify;
 }
 .grid-container {
     display: grid;
@@ -38,5 +40,4 @@ section {
 }
 .grid-item {
     padding: 20px;
-    border-width: 1px;
 }
