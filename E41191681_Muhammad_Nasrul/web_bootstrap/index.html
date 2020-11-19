@@ -226,18 +226,6 @@
                   <div class="mr-3">
                     <div class="icon-circle bg-warning">
                       <i class="fas fa-exclamation-triangle text-white"></i>
-                      <?php
-                      if (isset($_GET['pesan'])) {
-                          $pesan = $_GET['pesan'];
-                          if ($pesan =="berhasil") {
-                              ?>
-                              <div class="alert alert-success">
-                                  <strong>Success!</strong> Anda berhasil login.
-                              </div>
-                              <?php
-                          }
-                      }
-                      ?>
                     </div>
                   </div>
                   <div>
@@ -677,7 +665,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.php">Logout</a>
+          <a class="btn btn-primary" href="login.html">Logout</a>
         </div>
       </div>
     </div>
