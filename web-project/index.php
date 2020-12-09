@@ -29,8 +29,6 @@
         }
         .item-panel{
             margin-top:50px;
-        }
-        .item-list{
             margin-left:17%;
             margin-right:17%;
         }
@@ -78,7 +76,7 @@
             </div>
             
             <!-- Yumna Dress -->
-            <div id="best-seller" class="item-panel">
+            <div id="yumna-dress" class="item-panel">
                 <h5>Yumna Dress</h5>
                 <div class="row item-list">
                     <div id="item-1" class="col-sm-3">
@@ -102,7 +100,7 @@
             </div>
             
             <!-- Chayra Abaya -->
-            <div id="best-seller" class="item-panel">
+            <div id="chayra-abaya" class="item-panel">
                 <h5>Chayra Abaya</h5>
                 <div class="row item-list">
                     <div id="item-1" class="col-sm-3">
