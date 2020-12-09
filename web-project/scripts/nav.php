@@ -35,7 +35,7 @@
             <div class="container">
                 <a href="#" class="navbar-brand">
                     <div class="brand">
-                        <img src="../images/hivaleeqa_ig.png" alt="Brand Icon" class="brand-icon">
+                        <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" alt="Brand Icon" class="brand-icon">
                         <h2>Hi Valeeqa</h2>
                     </div>
                 </a>
