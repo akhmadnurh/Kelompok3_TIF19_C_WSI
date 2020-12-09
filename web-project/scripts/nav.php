@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,14 +31,11 @@
         }
         
     </style>
-    <title>navbar</title>
-  </head>
-  <body>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: white">
             <div class="container">
                 <a href="#" class="navbar-brand">
                     <div class="brand">
-                        <img src="../images/hi_valeeqa.png" alt="Brand Icon" class="brand-icon">
+                        <img src="../images/hivaleeqa_ig.png" alt="Brand Icon" class="brand-icon">
                         <h2>Hi Valeeqa</h2>
                     </div>
                 </a>
@@ -79,5 +74,3 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     -->
-  </body>
-</html>

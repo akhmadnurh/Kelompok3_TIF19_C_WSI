@@ -9,20 +9,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
+    <style>
+        .footer {
+            background: #C3A892;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            padding-right: 0;
+            padding-left: 0;
+        }
+        .footer a {
+            color: #000000;
+        }
+    </style>
   </head>
   <body>
     
     <!-- Membungkus Footer -->
-    <div class="footer">
+    <div class="footer" >
 
     <!-- Membuat Grid -->
     <div class="container">
         <div class="row">
         
             <!-- Kolom Grid 2 -->
-            <div class="col-sm">
+            <div class="col-sm-4">
             
                 <!-- Logo dan Deskripsi -->
                 <table>
@@ -37,7 +47,7 @@
             </div>
 
             <!-- Kolom Grid 2 -->
-            <div class="col-sm">
+            <div class="col-sm-4">
 
                 <!-- Sosial Media -->
                 <center>
@@ -47,7 +57,7 @@
             </div>
 
             <!-- Kolom Grid 3 -->
-            <div class="col-sm">
+            <div class="col-sm-4">
                 <strong>LAYANAN</strong><br>
                 <a href="/">Tentang Kami</a><br>
                 <a href="/">Hubungi Kami</a><br>
