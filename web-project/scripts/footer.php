@@ -37,7 +37,7 @@
                 <!-- Logo dan Deskripsi -->
                 <table>
                     <tr>
-                        <td rowspan="4"><img src="images/hivaleeqa.png" alt="Logo Hi Valeeqa" style="width: 100px;height: auto;float: left;margin-right: 15px;"></td>
+                        <td rowspan="4"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" alt="Logo Hi Valeeqa" style="width: 100px;height: auto;float: left;margin-right: 15px;"></td>
                         <td><a href="/"><div style="font-size: 30px;"><b>Hi Valeeqa</b></div></a></td>
                     </tr>
                     <tr>
@@ -52,7 +52,7 @@
                 <!-- Sosial Media -->
                 <center>
                     <strong>TEMUKAN KAMI</strong><br>
-                    <a href="https://www.instagram.com/hi.valeeqa/"><img src="images/hivaleeqa_ig.png" alt="Instagram Hi Valeeqa" style="width: 25px;height: 25px;"></a>
+                    <a href="https://www.instagram.com/hi.valeeqa/"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_ig.png" alt="Instagram Hi Valeeqa" style="width: 25px;height: 25px;"></a>
                 </center>
             </div>
 
