@@ -10,9 +10,7 @@
 
     <title>Hi Valeeqa</title>
     <style>
-        body .container{
-            margin-top:
-        }
+
         .filter-title{
             background: #FBF1F0;
             padding-top: 5px;
@@ -34,12 +32,30 @@
             height: 30px;
             width: 30px;
         }
+        .result{
+            width: 200px;
+            border: 1px solid black;
+            padding: 5px; 
+            margin-bottom: 20px;
+        }
+        .result-img{
+            width: 100%;
+            height: 200px;
+            background: pink;   
+
+        }
+        .result-cost{
+            background: pink;
+        }
+        body .container{
+            margin-bottom: 70px;
+        }
     </style>
   </head>
   <body>
-  <?php include "nav.php";  ?>
+    <?php include "nav.php";  ?>
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: 150px;">
             <!-- Filter -->
             <div class="col-sm-3">
                 <div class="text-center filter-title">
@@ -102,8 +118,85 @@
                                 <div class="size-box">XXL</div> 
                             </div>
                         </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary" style="width:100%; background: #C3A892; border: #C3A892;  ">Terapkan</button>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Hasil Pencarian -->
+            <div class="col-sm-9">
+                <p>Menampilkan hasil pencarian untuk "Yumna Dress"</p>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="result">
+                            <div class="result-img">Gambar</div>
+                            <p>Yumna Dress</p>
+                            <p>Wolfpeach Exclusive - Milo</p>
+                            <div class="result-cost">
+                                Rp 177.000
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="result">
+                            <div class="result-img">Gambar</div>
+                            <p>Yumna Dress</p>
+                            <p>Wolfpeach Exclusive - Milo</p>
+                            <div class="result-cost">
+                                Rp 177.000
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="result">
+                            <div class="result-img">Gambar</div>
+                            <p>Yumna Dress</p>
+                            <p>Wolfpeach Exclusive - Milo</p>
+                            <div class="result-cost">
+                                Rp 177.000
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="result">
+                            <div class="result-img">Gambar</div>
+                            <p>Yumna Dress</p>
+                            <p>Wolfpeach Exclusive - Milo</p>
+                            <div class="result-cost">
+                                Rp 177.000
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="result">
+                            <div class="result-img">Gambar</div>
+                            <p>Yumna Dress</p>
+                            <p>Wolfpeach Exclusive - Milo</p>
+                            <div class="result-cost">
+                                Rp 177.000
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="result">
+                            <div class="result-img">Gambar</div>
+                            <p>Yumna Dress</p>
+                            <p>Wolfpeach Exclusive - Milo</p>
+                            <div class="result-cost">
+                                Rp 177.000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
 
             <!-- Hasil Pencarian -->
