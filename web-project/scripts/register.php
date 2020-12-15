@@ -18,7 +18,7 @@
         }
         .login-register-switch{
             width: 100%;
-            height: 50px;
+            height: 70px;
             overflow: hidden;
         }
         .login-register-form{
@@ -37,28 +37,45 @@
         <center>
             <div class="login-border">
                 <div class="login-register-switch">
-                    <div class="row text-center">
+                    <div class="row">
                         <div class="col">
-                            <a href="#" class="btn" style="width: 100%;">Login</a>
+                            <a href="#" class="btn" style="width: 100%; height: 100%; height: 60px;">Login</a>
                         </div>
                         <div class="col">
-                        <a href="#" class="btn btn-secondary" style="width: 100%;">Register</a>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; height: 60px;">Register</a>
                         </div>
                     </div>
                 </div>
+                <div class="text-left">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" name="nama" id="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Jenis Kelamin</label>
+                            <select name="gender" id="" class="form-control">
+                                <option value="#">-- Pilih Salah Satu --</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="wa">No Whatsapp</label>
+                            <input type="number" name="wa" id="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <textarea name="alamat" class="form-control" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px; margin-top: 20px;">Register</button>
+                    </form>
+                </div>
                 
-                <form action="">
-                    <div class="form-group text-left">
-                        <label for="email">Email: </label>
-                        <input type="email" name="email" id="" class="form-control">
-                    </div>
-                    <div class="form-group text-left">
-                        <label for="pwd">Password: </label>
-                        <input type="password" name="pwd" id="" class="form-control">
-                    </div>
-                    <a href="#" style="text-align: left;">Lupa kata sandi?</a>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px; margin-top: 20px;">Login</button>
-                </form>
             </center>
 
         </div>
