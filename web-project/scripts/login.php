@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 
-                <form action="">
+                <form action="login-process.php" method="POST">
                     <div class="form-group text-left">
                         <label for="email">Email: </label>
                         <input type="email" name="email" id="" class="form-control">
