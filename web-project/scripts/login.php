@@ -11,14 +11,15 @@
     <title>Hi Valeeqa</title>
     <style>
         .login-border{
-            border: 1px solid black;
+            border: 0px;
             width: 50%;
             margin-top: 150px;
             margin-bottom: 70px;
+            background: #f6f7f9;
         }
         .login-register-switch{
             width: 100%;
-            height: 50px;
+            height: 60px;
             overflow: hidden;
         }
         .login-register-form{
@@ -28,21 +29,39 @@
             margin-left: 10%;
             margin-right: 10%;
             margin-bottom: 5%;
+            margin-top: 5%;
+        }
+        .btn-switcher{
+            background: #FBF1F0;
+        }
+        .btn{
+            width: 100%;
+            height: 60px;
+            border-radius: 0px;
+        }
+        a.btn h3{
+            height: 100%;
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
     </style>
   </head>
-  <body>
-    <?php include "nav.php"; ?>
+  <body style="background:#C3A892;">
+    <?php //include "nav.php"; ?>
     <div class="container">
         <center>
             <div class="login-border">
                 <div class="login-register-switch">
-                    <div class="row text-center">
+                    <div class="row text-center no-gutters">
                         <div class="col">
-                            <a href="#" class="btn" style="width: 100%;">Login</a>
+                            <a href="login.php" class="btn" onclick=" return false;">
+                                <h3>Login</h3>
+                            </a>
                         </div>
                         <div class="col">
-                        <a href="#" class="btn btn-secondary" style="width: 100%;">Register</a>
+                            <a href="register.php" class="btn btn-switcher">
+                                <h3>Register</h3>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -57,13 +76,13 @@
                         <input type="password" name="pwd" id="" class="form-control">
                     </div>
                     <a href="#" style="text-align: left;">Lupa kata sandi?</a>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px; margin-top: 20px;">Login</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px; margin-top: 20px; margin-bottom: 30px; background:#C3A892; border: 1px solid #C3A892;">Login</button>
                 </form>
             </center>
 
         </div>
     </div>
-    <?php include "footer.php"; ?>
+    <?php //include "footer.php"; ?>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

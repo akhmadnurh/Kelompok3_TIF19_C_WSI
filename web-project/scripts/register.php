@@ -11,14 +11,15 @@
     <title>Hi Valeeqa</title>
     <style>
         .login-border{
-            border: 1px solid black;
+            border: 0px;
             width: 50%;
             margin-top: 150px;
             margin-bottom: 70px;
+            background: #f6f7f9;
         }
         .login-register-switch{
             width: 100%;
-            height: 70px;
+            height: 60px;
             overflow: hidden;
         }
         .login-register-form{
@@ -28,26 +29,44 @@
             margin-left: 10%;
             margin-right: 10%;
             margin-bottom: 5%;
+            margin-top: 5%;
+        }
+        .btn-switcher{
+            background: #FBF1F0;
+        }
+        .btn{
+            width: 100%;
+            height: 60px;
+            border-radius: 0px;
+        }
+        a.btn h3{
+            height: 100%;
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
     </style>
   </head>
-  <body>
-    <?php include "nav.php"; ?>
+  <body style="background:#C3A892;">
+    <?php //include "nav.php"; ?>
     <div class="container">
         <center>
             <div class="login-border">
                 <div class="login-register-switch">
-                    <div class="row">
+                    <div class="row no-gutters">
                         <div class="col">
-                            <a href="#" class="btn" style="width: 100%; height: 100%; height: 60px;">Login</a>
+                            <a href="login.php" class="btn btn-switcher">
+                                <h3>Login</h3>
+                            </a>
                         </div>
                         <div class="col">
-                        <a href="#" class="btn btn-secondary" style="width: 100%; height: 60px;">Register</a>
+                            <a href="register.php" class="btn" onclick="return false;">
+                                <h3>Register</h3>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="text-left">
-                    <form action="#">
+                    <form action="register-process.php" method="POST">
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" name="nama" id="" class="form-control">
@@ -57,11 +76,19 @@
                             <input type="email" name="email" id="" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="pass">Password</label>
+                            <input type="password" name="pass" id="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="pass2"> Ulangi Password</label>
+                            <input type="password" name="pass2" id="" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label for="gender">Jenis Kelamin</label>
                             <select name="gender" id="" class="form-control">
                                 <option value="#">-- Pilih Salah Satu --</option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                <option value="Perempuan">Perempuan</option>
+                                <option value="L">Laki-Laki</option>
+                                <option value="P">Perempuan</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -72,7 +99,7 @@
                             <label for="alamat">Alamat</label>
                             <textarea name="alamat" class="form-control" id="" cols="30" rows="10"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px; margin-top: 20px;">Register</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px; margin-top: 20px; margin-bottom: 30px; background:#C3A892; border: 1px solid #C3A892;">Register</button>
                     </form>
                 </div>
                 
@@ -80,7 +107,7 @@
 
         </div>
     </div>
-    <?php include "footer.php"; ?>
+    <?php //include "footer.php"; ?>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
