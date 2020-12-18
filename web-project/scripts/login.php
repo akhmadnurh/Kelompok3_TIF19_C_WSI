@@ -67,19 +67,36 @@
                 </div>
                 
                 <form action="login-process.php" method="POST">
+                    <?php
+                        if(isset($_GET["status"])){
+                            $status = $_GET["status"];
+                            if($status == "error"){
+                    ?>
+                                <div class="alert alert-danger">
+                                    Email atau Password salah!
+                                </div>
+                    <?php
+                            }elseif($status == "success"){
+                    ?>
+                                <div class="alert alert-success">
+                                    Register berhasil! Silakan login untuk masuk ke akun anda.
+                                </div>
+                    <?php
+                            }
+                        }
+                    ?>
                     <div class="form-group text-left">
                         <label for="email">Email: </label>
-                        <input type="email" name="email" id="" class="form-control">
+                        <input type="email" name="email" id="email" class="form-control">
                     </div>
                     <div class="form-group text-left">
                         <label for="pwd">Password: </label>
-                        <input type="password" name="pwd" id="" class="form-control">
+                        <input type="password" name="pwd" id="password" class="form-control">
                     </div>
                     <a href="#" style="text-align: left;">Lupa kata sandi?</a>
                     <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px; margin-top: 20px; margin-bottom: 30px; background:#C3A892; border: 1px solid #C3A892;">Login</button>
                 </form>
             </center>
-
         </div>
     </div>
     <?php //include "footer.php"; ?>

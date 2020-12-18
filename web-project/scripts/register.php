@@ -67,6 +67,30 @@
                 </div>
                 <div class="text-left">
                     <form action="register-process.php" method="POST">
+                        <?php
+                            if(isset($_GET["status"])){
+                                $status = $_GET["status"];
+                                if($status == "error"){
+                        ?>
+                                    <div class="alert alert-danger">
+                                        Semua form harus diisi!
+                                    </div>
+                        <?php
+                                }elseif($status == "pwd-error"){
+                        ?>
+                                    <div class="alert alert-danger">
+                                        Password tidak cocok! Ulangi lagi.
+                                    </div>
+                        <?php
+                                }elseif($status == "gender-error"){
+                        ?>
+                                    <div class="alert alert-danger">
+                                        Jenis kelamin belum dipilih!
+                                    </div>
+                        <?php
+                                }
+                            }
+                        ?>
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" name="nama" id="" class="form-control">
