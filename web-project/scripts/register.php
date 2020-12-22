@@ -93,19 +93,19 @@
                         ?>
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" name="nama" id="" class="form-control">
+                            <input type="text" name="nama" id="" class="form-control" maxlength="50">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="" class="form-control">
+                            <input type="email" name="email" id="" class="form-control" maxlength="50">
                         </div>
                         <div class="form-group">
                             <label for="pass">Password</label>
-                            <input type="password" name="pass" id="" class="form-control">
+                            <input type="password" name="pass" id="" class="form-control" maxlength="50">
                         </div>
                         <div class="form-group">
                             <label for="pass2"> Ulangi Password</label>
-                            <input type="password" name="pass2" id="" class="form-control">
+                            <input type="password" name="pass2" id="" class="form-control" maxlength="50">
                         </div>
                         <div class="form-group">
                             <label for="gender">Jenis Kelamin</label>
@@ -117,7 +117,7 @@
                         </div>
                         <div class="form-group">
                             <label for="wa">No Whatsapp</label>
-                            <input type="number" name="wa" id="" class="form-control">
+                            <input type="number" name="wa" id="" class="form-control" maxlength="12">
                         </div>
                         <div class="form-group">
                             <label for="alamat">Alamat</label>

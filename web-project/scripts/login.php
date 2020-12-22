@@ -87,11 +87,11 @@
                     ?>
                     <div class="form-group text-left">
                         <label for="email">Email: </label>
-                        <input type="email" name="email" id="email" class="form-control">
+                        <input type="email" name="email" id="email" class="form-control" maxlength="50">
                     </div>
                     <div class="form-group text-left">
                         <label for="pwd">Password: </label>
-                        <input type="password" name="pwd" id="password" class="form-control">
+                        <input type="password" name="pwd" id="password" class="form-control" maxlength="50">
                     </div>
                     <a href="#" style="text-align: left;">Lupa kata sandi?</a>
                     <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px; margin-top: 20px; margin-bottom: 30px; background:#C3A892; border: 1px solid #C3A892;">Login</button>
