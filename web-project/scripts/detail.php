@@ -185,7 +185,7 @@
             </div>
             <div class="col-sm-auto">
                 <div class="detail-kanan">
-                    <div class="judul-info"><img src="file:///C:/xampp/htdocs/Kelompok3_TIF19_C_WSI/web-project/images/info.png" alt="Info" style="height: 20px;width: auto;margin-right: 5px;"> Tentang Produk Ini</div>
+                    <div class="judul-info"><img src="https://github.com/monokuro49/Kelompok3_TIF19_C_WSI/blob/master/web-project/images/info.png" alt="Info" style="height: 20px;width: auto;margin-right: 5px;"> Tentang Produk Ini</div>
                     <!-- Isi Info Maksimal 380 Karakter -->
                     <div class="isi-info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur, fugit neque quos quas voluptas quisquam! Reiciendis laudantium consequuntur dicta quos dolor, cum, sunt quisquam magnam eius voluptates voluptatum adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui dolores consectetur impedit praesentium cum amet quia quam facere, saepe veleed</div>
                     
