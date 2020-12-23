@@ -35,13 +35,26 @@
         .item-panel{
             margin-top:5em;
         }
-        .more{
-            background: #fff;
-            border: #000000 2px solid;
+        .btn.more{
             padding: 8px;
-            width: 90px;
+            width: 120px;
+            height: 50px;
             margin-top: 50px;
             margin-bottom: 20px;
+            line-height: 30px;
+            border-radius: 0px;
+            border: 1px solid black;
+            background: black;
+            color: white;
+        }
+        .btn.more:hover{
+            background: white;
+            color: black;
+            text-decoration: none;
+        }
+        .anchor-black, .anchor-black:hover{
+            color: black;
+            text-decoration: none;
         }
     </style>
   </head>
@@ -72,7 +85,7 @@
                         ?>
                                 <div class="col-sm-3">
                                     <div class="item">
-                                        <a href="#">
+                                        <a href="scripts/detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
                                             <?php 
                                                 $pic = $data["lokasi_gambar"];
                                                 echo "<img src='$pic' alt=''>"; 
@@ -91,7 +104,8 @@
                             }
                         ?>
                     </div>
-                    <a href="#" class="btn btn-secondary more text-center">More></a>
+                    <a href="scripts/search.php?kategori=best-seller" class="btn more text-center" name="more">More></a>
+
                 </div>
                 
                     <?php
@@ -118,9 +132,9 @@
                                         $k = 0;
                                         while($data = mysqli_fetch_array($filter_data)){
                                     ?>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-3 col-md-3">
                                                 <div class="item">
-                                                    <a href="#">
+                                                    <a href="scripts/detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
                                                         <?php 
                                                             $pic = $data["lokasi_gambar"];
                                                             echo "<img src='$pic' alt=''>"; 
@@ -139,7 +153,7 @@
                                         }
                                     ?>
                                 </div>
-                                <a href="#" class="btn btn-secondary more text-center">More></a>
+                                <a href="scripts/search.php?kategori=<?php echo $id_kategori;?>" class="btn more text-center">More></a>
                             </div>
                         <?php
                         } 
