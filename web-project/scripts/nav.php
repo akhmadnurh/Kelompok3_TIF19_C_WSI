@@ -31,7 +31,12 @@
             padding: 5px;
             border: 2px solid #fbf1f0;
         }
-        
+        .search-icon {
+            height: 14px;
+            width: auto;
+            margin: 5px;
+        }
+
     </style>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: white">
             <div class="container">
@@ -43,7 +48,7 @@
                 </a>
                 <form action="" class="form-inline my-2 my-lg-0" >
                     <input type="search" class="form-control-inline" name="search">
-                    <button class="btn" type="submit">Search</button>
+                    <button class="btn" type="submit"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_search.png" alt="search" class="search-icon"></button>
                 </form> 
             </div>
         </nav>
