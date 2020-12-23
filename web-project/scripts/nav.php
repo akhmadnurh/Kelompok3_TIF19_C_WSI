@@ -22,9 +22,13 @@
         }
         nav form button.btn{
             background: #FBF1F0;
-            color: black;
+            border: 2px #fbf1f0 solid;
             margin-left: 3px;
             margin-bottom: 5px;
+        }
+        nav form button.btn:hover {
+            background: #ffffff;
+            border: #fbf1f0 solid 2px;
         }
         nav form input.form-control-inline{
             width: 30em;
