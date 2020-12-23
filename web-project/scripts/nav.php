@@ -24,10 +24,12 @@
             background: #FBF1F0;
             color: black;
             margin-left: 3px;
+            margin-bottom: 5px;
         }
         nav form input.form-control-inline{
             width: 30em;
             padding: 5px;
+            border: 2px solid #fbf1f0;
         }
         
     </style>
