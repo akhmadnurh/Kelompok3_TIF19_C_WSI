@@ -20,108 +20,131 @@
             text-align: center; 
         }
         .item{
-            width: 160px;
-            height: 240px;
-            background: pink;
+            width: 240px;
+            height: 360px;
+            border: 1px solid black;
             margin-bottom: 10px;
             margin-top: 5px;
             
         }
-        .item-panel{
-            margin-top:50px;
-            margin-left:17%;
-            margin-right:17%;
+        .item img{
+            width: 240px;
+            height: 360px;
+            
         }
-        /*.item-title{*/
-        /*    margin-top: 100px;*/
-        /*}*/
+        .item-panel{
+            margin-top:5em;
+        }
         .more{
             background: #fff;
             border: #000000 2px solid;
             padding: 8px;
             width: 90px;
-            margin-top: 10px;
+            margin-top: 50px;
             margin-bottom: 20px;
         }
     </style>
   </head>
   <body>
     <?php include "scripts/nav.php"; ?>
+    <?php include "scripts/connection.php"; ?>
+    <?php
+        $query = ["SELECT id_kategori, nama_kategori from kategori", "SELECT produk.id_produk, produk.id_kategori, nama_barang, harga, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk"];
+    ?>
     <center>
         <div class="container">
             <!-- Slider -->
             <div class="slider">SLIDER</div>
-            <!-- Best Seller -->
-            <div id="best-seller" class="item-panel">
-                <h5>Best Seller</h5>
-                <div class="row item-list">
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Best Seller 1</a>
+            <?php         
+                // Loop sesuai kategori
+                // Pertama best seller, kemudian sesuai kategori 
+
+                // Best Seller
+            ?>
+                <div class="item-panel">
+                    <h5>Best Seller</h5>
+                    <div class="row item-list">
+                    <!-- Cetak data berulang 4 -->
+                        <?php 
+                            $best_seller = mysqli_query($conn,"SELECT produk.id_produk, nama_barang, harga, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk order by best_seller desc");
+                            $i = 1;
+                            while($data = mysqli_fetch_array($best_seller)){
+                        ?>
+                                <div class="col-sm-3">
+                                    <div class="item">
+                                        <a href="#">
+                                            <?php 
+                                                $pic = $data["lokasi_gambar"];
+                                                echo "<img src='$pic' alt=''>"; 
+                                                echo $data["nama_barang"]."<br>"; 
+                                                echo "Rp ".$data["harga"];
+                                            ?>
+                                        </a>
+                                        <br>
+                                    </div>
+                                </div>
+                        <?php
+                                $i++;
+                                if($i > 4){
+                                    break;
+                                }
+                            }
+                        ?>
                     </div>
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Best Seller 2</a>
-                    </div>
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Best Seller 3</a>
-                    </div>
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Best Seller 4</a>
-                    </div>
+                    <a href="#" class="btn btn-secondary more text-center">More></a>
                 </div>
-                <div class="more text-center">More></div>
-            </div>
-            
-            <!-- Yumna Dress -->
-            <div id="yumna-dress" class="item-panel">
-                <h5>Yumna Dress</h5>
-                <div class="row item-list">
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Yumna Dress 1</a>
-                    </div>
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Yumna Dress 2</a>
-                    </div>
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Yumna Dress 3</a>
-                    </div>
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Yumna Dress 4</a>
-                    </div>
-                </div>
-                <div class="more text-center">More></div>
-            </div>
-            
-            <!-- Chayra Abaya -->
-            <div id="chayra-abaya" class="item-panel">
-                <h5>Chayra Abaya</h5>
-                <div class="row item-list">
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Chayra Abaya 1</a>
-                    </div>
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Chayra Abaya 2</a>
-                    </div>
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Chayra Abaya 3</a>
-                    </div>
-                    <div id="item-1" class="col-sm-3">
-                        <div class="item"></div>
-                        <a class="item-title">Chayra Abaya 4</a>
-                    </div>
-                </div>
-                <div class="more text-center">More></div>
-            </div>
+                
+                    <?php
+                        $total_urutan = mysqli_query($conn, $query[0]);
+                        $data_produk = mysqli_query($conn, $query[1]);
+                        $hasil_urutan = mysqli_num_rows($total_urutan);
+                        $kategori_arr = [];
+                        $id_kategori_arr = [];
+                        while($data = mysqli_fetch_array($total_urutan)){
+                            array_push($kategori_arr, $data["nama_kategori"]);
+                            array_push($id_kategori_arr, $data["id_kategori"]);
+                        }
+                
+                        // Cetak data sesuai kategori
+                        for($i=0; $i<$hasil_urutan; $i++){          
+                    ?>
+                            <div class="item-panel">
+                                <h5><?php echo $kategori_arr[$i]; ?></h5>
+                                <div class="row item-list">    
+                                    <?php
+                                        // Filter data sesuai kategori
+                                        $id_kategori = $id_kategori_arr[$i];
+                                        $filter_data = mysqli_query($conn, "SELECT produk.id_produk, produk.id_kategori, nama_barang, harga, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where produk.id_kategori='$id_kategori'");
+                                        $k = 0;
+                                        while($data = mysqli_fetch_array($filter_data)){
+                                    ?>
+                                            <div class="col-sm-3">
+                                                <div class="item">
+                                                    <a href="#">
+                                                        <?php 
+                                                            $pic = $data["lokasi_gambar"];
+                                                            echo "<img src='$pic' alt=''>"; 
+                                                            echo $data["nama_barang"]."<br>"; 
+                                                            echo "Rp ".$data["harga"];
+                                                        ?>
+                                                    </a>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                    <?php
+                                            $k++;
+                                            if($k > 4){
+                                                break;
+                                            }
+                                        }
+                                    ?>
+                                </div>
+                                <a href="#" class="btn btn-secondary more text-center">More></a>
+                            </div>
+                        <?php
+                        } 
+                        ?>
+                                    
         </div>
     </center>    
     <?php include "scripts/footer.php"; ?>
