@@ -170,17 +170,17 @@
         <div class="row">
             <div class="col-sm-1">
                 <div class="tabImg">
-                    <button onclick="viewPanel(0)"><img src="https://github.com/monokuro49/Kelompok3_TIF19_C_WSI/blob/master/web-project/images/detail/img1.png" class="img-pilih"></button>
-                    <button onclick="viewPanel(1)"><img src="https://github.com/monokuro49/Kelompok3_TIF19_C_WSI/blob/master/web-project/images/detail/img2.png" class="img-pilih"></button>
-                    <button onclick="viewPanel(2)"><img src="https://github.com/monokuro49/Kelompok3_TIF19_C_WSI/blob/master/web-project/images/detail/img3.png" class="img-pilih"></button>
-                    <button onclick="viewPanel(3)"><img src="https://github.com/monokuro49/Kelompok3_TIF19_C_WSI/blob/master/web-project/images/detail/img4.png" class="img-pilih"></button>
+                    <button onclick="viewPanel(0)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img1.png" class="img-pilih"></button>
+                    <button onclick="viewPanel(1)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" class="img-pilih"></button>
+                    <button onclick="viewPanel(2)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img3.png" class="img-pilih"></button>
+                    <button onclick="viewPanel(3)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" class="img-pilih"></button>
                 </div>
             </div>
             <div class="col-sm">
-                <div class="panelImg"><center><img src="https://github.com/monokuro49/Kelompok3_TIF19_C_WSI/blob/master/web-project/images/detail/img1.png" class="img-detail"></center></div>
-                <div class="panelImg"><center><img src="https://github.com/monokuro49/Kelompok3_TIF19_C_WSI/blob/master/web-project/images/detail/img2.png" class="img-detail"></center></div>
-                <div class="panelImg"><center><img src="https://github.com/monokuro49/Kelompok3_TIF19_C_WSI/blob/master/web-project/images/detail/img3.png" class="img-detail"></center></div>
-                <div class="panelImg"><center><img src="https://github.com/monokuro49/Kelompok3_TIF19_C_WSI/blob/master/web-project/images/detail/img4.png" class="img-detail"></center></div>
+                <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img1.png" class="img-detail"></center></div>
+                <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" class="img-detail"></center></div>
+                <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img3.png" class="img-detail"></center></div>
+                <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" class="img-detail"></center></div>
             </div>
             <div class="col-sm">
                 <p class="judul">Chayra Abaya</p>
@@ -191,7 +191,7 @@
             </div>
             <div class="col-sm-auto">
                 <div class="detail-kanan">
-                    <div class="judul-info"><img src="https://github.com/monokuro49/Kelompok3_TIF19_C_WSI/blob/master/web-project/images/info.png" alt="Info" style="height: 20px;width: auto;margin-right: 5px;"> Tentang Produk Ini</div>
+                    <div class="judul-info"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/info.png" alt="Info" style="height: 20px;width: auto;margin-right: 5px;"> Tentang Produk Ini</div>
                     <!-- Isi Info Maksimal 380 Karakter -->
                     <div class="isi-info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur, fugit neque quos quas voluptas quisquam! Reiciendis laudantium consequuntur dicta quos dolor, cum, sunt quisquam magnam eius voluptates voluptatum adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui dolores consectetur impedit praesentium cum amet quia quam facere, saepe veleed</div>
                     
