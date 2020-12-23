@@ -12,7 +12,7 @@
 
     <style>
         .container {
-            margin-top: 30px;
+            /* margin-top: 30px; */
             margin-bottom: 30px;
             padding: 5px;
         }
@@ -158,11 +158,15 @@
             padding: 15px;
             border: 2px solid black;
         }
+        .separator {
+            margin-top: 130px;
+        }
     </style>
   </head>
   <body>
-  <?php include "scripts/nav.php"; ?>
+  <?php include "nav.php"; ?>
     <div class="container">
+        <div class="separator"></div>
         <div class="row">
             <div class="col-sm-1">
                 <div class="tabImg">
@@ -244,7 +248,7 @@
         </div>
         <div class="tabPanel">Review</div>
     </div>
-    <?php include "scripts/footer.php"; ?>
+    <?php include "footer.php"; ?>
 
     <script>
         var tabButttons = document.querySelectorAll(".tabContainer .buttonContainer button");
