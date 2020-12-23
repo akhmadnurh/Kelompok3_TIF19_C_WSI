@@ -159,7 +159,7 @@
     </style>
   </head>
   <body>
-    <?php include "scripts/nav.php"; ?>
+    <?php include "web-project/scripts/nav.php"; ?>
     <div class="container">
         <div class="row">
             <div class="col-sm-1">
@@ -242,7 +242,7 @@
         </div>
         <div class="tabPanel">Review</div>
     </div>
-    <?php include "scripts/footer.php"; ?>
+    <?php include "web-project/scripts/footer.php"; ?>
 
     <script>
         var tabButttons = document.querySelectorAll(".tabContainer .buttonContainer button");
