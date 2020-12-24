@@ -101,7 +101,7 @@
                 </form>
                 <div class="dropdown">
                     <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="" alt="Account" class="menu-icon" >
+                        <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_person.png" alt="Account" class="menu-icon" >
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="#">Registrasi</a>
@@ -111,7 +111,7 @@
                         <a class="dropdown-item" href="#">Akun Saya</a>
                     </div>
                 </div>
-                <a href="#"><img src="" alt="Cart" class="menu-icon"></a>
+                <a href="#"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_bagshop.png" alt="Cart" class="menu-icon"></a>
             </div>
         </nav>
         <nav class="navbar navbar-expand-lg navbar-light bg-navbar fixed-top a">
