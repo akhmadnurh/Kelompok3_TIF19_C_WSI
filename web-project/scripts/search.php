@@ -40,8 +40,7 @@
         }
         .result-img{
             width: 100%;
-            height: 200px;
-            background: pink;   
+            height: 240px;
 
         }
         .result-cost{
@@ -50,10 +49,19 @@
         body .container{
             margin-bottom: 70px;
         }
+        .anchor-black, .anchor-black:hover{
+            color: black;
+            text-decoration: none;
+        }
+        select.custom-select {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
     </style>
   </head>
   <body>
     <?php include "nav.php";  ?>
+    <?php require "connection.php"; ?>
     <div class="container">
         <div class="row" style="margin-top: 150px;">
             <!-- Filter -->
@@ -63,33 +71,38 @@
                 </div>
                 <div class="filter-content">
                     <div class="category">
-                        <label for="">Kategori</label>  <br>
+                        <label for="">Kategori</label><br>
                         <div class="filter-position">
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" name="kategori" value="Chayra Abaya" id="kategori1">
-                                <label for="kategori" class="form-check-label">Chayra Abaya</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" name="kategori" value="Yumna Dress" id="kategori2">
-                                <label for="kategori" class="form-check-label">Yumna Dress</label>
-                            </div>
+                            <?php
+                                $sql = "select distinct id_kategori, nama_kategori from kategori order by id_kategori";
+                                $query = mysqli_query($conn, $sql);
+                                while($data = mysqli_fetch_array($query)){
+                            ?>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="kategori" value="<?php echo $data['id_kategori'] ?>" id="kategori1">
+                                        <label for="kategori" class="form-check-label"><?php echo $data["nama_kategori"]; ?></label>
+                                    </div>
+                            <?php
+                                }
+                            ?>
                         </div>
                         <hr>
                         <label for="">Warna</label>
-                        <div class="filter-position">
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" name="warna" value="Milo" id="milo">
-                                <label for="kategori" class="form-check-label">Milo</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" name="warna" value="Dusty Peach" id="dusty-peach">
-                                <label for="kategori" class="form-check-label">Dusty Peach</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" name="warna" value="Dark Army" id="dark-army">
-                                <label for="kategori" class="form-check-label">Dark Army</label>
-                            </div>
-                        </div>
+                        <?php 
+                            $sql = "select distinct warna from produk";
+                            $query = mysqli_query($conn, $sql);
+                            while($data = mysqli_fetch_array($query)){
+                        ?>
+                                <div class="filter-position">
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="warna" value="<?php echo $data['warna'] ?>">
+                                        <label for="kategori" class="form-check-label"><?php echo $data['warna'] ?></label>
+                                    </div>
+                                </div>
+                        <?php
+                            }
+                        ?>
+                        
                         <hr>
                         <label for="">Harga</label>
                         <div class="form-group">
@@ -99,24 +112,32 @@
                         <hr>
                         <label for="">Ukuran</label>
                         <div class="row">
-                            <div class="col-sm-3">
-                                <div class="size-box">XS</div> 
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="size-box">S</div> 
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="size-box">M</div> 
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="size-box">L</div> 
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="size-box">XL</div> 
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="size-box">XXL</div> 
-                            </div>
+                            <?php
+                                $sql = "select distinct lebar_dada, panjang from ukuran";
+                                $query = mysqli_query($conn, $sql);
+                            ?>
+                            <select class="custom-select" name="panjang">
+                                <option value="" selected>-- Panjang --</option>
+                                <?php
+                                    while($data = mysqli_fetch_array($query)){
+                                ?>
+                                        <option value="<?php echo $data['panjang']; ?>"><?php echo $data['panjang']; ?></option>
+                                <?php
+                                    }
+                                ?>
+                            </select>
+                            <br>
+                            <select class="custom-select" name="lebar_dada">
+                                <option value="" selected>-- Lebar --</option>
+                                <?php
+                                    $query = mysqli_query($conn, $sql);
+                                    while($data1 = mysqli_fetch_array($query)){
+                                ?>
+                                        <option value="<?php echo $data1['lebar_dada']; ?>"><?php echo $data1['lebar_dada']; ?></option>
+                                <?php
+                                    }
+                                ?>
+                            </select>
                         </div>
                         <br>
                         <div class="row">
@@ -128,77 +149,55 @@
                     </div>
                 </div>
             </div>
+            
 
             <!-- Hasil Pencarian -->
             <div class="col-sm-9">
-                <p>Menampilkan hasil pencarian untuk "Yumna Dress"</p>
+                <?php 
+                    $kategori = $_GET["kategori"];
+                    $nama_kategori = "";
+                    if($kategori == "best-seller"){
+                        $nama_kategori = "Best Seller";
+                    }else{
+                        $sql = "select nama_kategori from kategori where id_kategori='$kategori'";
+                        $query = mysqli_query($conn, $sql);
+                        $data = mysqli_fetch_array($query);
+                        $nama_kategori = $data["nama_kategori"];
+                    }
+                    
+                    
+                ?>
+                <p>Menampilkan hasil pencarian untuk "<?php echo $nama_kategori ?>"</p>
                 <br>
                 <div class="row">
-                    <div class="col-sm-4">
-                        <div class="result">
-                            <div class="result-img">Gambar</div>
-                            <p>Yumna Dress</p>
-                            <p>Wolfpeach Exclusive - Milo</p>
-                            <div class="result-cost">
-                                Rp 177.000
+                    <?php
+                        if($kategori == "best-seller"){
+                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where best_seller='1'";
+                        }else{
+                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where produk.id_kategori='$kategori'";
+                        }
+                        $query = mysqli_query($conn, $sql);
+                        while($data = mysqli_fetch_array($query)){
+                    ?>
+                            <div class="col-sm-4 col-xs-6">
+                                <div class="result">
+                                    <a href="detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
+                                            <?php 
+                                            $pic = "../".$data["lokasi_gambar"];
+                                            echo "<img src='$pic' alt='' class='result-img'> "; 
+                                            echo $data["nama_barang"]."<br>"; 
+                                            echo $data["bahan"]." - ".$data["warna"]."<br>"; 
+                                            echo "<div class='result-cost'>Rp ".$data["harga"]."</div>";
+                                        ?>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="result">
-                            <div class="result-img">Gambar</div>
-                            <p>Yumna Dress</p>
-                            <p>Wolfpeach Exclusive - Milo</p>
-                            <div class="result-cost">
-                                Rp 177.000
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="result">
-                            <div class="result-img">Gambar</div>
-                            <p>Yumna Dress</p>
-                            <p>Wolfpeach Exclusive - Milo</p>
-                            <div class="result-cost">
-                                Rp 177.000
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="result">
-                            <div class="result-img">Gambar</div>
-                            <p>Yumna Dress</p>
-                            <p>Wolfpeach Exclusive - Milo</p>
-                            <div class="result-cost">
-                                Rp 177.000
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="result">
-                            <div class="result-img">Gambar</div>
-                            <p>Yumna Dress</p>
-                            <p>Wolfpeach Exclusive - Milo</p>
-                            <div class="result-cost">
-                                Rp 177.000
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="result">
-                            <div class="result-img">Gambar</div>
-                            <p>Yumna Dress</p>
-                            <p>Wolfpeach Exclusive - Milo</p>
-                            <div class="result-cost">
-                                Rp 177.000
-                            </div>
-                        </div>
-                    </div>
+                    <?php   
+                        }
+                    ?>
+                    
                 </div>
-                
             </div>
-
             <!-- Hasil Pencarian -->
         </div>
     </div>
