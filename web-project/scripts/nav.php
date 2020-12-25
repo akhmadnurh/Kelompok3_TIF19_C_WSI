@@ -8,6 +8,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
+        .ml-5 {
+            margin-left: 8rem !important;
+        }
+        .mr-5 {
+            margin-right: 13rem !important;
+        }
+        .navbar-brand {
+            font-size: 30px !important;
+        }
         .nav-item {
             margin-left: 10px;
         }
@@ -16,33 +25,25 @@
             float:left;
             margin-right:10px;
         }
-        .bg-navbar{
+        .bg-navbar {
             background: #FBF1F0;
         }
-        .navbar-2{
+        .navbar-2 {
             background: #FBF1F0;
         }
-        .a{
-            margin-top: 72px;
+        .a {
+            margin-top: 71px;
         }
-        nav form button.btn{
-            background: #FBF1F0;
-            border: 2px #fbf1f0 solid;
-            margin-bottom: 5px;
-            margin-left: 3px;
-            height: 40px;
-            width: 50px;
-            padding: 2px;
+        .btn-outline-success {
+            background: #fbf1f0 !important;
+            border-color: #fbf1f0 !important;
         }
-        nav form button.btn:hover {
-            background: #ffffff;
-            border: #fbf1f0 solid 2px;
+        .btn-outline-success:hover {
+            background: #ffffff !important;
+            border-color: #fbf1f0 !important;
         }
-        nav form input.form-control-inline{
-            width: 30em;
-            padding: 5px;
-            border: 2px solid #fbf1f0;
-            margin-bottom: 4px;
+        .form-control {
+            border-color: #fbf1f0 !important;
         }
         .navbar + .navbar {
             z-index: 1029;
@@ -50,13 +51,11 @@
         .search-icon {
             height: 14px;
             width: auto;
+            margin-bottom: 3px;
         }
         .menu-icon {
-            height: 30px;
+            height: 24px;
             width: auto;
-        }
-        .dropdown {
-            margin-right: 0px;
         }
         .contain {
             width:100%;
@@ -87,32 +86,36 @@
             justify-content:space-between
         }
     </style>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: white">
-            <div class="contain">
-                <a href="#" class="navbar-brand">
-                    <div class="brand">
-                        <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" alt="Brand Icon" class="brand-icon">
-                        <h2>Hi Valeeqa</h2>
-                    </div>
-                </a>
-                <form action="" class="form-inline my-2 my-lg-0" >
-                    <input type="search" class="form-control-inline" name="search">
-                    <button class="btn" type="submit"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_search.png" alt="search" class="search-icon"></button>
-                </form>
-                <div class="dropdown">
-                    <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_person.png" alt="Account" class="menu-icon" >
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light py-2 fixed-top" style="background: white !important">
+        <div class="contain">
+            <a class="navbar-brand h2 mb-0" href="#"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" width="auto" height="30" class="d-inline-block align-top mt-2" alt="Logo Hi Valeeqa"> Hi Valeeqa</a>
+            <div class="collapse navbar-collapse"><ul class="mr-auto"></ul></div>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_search.png" alt="search" class="search-icon"></button>
+            </form>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_bagshop.png" alt="Cart" class="menu-icon"></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_person.png" alt="Account" class="menu-icon" >
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Registrasi</a>
                         <a class="dropdown-item" href="#">Login</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Tabungan</a>
                         <a class="dropdown-item" href="#">Akun Saya</a>
+                        <a class="dropdown-item" href="#">Tabungan</a>
                     </div>
-                </div>
-                <a href="#"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_bagshop.png" alt="Cart" class="menu-icon"></a>
+                    </li>
+                </ul>
             </div>
+        </div>
         </nav>
         <nav class="navbar navbar-expand-lg navbar-light bg-navbar fixed-top a">
             <div class="container-fluid">
