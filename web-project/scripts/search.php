@@ -13,14 +13,16 @@
 
         .filter-title{
             background: #FBF1F0;
-            border:3px solid #fbf1f0;
-            font-weight:bold;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
         }
         .filter-position{
             margin-left: 100%:
         }
         .filter-content{
-            border: 3px solid #dcdcdc;
+            border: 1px solid grey;
+            padding: 5%;
         }
         .size-box {
             border: 0.5px solid black;
@@ -64,98 +66,99 @@
         <div class="row" style="margin-top: 150px;">
             <!-- Filter -->
             <div class="col-sm-3">
-                <div class="text-left filter-title py-2 px-3 mb-2">
+                <div class="text-center filter-title">
                     Filter
                 </div>
-                <div class="filter-content py-3 px-3">
-                    <div class="category">
-                        <label for="">Kategori</label><br>
-                        <div class="filter-position">
-                            <?php
-                                $sql = "select distinct id_kategori, nama_kategori from kategori order by id_kategori";
+                <form action="filter-process.php" method="GET">
+                    <div class="filter-content">
+                        <div class="category">
+                            <label for="">Kategori</label><br>
+                            <div class="filter-position">
+                                <?php
+                                    $sql = "select distinct id_kategori, nama_kategori from kategori order by id_kategori";
+                                    $query = mysqli_query($conn, $sql);
+                                    while($data = mysqli_fetch_array($query)){
+                                ?>
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" name="kategori" value="<?php echo $data['id_kategori'] ?>" id="kategori1">
+                                            <label for="kategori" class="form-check-label"><?php echo $data["nama_kategori"]; ?></label>
+                                        </div>
+                                <?php
+                                    }
+                                ?>
+                            </div>
+                            <hr>
+                            <label for="">Warna</label>
+                            <?php 
+                                $sql = "select distinct warna from produk";
                                 $query = mysqli_query($conn, $sql);
                                 while($data = mysqli_fetch_array($query)){
                             ?>
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" name="kategori" value="<?php echo $data['id_kategori'] ?>" id="kategori1">
-                                        <label for="kategori" class="form-check-label"><?php echo $data["nama_kategori"]; ?></label>
+                                    <div class="filter-position">
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" name="warna" value="<?php echo $data['warna'] ?>">
+                                            <label for="kategori" class="form-check-label"><?php echo $data['warna'] ?></label>
+                                        </div>
                                     </div>
                             <?php
                                 }
                             ?>
-                        </div>
-                        <hr>
-                        <label for="">Warna</label>
-                        <?php 
-                            $sql = "select distinct warna from produk";
-                            $query = mysqli_query($conn, $sql);
-                            while($data = mysqli_fetch_array($query)){
-                        ?>
-                                <div class="filter-position">
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" name="warna" value="<?php echo $data['warna'] ?>">
-                                        <label for="kategori" class="form-check-label"><?php echo $data['warna'] ?></label>
-                                    </div>
-                                </div>
-                        <?php
-                            }
-                        ?>
-                        
-                        <hr>
-                        <label for="">Harga</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Harga minimum">
-                            <input type="text" class="form-control" placeholder="Harga maximum" style="margin-top: 2%">
-                        </div>
-                        <hr>
-                        <label for="">Ukuran</label>
-                        <div class="row">
-                            <?php
-                                $sql = "select distinct lebar_dada, panjang from ukuran";
-                                $query = mysqli_query($conn, $sql);
-                            ?>
-                            <select class="custom-select" name="panjang">
-                                <option value="" selected>-- Panjang --</option>
-                                <?php
-                                    while($data = mysqli_fetch_array($query)){
-                                ?>
-                                        <option value="<?php echo $data['panjang']; ?>"><?php echo $data['panjang']; ?></option>
-                                <?php
-                                    }
-                                ?>
-                            </select>
+                            
+                            <hr>
+                            <label for="">Harga</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Harga minimum" name="harga_min">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Harga maximum" name="harga_max">
+                            </div>
                             <br>
-                            <select class="custom-select" name="lebar_dada">
-                                <option value="" selected>-- Lebar --</option>
-                                <?php
-                                    $query = mysqli_query($conn, $sql);
-                                    while($data1 = mysqli_fetch_array($query)){
-                                ?>
-                                        <option value="<?php echo $data1['lebar_dada']; ?>"><?php echo $data1['lebar_dada']; ?></option>
-                                <?php
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary" style="width:100%; background: #C3A892; border: #C3A892;  ">Terapkan</button>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary" style="width:100%; background: #C3A892; border: #C3A892;  ">Terapkan</button>
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
             
 
             <!-- Hasil Pencarian -->
             <div class="col-sm-9">
-                <?php 
-                    $kategori = $_GET["kategori"];
+                <?php
+                    $filter = ["kategori", "warna", "harga_min", "harga_max"];
+                    $condition = [];
+                    $filter_count = count($filter);
+
+                    for($i=0;$i<$filter_count; $i++){
+                        if($filter[$i] == "kategori"){
+                            if(isset($_GET["kategori"])){
+                                $kategori = $_GET["kategori"];
+                                array_push($condition, " produk.id_kategori='$kategori'");
+                            }else{
+                                $kategori = "";
+                            }
+                        }else{
+                            if(isset($_GET[$filter[$i]])){
+                                $filter_temp = $_GET[$filter[$i]];
+                                if($filter[$i] == "harga_min"){
+                                    array_push($condition, " harga>=$filter_temp");
+                                }elseif($filter[$i] == "harga_max"){
+                                    array_push($condition, " harga<=$filter_temp");
+                                }else{
+                                    $temp = $filter[$i];    
+                                    array_push($condition, " $temp='$filter_temp'");
+                                }
+                            }
+                        }
+                    }
                     $nama_kategori = "";
                     if($kategori == "best-seller"){
                         $nama_kategori = "Best Seller";
+                    }elseif($kategori == ""){
+                        $nama_kategori = "Semua Produk";
                     }else{
                         $sql = "select nama_kategori from kategori where id_kategori='$kategori'";
                         $query = mysqli_query($conn, $sql);
@@ -165,31 +168,47 @@
                     
                     
                 ?>
-                <p class="mt-3 mb-4">Menampilkan hasil pencarian untuk "<?php echo $nama_kategori ?>"</p>
+                <p>Menampilkan hasil pencarian untuk "<?php echo $nama_kategori ?>"</p>
+                <br>
                 <div class="row">
                     <?php
                         if($kategori == "best-seller"){
-                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where best_seller='1'";
+                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk order by best_seller desc";
+                        }elseif($kategori == "" and $condition == []){
+                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk";
                         }else{
-                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where produk.id_kategori='$kategori'";
+                            $condition_count = count($condition);
+                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where";
+                            for($i=0; $i<$condition_count; $i++){
+                                if($i == 0){
+                                    $sql = $sql.$condition[$i];
+                                }else{
+                                    $sql = $sql." and".$condition[$i];
+                                }
+                            }
                         }
                         $query = mysqli_query($conn, $sql);
-                        while($data = mysqli_fetch_array($query)){
+                        $total_result = mysqli_num_rows($query);
+                        if($total_result == 0){
+                            echo "<h1>Data Tidak Ditemukan</h1>";
+                        }else{   
+                            while($data = mysqli_fetch_array($query)){
                     ?>
-                            <div class="col-sm-4 col-xs-6">
-                                <div class="result">
-                                    <a href="detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
-                                            <?php 
-                                            $pic = "../".$data["lokasi_gambar"];
-                                            echo "<img src='$pic' alt='' class='result-img'> "; 
-                                            echo $data["nama_barang"]."<br>"; 
-                                            echo $data["bahan"]." - ".$data["warna"]."<br>"; 
-                                            echo "<div class='result-cost'>Rp ".$data["harga"]."</div>";
-                                        ?>
-                                    </a>
+                                <div class="col-sm-4 col-xs-6">
+                                    <div class="result">
+                                        <a href="detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
+                                                <?php 
+                                                $pic = "../".$data["lokasi_gambar"];
+                                                echo "<img src='$pic' alt='' class='result-img'> "; 
+                                                echo $data["nama_barang"]."<br>"; 
+                                                echo $data["bahan"]." - ".$data["warna"]."<br>"; 
+                                                echo "<div class='result-cost'>Rp ".$data["harga"]."</div>";
+                                            ?>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
                     <?php   
+                            }
                         }
                     ?>
                     
