@@ -38,7 +38,7 @@
                 <table>
                     <tr>
                         <td rowspan="4"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" alt="Logo Hi Valeeqa" style="width: 100px;height: auto;float: left;margin-right: 15px;"></td>
-                        <td><a href="/"><div style="font-size: 30px;"><b>Hi Valeeqa</b></div></a></td>
+                        <td><a href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/index.php"><div style="font-size: 30px;"><b>Hi Valeeqa</b></div></a></td>
                     </tr>
                     <tr>
                         <td><b>Faith • Elegance • Syar’i</b></td>

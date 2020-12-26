@@ -88,7 +88,7 @@
     </style>
         <nav class="navbar navbar-expand-xl navbar-light bg-light py-2 fixed-top" style="background: white !important">
         <div class="contain">
-            <a class="navbar-brand h2 mb-0" href="#"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" width="auto" height="30" class="d-inline-block align-top mt-2" alt="Logo Hi Valeeqa"> Hi Valeeqa</a>
+            <a class="navbar-brand h2 mb-0" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/index.php"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" width="auto" height="30" class="d-inline-block align-top mt-2" alt="Logo Hi Valeeqa"> Hi Valeeqa</a>
             <div class="collapse navbar-collapse"><ul class="mr-auto"></ul></div>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search">
@@ -107,8 +107,8 @@
                             <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_person.png" alt="Account" class="menu-icon" >
                         </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Registrasi</a>
-                        <a class="dropdown-item" href="#">Login</a>
+                        <a class="dropdown-item" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/register.php">Registrasi</a>
+                        <a class="dropdown-item" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/login.php">Login</a>
                         <a class="dropdown-item" href="#">Akun Saya</a>
                         <a class="dropdown-item" href="#">Tabungan</a>
                     </div>
@@ -121,14 +121,21 @@
             <div class="container-fluid">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Terbaru</a>
+                        <a href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/search.php?kategori=best-seller" class="nav-link">Best Seller</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Yumna Dress</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Chayra Abaya</a>
-                    </li>
+                    <?php
+                        require "connection.php";
+                        $sql = "select id_kategori, nama_kategori from kategori";
+                        $query = mysqli_query($conn, $sql);
+                        while($data = mysqli_fetch_array($query)){
+                    ?>
+                            <li class="nav-item">
+                                <a href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/search.php?kategori=<?php echo $data['id_kategori']; ?>" class="nav-link"><?php echo $data["nama_kategori"]; ?></a>
+                            </li>
+                    <?php
+                        }
+                    ?>
+
                 </ul>
             </div>
         </nav>
