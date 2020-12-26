@@ -13,16 +13,14 @@
 
         .filter-title{
             background: #FBF1F0;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
+            border:3px solid #fbf1f0;
+            font-weight:bold;
         }
         .filter-position{
             margin-left: 100%:
         }
         .filter-content{
-            border: 1px solid grey;
-            padding: 5%;
+            border: 3px solid #dcdcdc;
         }
         .size-box {
             border: 0.5px solid black;
@@ -66,11 +64,11 @@
         <div class="row" style="margin-top: 150px;">
             <!-- Filter -->
             <div class="col-sm-3">
-                <div class="text-center filter-title">
+                <div class="text-left filter-title py-2 px-3 mb-2">
                     Filter
                 </div>
                 <form action="filter-process.php" method="GET">
-                    <div class="filter-content">
+                    <div class="filter-content py-3 px-3">
                         <div class="category">
                             <label for="">Kategori</label><br>
                             <div class="filter-position">
@@ -168,7 +166,7 @@
                     
                     
                 ?>
-                <p>Menampilkan hasil pencarian untuk "<?php echo $nama_kategori ?>"</p>
+                <p class="mt-3 mb-4">Menampilkan hasil pencarian untuk "<?php echo $nama_kategori ?>"</p>
                 <br>
                 <div class="row">
                     <?php
