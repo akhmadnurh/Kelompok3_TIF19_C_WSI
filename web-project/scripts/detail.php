@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Hi Valeeqa</title>
 
     <style>
         .container {
@@ -45,6 +45,11 @@
         .warna {
             font-size: 18px;
             line-height: 0px;
+        }
+        .stok {
+            font-size: 15px;
+            line-height: 0px;
+            padding-top: 10px;
         }
         .harga {
             font-size: 30px;
@@ -164,27 +169,36 @@
   </head>
   <body>
   <?php include "nav.php"; ?>
+  <?php require "connection.php"; ?>
     <div class="container">
+        <?php 
+            $id_produk = $_GET["id-produk"];
+            $sql = "select produk.id_produk, nama_barang, warna, bahan, harga, stok, lokasi_gambar, panjang, lebar_dada, keterangan from produk inner join gambar on produk.id_produk = gambar.id_produk inner join ukuran on produk.id_produk = ukuran.id_produk where produk.id_produk='$id_produk'";
+            $query = mysqli_query($conn, $sql);
+            $data = mysqli_fetch_array($query);
+        ?>
         <div class="separator"></div>
         <div class="row">
             <div class="col-sm-1">
                 <div class="tabImg">
-                    <button onclick="viewPanel(0)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img1.png" class="img-pilih"></button>
+                    <?php $pic =  $data["lokasi_gambar"] ?>
+                    <button onclick="viewPanel(0)"><img src="<?php echo "../".$pic; ?>" class="img-pilih"></button>
                     <button onclick="viewPanel(1)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" class="img-pilih"></button>
                     <button onclick="viewPanel(2)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img3.png" class="img-pilih"></button>
                     <button onclick="viewPanel(3)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" class="img-pilih"></button>
                 </div>
             </div>
             <div class="col-sm">
-                <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img1.png" class="img-detail"></center></div>
+                <div class="panelImg"><center><img src="<?php echo "../".$pic; ?>" class="img-detail"></center></div>
                 <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" class="img-detail"></center></div>
                 <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img3.png" class="img-detail"></center></div>
                 <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" class="img-detail"></center></div>
             </div>
             <div class="col-sm">
-                <p class="judul">Chayra Abaya</p>
-                <p class="warna">Black</p>
-                <p class="harga">Rp. 177.000</p>
+                <p class="judul"><?php echo $data["nama_barang"]; ?></p>
+                <p class="warna"><?php echo $data["warna"]  ?></p>
+                <p class="stok"><?php echo "Stok tersisa: ".$data["stok"];  ?></p>
+                <p class="harga"><?php echo "Rp ".number_format($data["harga"], 0, "", "."); ?></p>
                 <a href=""><div class="btn-detail">PESAN</div></a>
                 <a href=""><div class="btn-detail">NABUNG</div></a>
             </div>
@@ -192,7 +206,7 @@
                 <div class="detail-kanan">
                     <div class="judul-info"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/info.png" alt="Info" style="height: 20px;width: auto;margin-right: 5px;"> Tentang Produk Ini</div>
                     <!-- Isi Info Maksimal 380 Karakter -->
-                    <div class="isi-info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur, fugit neque quos quas voluptas quisquam! Reiciendis laudantium consequuntur dicta quos dolor, cum, sunt quisquam magnam eius voluptates voluptatum adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui dolores consectetur impedit praesentium cum amet quia quam facere, saepe veleed</div>
+                    <div class="isi-info"><?php echo $data["keterangan"]; ?></div>
                     
                 </div>
             </div>
@@ -208,16 +222,26 @@
         <div class="tabPanel">
             <table class="tb-rincian">
                 <tr>
-                    <td>SKU</td>
-                    <td>0DD15AA8BC1BBEGS</td>
+                    <td>Bahan</td>
+                    <td><?php echo $data["bahan"]; ?></td>
                 </tr>
                 <tr>
                     <td>Warna</td>
-                    <td>Black</td>
+                    <td><?php echo $data["warna"]; ?></td>
                 </tr>
             </table>
         </div>
         <div class="tabPanel">
+            <table class="tb-rincian">
+                <tr>
+                    <td>Panjang</td>
+                    <td><?php echo $data["panjang"]." cm"; ?></td>
+                </tr>
+                <tr>
+                    <td>Lebar Dada</td>
+                    <td><?php echo $data["lebar_dada"]." cm"; ?></td>
+                </tr>
+            </table>
             <table class="tb-ukuran">
                 <tr>
                     <td>SIZE</td>
