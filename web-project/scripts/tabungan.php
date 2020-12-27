@@ -34,6 +34,36 @@
             text-align: left;
             margin: 0px;
         }
+        .item-tabung {
+            width: 100%;
+            background: #f6f6f6;
+            padding: 15px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .img-item {
+            width: 80px;
+            height: 120px;
+            border: 1px solid #dfdfdf;
+            padding: 2px;
+            margin: 0px;
+        }
+        .jumlah-tabung {
+            width: 90px;
+            height: 20px;
+            display: inline;
+        }
+        .tb-item {
+            width: 100%;
+        }
+        .tb-item td {
+            width: 15%;
+            vertical-align: top;
+            text-align: right;
+        }
+        .tb-item td + td {
+            width: 85%;
+        }
         .tab-detail {
             color: #ffffff;
             width: 100%;
@@ -109,7 +139,22 @@
         <div class="row">
             <div class="col-7">
                 <div class="tab-tabung">Tabungan</div>
-                <div class="panel-tabung"></div>
+                <div class="item-tabung">
+                    <table class="tb-item">
+                        <tr>
+                            <td><div style="text-align: left;"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" alt="" class="img-item"></div></td>
+                            <td style="text-align: left;">
+                                <span style="font-size: 18px;font-weight: bold;">Chayra Abaya</span><br>
+                                Grey<br><br>
+                                <span style="font-size: 14px;font-weight: bold;">Rp. 150.000</span><br>
+                                Jumlah <input type="number" name="jumlah" id="" class="form-control jumlah-tabung">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><span style="font-size: 20px;font-weight: bold;text-align: right;">Rp. 150.000</span></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <div class="col-4">
                 <div class="tab-detail">Detail</div>
