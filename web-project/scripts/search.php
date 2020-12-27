@@ -10,7 +10,7 @@
 
     <title>Hi Valeeqa</title>
     <style>
-
+        
         .filter-title{
             background: #FBF1F0;
             border:3px solid #fbf1f0;
@@ -32,19 +32,41 @@
         }
         .result{
             width: 100%;
-            border: 2px solid #fbf1f0;
             margin-bottom: 20px;
             padding-top: 8px;
+            border: 3px solid #ffffff;
+        }
+        .result:hover {
+            border: 3px solid #fbf1f0;
         }
         .result-img{
             width: 230px;
-            height: 350px;
+            height: 345px;
             margin-right: auto;
             margin-left: auto;
 
         }
+        .judul {
+            margin-top: 8px;
+            margin-left: 8px;
+            margin-right: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .garis {
+            height: 1px;
+            background: #dcdcdc;
+            border: none;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
         .result-cost{
-            background: pink;
+            background: #fbf1f0;
+            padding: 15px;
+            margin: 0px;
+            text-align: right;
+            border: 1px solid #fbf1f0;
+            font-weight: bold;
         }
         body .container{
             margin-bottom: 70px;
@@ -200,9 +222,9 @@
                                                 <?php 
                                                 $pic = "../".$data["lokasi_gambar"];
                                                 echo "<center><img src='$pic' alt='' class='result-img'></center>"; 
-                                                echo $data["nama_barang"]."<br>"; 
-                                                echo $data["bahan"]." - ".$data["warna"]."<br>"; 
-                                                echo "<div class='result-cost'>Rp ".$data["harga"]."</div>";
+                                                echo "<div class='judul'><b>".$data["nama_barang"]."</b><div class='garis'></div>"; 
+                                                echo $data["bahan"]." - ".$data["warna"]."</div><br>"; 
+                                                echo "<div class='result-cost'>Rp. ".$data["harga"]."</div>";
                                             ?>
                                         </a>
                                     </div>
