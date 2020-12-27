@@ -31,14 +31,16 @@
             width: 30px;
         }
         .result{
-            width: 200px;
-            border: 1px solid black;
-            padding: 5px; 
+            width: 100%;
+            border: 2px solid #fbf1f0;
             margin-bottom: 20px;
+            padding-top: 8px;
         }
         .result-img{
-            width: 100%;
-            height: 240px;
+            width: 230px;
+            height: 350px;
+            margin-right: auto;
+            margin-left: auto;
 
         }
         .result-cost{
@@ -166,7 +168,7 @@
                     
                     
                 ?>
-                <p class="mt-3 mb-4">Menampilkan hasil pencarian untuk "<?php echo $nama_kategori ?>"</p>
+                <p class="mt-3 mb-sm-1">Menampilkan hasil pencarian untuk "<?php echo $nama_kategori ?>"</p>
                 <br>
                 <div class="row">
                     <?php
@@ -197,7 +199,7 @@
                                         <a href="detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
                                                 <?php 
                                                 $pic = "../".$data["lokasi_gambar"];
-                                                echo "<img src='$pic' alt='' class='result-img'> "; 
+                                                echo "<center><img src='$pic' alt='' class='result-img'></center>"; 
                                                 echo $data["nama_barang"]."<br>"; 
                                                 echo $data["bahan"]." - ".$data["warna"]."<br>"; 
                                                 echo "<div class='result-cost'>Rp ".$data["harga"]."</div>";
