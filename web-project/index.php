@@ -19,33 +19,50 @@
             padding: 5px; 
             text-align: center; 
         }
-        .item{
-            width: 240px;
-            height: 360px;
-            border: 1px solid black;
-            margin-bottom: 10px;
-            margin-top: 5px;
-            
-        }
-        .item img{
-            width: 240px;
-            height: 360px;
-            
-        }
         .item-panel{
             margin-top:5em;
+        }
+        .result{
+            width: 100%;
+            margin-bottom: 20px;
+            padding-top: 8px;
+            border: 3px solid #ffffff;
+        }
+        .result:hover{
+            border: 3px solid #fbf1f0;
+        }
+        .result-img{
+            width: 230px;
+            height: 345px;
+            margin-right: auto;
+            margin-left: auto;
+
+        }
+        .result-cost{
+            background: #fbf1f0;
+            padding: 15px;
+            margin: 0px;
+            text-align: right;
+            border: 1px solid #fbf1f0;
+            font-weight: bold;
         }
         .btn.more{
             padding: 8px;
             width: 120px;
             height: 50px;
-            margin-top: 50px;
             margin-bottom: 20px;
             line-height: 30px;
             border-radius: 0px;
             border: 1px solid black;
             background: black;
             color: white;
+        }
+        .garis {
+            height: 1px;
+            background: #dcdcdc;
+            border: none;
+            margin-top: 8px;
+            margin-bottom: 8px;
         }
         .btn.more:hover{
             background: white;
@@ -55,6 +72,14 @@
         .anchor-black, .anchor-black:hover{
             color: black;
             text-decoration: none;
+            text-align: left;
+        }
+        .judul {
+            margin-top: 8px;
+            margin-left: 8px;
+            margin-right: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
         }
     </style>
   </head>
@@ -62,7 +87,7 @@
     <?php include "scripts/nav.php"; ?>
     <?php include "scripts/connection.php"; ?>
     <?php
-        $query = ["SELECT id_kategori, nama_kategori from kategori", "SELECT produk.id_produk, produk.id_kategori, nama_barang, harga, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk"];
+        $query = ["SELECT id_kategori, nama_kategori from kategori", "SELECT produk.id_produk, produk.id_kategori, nama_barang, bahan, harga, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk"];
     ?>
     <center>
         <div class="container">
@@ -79,21 +104,21 @@
                     <div class="row item-list">
                     <!-- Cetak data berulang 4 -->
                         <?php 
-                            $best_seller = mysqli_query($conn,"SELECT produk.id_produk, nama_barang, harga, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk order by best_seller desc");
+                            $best_seller = mysqli_query($conn,"SELECT produk.id_produk, nama_barang, harga, bahan, warna, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk order by best_seller desc");
                             $i = 1;
                             while($data = mysqli_fetch_array($best_seller)){
                         ?>
                                 <div class="col-sm-3">
-                                    <div class="item">
+                                    <div class="result">
                                         <a href="scripts/detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
                                             <?php 
-                                                $pic = $data["lokasi_gambar"];
-                                                echo "<img src='$pic' alt=''>"; 
-                                                echo $data["nama_barang"]."<br>"; 
-                                                echo "Rp ".$data["harga"];
+                                               $pic = $data["lokasi_gambar"];
+                                               echo "<center><img src='$pic' alt='' class='result-img'></center>"; 
+                                               echo "<div class='judul'><b>".$data["nama_barang"]."</b><div class='garis'></div>"; 
+                                               echo $data["bahan"]." - ".$data["warna"]."</div><br>"; 
+                                               echo "<div class='result-cost'>Rp ".number_format($data["harga"], 0, "", ".")."</div>";
                                             ?>
                                         </a>
-                                        <br>
                                     </div>
                                 </div>
                         <?php
@@ -128,21 +153,21 @@
                                     <?php
                                         // Filter data sesuai kategori
                                         $id_kategori = $id_kategori_arr[$i];
-                                        $filter_data = mysqli_query($conn, "SELECT produk.id_produk, produk.id_kategori, nama_barang, harga, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where produk.id_kategori='$id_kategori'");
+                                        $filter_data = mysqli_query($conn, "SELECT produk.id_produk, produk.id_kategori, nama_barang, harga, bahan, warna,  best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where produk.id_kategori='$id_kategori'");
                                         $k = 0;
                                         while($data = mysqli_fetch_array($filter_data)){
                                     ?>
                                             <div class="col-sm-3 col-md-3">
-                                                <div class="item">
+                                                <div class="result">
                                                     <a href="scripts/detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
                                                         <?php 
                                                             $pic = $data["lokasi_gambar"];
-                                                            echo "<img src='$pic' alt=''>"; 
-                                                            echo $data["nama_barang"]."<br>"; 
-                                                            echo "Rp ".$data["harga"];
+                                                            echo "<center><img src='$pic' alt='' class='result-img'></center>"; 
+                                                            echo "<div class='judul'><b>".$data["nama_barang"]."</b><div class='garis'></div>"; 
+                                                            echo $data["bahan"]." - ".$data["warna"]."</div><br>"; 
+                                                            echo "<div class='result-cost'>Rp ".number_format($data["harga"], 0, "", ".")."</div>";
                                                         ?>
                                                     </a>
-                                                    <br>
                                                 </div>
                                             </div>
                                     <?php
