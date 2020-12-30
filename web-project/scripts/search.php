@@ -194,21 +194,27 @@
                 <br>
                 <div class="row">
                     <?php
-                        if($kategori == "best-seller"){
-                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk order by best_seller desc";
-                        }elseif($kategori == "" and $condition == []){
-                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk";
+                        if(isset($_GET["s"])){
+                            $search = $_GET["s"];
+                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where nama_barang like '%$search%'";
                         }else{
-                            $condition_count = count($condition);
-                            $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where";
-                            for($i=0; $i<$condition_count; $i++){
-                                if($i == 0){
-                                    $sql = $sql.$condition[$i];
-                                }else{
-                                    $sql = $sql." and".$condition[$i];
+                            if($kategori == "best-seller"){
+                                $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk order by best_seller desc";
+                            }elseif($kategori == "" and $condition == []){
+                                $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk";
+                            }else{
+                                $condition_count = count($condition);
+                                $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where";
+                                for($i=0; $i<$condition_count; $i++){
+                                    if($i == 0){
+                                        $sql = $sql.$condition[$i];
+                                    }else{
+                                        $sql = $sql." and".$condition[$i];
+                                    }
                                 }
                             }
                         }
+                        
                         $query = mysqli_query($conn, $sql);
                         $total_result = mysqli_num_rows($query);
                         if($total_result == 0){

@@ -90,8 +90,8 @@
         <div class="contain">
             <a class="navbar-brand h2 mb-0" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/index.php"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" width="auto" height="30" class="d-inline-block align-top mt-2" alt="Logo Hi Valeeqa"> Hi Valeeqa</a>
             <div class="collapse navbar-collapse"><ul class="mr-auto"></ul></div>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" method="GET" action="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/search-process.php">
+                <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" name="search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_search.png" alt="search" class="search-icon"></button>
             </form>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
