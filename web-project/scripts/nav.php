@@ -88,7 +88,7 @@
     </style>
         <nav class="navbar navbar-expand-xl navbar-light bg-light py-2 fixed-top" style="background: white !important">
         <div class="contain">
-            <a class="navbar-brand h2 mb-0" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/index.php"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" width="auto" height="30" class="d-inline-block align-top mt-2" alt="Logo Hi Valeeqa"> Hi Valeeqa</a>
+            <a class="navbar-brand h2 mb-0" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/index.php"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" width="auto" height="30" class="d-inline-block align-top mt-2" alt="Logo Hi Valeeqa">Hi Valeeqa</a>
             <div class="collapse navbar-collapse"><ul class="mr-auto"></ul></div>
             <form class="form-inline my-2 my-lg-0" method="GET" action="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/search-process.php">
                 <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" name="search">
