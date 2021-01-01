@@ -7,9 +7,23 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="cart.js" async></script>
     <style>
         .marg {
             margin-top: 10rem !important;
+        }
+        .item-produk {
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eeeeee;
+        }
+        .item-harga {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .item-judul {
+            font-size: 25px;
+            font-weight: bold;
         }
     </style>
   </head>
@@ -23,38 +37,37 @@
                 
                 <div class="card">
                     <div class="card-header"><h3>Keranjang</h3></div>
-                    <div class="card-body">
-                        <div class="row">
+                    <div class="card-body px-4 item-body">
+                        <div class="row item-produk">
                             <div class="col-md-5 col-lg-3 col-xl-3">
                                 <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" alt="contoh" class="w-100">
                             </div>
                             <div class="col-md-5 col-lg-7 col-xl-7">
-                                <b>Chayra Abaya</b><br>
-                                Black <br><br>
-                                <input type="number" value="1" class="form-control w-50 mt-auto">
+                                <span class="item-judul">Chayra Abaya</span><br>
+                                <span class="item-warna">Black</span><br><br>
+                                <input type="number" value="1" class="form-control w-25 mt-auto text-center item-input">
                             </div>
                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                <a href="#" class="btn btn-danger">Hapus</a>
+                                <button class="btn btn-danger" type="button">Hapus</button>
                             </div>
                             <div class="ml-auto mr-4">
-                                <b>Rp.150.000</b>
+                                <span class="item-harga">Rp. 150000</span>
                             </div>
                         </div>
-                        <hr>
-                        <div class="row">
+                        <div class="row item-produk">
                             <div class="col-md-5 col-lg-3 col-xl-3">
-                                <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" alt="contoh" class="w-100">
+                                <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" alt="contoh" class="w-100">
                             </div>
                             <div class="col-md-5 col-lg-7 col-xl-7">
-                                <b>Chayra Abaya</b><br>
-                                Black <br><br>
-                                <input type="number" value="1" class="form-control w-50 mt-auto">
+                                <span class="item-judul">Chayra Abaya</span><br>
+                                <span class="item-warna">Black</span><br><br>
+                                <input type="number" value="1" class="form-control w-25 mt-auto text-center item-input">
                             </div>
                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                <a href="#" class="btn btn-danger">Hapus</a>
+                                <button class="btn btn-danger" type="button">Hapus</button>
                             </div>
                             <div class="ml-auto mr-4">
-                                <b>Rp.150.000</b>
+                                <span class="item-harga">Rp. 150000</span>
                             </div>
                         </div>
                     </div>
@@ -64,15 +77,15 @@
             <div class="col-lg-4">
                 
                 <div class="card">
-                    <div class="card-header"><h3>Total</h3></div>
+                    <div class="card-header text-center"><h3>Total</h3></div>
                     <div class="card-body">
                         <table class="table justify-content-between">
                             <tr>
                                 <td>Total</td>
-                                <td>Rp. 150.000</td>
+                                <td><span class="item-total">Rp. 300000</span></td>
                             </tr>
                         </table>
-                        <center><a href="#" class="btn btn-dark">Checkout</a></center>
+                        <center><a href="#" class="btn btn-dark btn-lg">Checkout</a></center>
                     </div>
                 </div>
             </div>
