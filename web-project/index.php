@@ -81,6 +81,13 @@
             margin-bottom: 10px;
             font-size: 14px;
         }
+        .carousel-item {
+            margin-top: 127px;
+            height: 560px;
+        }
+        .carousel-item img {
+            margin-top: -140px;
+        }
     </style>
   </head>
   <body>
@@ -89,10 +96,48 @@
     <?php
         $query = ["SELECT id_kategori, nama_kategori from kategori", "SELECT produk.id_produk, produk.id_kategori, nama_barang, bahan, harga, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk"];
     ?>
-    <center>
+        <!-- Slider -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Slide 1</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates enim deleniti tempora natus sequi ipsum autem sint alias nam facilis. Assumenda fugiat sunt facilis molestiae, unde ullam voluptatum commodi ea!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Slide 2</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates enim deleniti tempora natus sequi ipsum autem sint alias nam facilis. Assumenda fugiat sunt facilis molestiae, unde ullam voluptatum commodi ea!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Slide 3</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates enim deleniti tempora natus sequi ipsum autem sint alias nam facilis. Assumenda fugiat sunt facilis molestiae, unde ullam voluptatum commodi ea!</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <center>
         <div class="container">
-            <!-- Slider -->
-            <div class="slider">SLIDER</div>
+
             <?php         
                 // Loop sesuai kategori
                 // Pertama best seller, kemudian sesuai kategori 
