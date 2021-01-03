@@ -39,10 +39,10 @@
                     <div class="card-header"><h3>Keranjang</h3></div>
                     <div class="card-body px-4 item-body">
                         <div class="row item-produk">
-                            <div class="col-md-5 col-lg-3 col-xl-3">
+                            <div class="col-md-4 col-lg-2 col-xl-2">
                                 <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" alt="contoh" class="w-100">
                             </div>
-                            <div class="col-md-5 col-lg-7 col-xl-7">
+                            <div class="col-md-6 col-lg-8 col-xl-8">
                                 <span class="item-judul">Chayra Abaya</span><br>
                                 <span class="item-warna">Black</span><br><br>
                                 <input type="number" value="1" class="form-control w-25 mt-auto text-center item-input">
@@ -55,10 +55,10 @@
                             </div>
                         </div>
                         <div class="row item-produk">
-                            <div class="col-md-5 col-lg-3 col-xl-3">
+                            <div class="col-md-4 col-lg-2 col-xl-2">
                                 <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" alt="contoh" class="w-100">
                             </div>
-                            <div class="col-md-5 col-lg-7 col-xl-7">
+                            <div class="col-md-6 col-lg-8 col-xl-8">
                                 <span class="item-judul">Chayra Abaya</span><br>
                                 <span class="item-warna">Black</span><br><br>
                                 <input type="number" value="1" class="form-control w-25 mt-auto text-center item-input">
