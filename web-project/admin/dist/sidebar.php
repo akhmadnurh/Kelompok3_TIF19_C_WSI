@@ -29,7 +29,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -67,9 +67,9 @@
                             </a>
                             <div class="collapse" id="user-management" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">User</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Admin</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Tambah User</a>
+                                    <a class="nav-link" href="user.php">User</a>
+                                    <a class="nav-link" href="admin.php">Admin</a>
+                                    <a class="nav-link" href="edit-user.php?status=add">Tambah User</a>
                                 </nav>
                             </div>
                             <a class="nav-link" href="index.html">

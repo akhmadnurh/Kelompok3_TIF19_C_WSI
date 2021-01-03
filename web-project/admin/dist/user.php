@@ -23,20 +23,18 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>No</th>
-                        <th>Kategori</th>
-                        <th>Nama Barang</th>
-                        <th>Warna</th>
-                        <th>Bahan</th>
-                        <th>Harga</th>
-                        <th>Keterangan</th>
-                        <th>Stok</th>
-                        <th>Best Seller</th>
-                        <th>Action</th> 
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Alamat</th>
+                        <th>No. WA</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <?php
                     // Query
-                    $sql = "SELECT * FROM produk";
+                    $sql = "SELECT * FROM user where level='0'";
                     $query = mysqli_query($conn, $sql);
                     
                     
@@ -52,25 +50,23 @@
                     $total_halaman = ceil($total_data / $batas);
                     $nomor = $halaman_awal + 1;
                     // Query data sesuai halaman
-                    $sql = "SELECT * FROM produk LIMIT $halaman_awal, $batas";
+                    $sql = "SELECT * FROM user where level='0' LIMIT $halaman_awal, $batas";
                     $query = mysqli_query($conn, $sql);
                     while($data = mysqli_fetch_array($query)){
                 ?>      
                         <tr>
                             <td><?php echo $nomor; ?></td>
-                            <td><?php echo $data["id_kategori"]; ?></td>
-                            <td><?php echo $data["nama_barang"]; ?></td>
-                            <td><?php echo $data["warna"]; ?></td>
-                            <td><?php echo $data["bahan"]; ?></td>
-                            <td><?php echo $data["stok"]; ?></td>
-                            <td><?php echo $data["harga"]; ?></td>
-                            <td><?php echo $data["keterangan"]; ?></td>
-                            <td><?php echo $data["best_seller"]; ?></td>
+                            <td><?php echo $data["email"]; ?></td>
+                            <td><?php echo $data["pass"]; ?></td>
+                            <td><?php echo $data["nama"]; ?></td>
+                            <td><?php echo $data["jenis_kelamin"]; ?></td>
+                            <td><?php echo $data["alamat"]; ?></td>
+                            <td><?php echo $data["nomor_wa"]; ?></td>
                             <td>
-                                <a href="edit-produk.php?status=edit&id_user=<?php echo $data['id_user']; ?>" class="btn btn-link">
+                                <a href="edit-user.php?status=edit&id_user=<?php echo $data['id_user']; ?>" class="btn btn-link">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="delete-produk.phpid_user=<?php echo $data['id_user']; ?>" class="btn btn-link">
+                                <a href="delete-user.phpid_user=<?php echo $data['id_user']; ?>" class="btn btn-link">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>
@@ -87,7 +83,7 @@
                         if($halaman == 1){
                             echo "<li class='page-item disabled'><a class='page-link' href='#'>Previous</a></li>";
                         }else{
-                            echo "<li class='page-item'><a class='page-link' href='data-produk.php?halaman=$previous'>Previous</a></li>";
+                            echo "<li class='page-item'><a class='page-link' href='user.php?halaman=$previous'>Previous</a></li>";
                         }
                     ?>
                     <?php
@@ -96,7 +92,7 @@
                             if($halaman == $i){
                                 echo "<li class='page-item disabled'><a class='page-link' href='data-produk.php?halaman=$i'>$i</a></li>";
                             }else{
-                                echo "<li class='page-item'><a class='page-link' href='data-produk.php?halaman=$i'>$i</a></li>";
+                                echo "<li class='page-item'><a class='page-link' href='user.php?halaman=$i'>$i</a></li>";
                             }
                         }
                     ?>
@@ -104,7 +100,7 @@
                         if($halaman == $total_halaman){
                             echo "<li class='page-item disabled'><a class='page-link' href='#'>Next</a></li>";
                         }else{
-                            echo "<li class='page-item'><a class='page-link' href='data-produk.php?halaman=$next'>Next</a></li>";
+                            echo "<li class='page-item'><a class='page-link' href='user.php?halaman=$next'>Next</a></li>";
                         }
                     ?>
                 </ul>
