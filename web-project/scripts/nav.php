@@ -121,7 +121,7 @@
             <div class="container-fluid">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/search.php?kategori=best-seller" class="nav-link">Best Seller</a>
+                        <a href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/filter-process.php?kategori=best-seller" class="nav-link">Best Seller</a>
                     </li>
                     <?php
                         require "connection.php";
@@ -130,7 +130,7 @@
                         while($data = mysqli_fetch_array($query)){
                     ?>
                             <li class="nav-item">
-                                <a href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/search.php?kategori=<?php echo $data['id_kategori']; ?>" class="nav-link"><?php echo $data["nama_kategori"]; ?></a>
+                                <a href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/filter-process.php?kategori=<?php echo $data['id_kategori']; ?>" class="nav-link"><?php echo $data["nama_kategori"]; ?></a>
                             </li>
                     <?php
                         }
