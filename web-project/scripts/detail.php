@@ -1,3 +1,7 @@
+<?php 
+    session_start(); 
+    $_SESSION["header"] = "";
+?>
 <!doctype html>
 <html lang="en">
   <head>

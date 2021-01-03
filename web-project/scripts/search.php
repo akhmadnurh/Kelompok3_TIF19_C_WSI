@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -153,7 +154,6 @@
                     $filter = ["kategori", "warna", "harga_min", "harga_max"];
                     $condition = [];
                     $filter_count = count($filter);
-
                     for($i=0;$i<$filter_count; $i++){
                         if($filter[$i] == "kategori"){
                             if(isset($_GET["kategori"])){
@@ -187,13 +187,24 @@
                         $data = mysqli_fetch_array($query);
                         $nama_kategori = $data["nama_kategori"];
                     }
-                    
-                    
+
+                    // Filter sesuai header
+                    if(isset($_SESSION["header"]) or $_SESSION["header"] != "" or  $_SESSION["header"] != []){
+                        $header = $_SESSION["header"];
+                    }else{
+                        $header = "";
+                        $_SESSION["header"] = "";
+                    }
                 ?>
                 <p class="mt-3 mb-sm-1">Menampilkan hasil pencarian untuk "<?php echo $nama_kategori ?>"</p>
                 <br>
                 <div class="row">
                     <?php
+                        // Pagination
+                        $batas = 3;
+                        $halaman = isset($_GET["halaman"]) ? $_GET["halaman"]: 1;
+                        $halaman_awal = $halaman>1 ? ($halaman * $batas) - $batas : 0;// Untuk tiap nomor
+                        // Mengatur Filter + Pagination
                         if(isset($_GET["s"])){
                             $search = $_GET["s"];
                             $sql = "select produk.id_produk, produk.id_kategori, nama_barang, warna, bahan, harga, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where nama_barang like '%$search%'";
@@ -212,9 +223,20 @@
                                         $sql = $sql." and".$condition[$i];
                                     }
                                 }
+
                             }
                         }
+                        // Halaman
+                        $next = $halaman + 1;
+                        $previous = $halaman - 1;
+                        $query = mysqli_query($conn, $sql);
+                        $total_data = mysqli_num_rows($query);
+
+                        $total_halaman = ceil($total_data / $batas);
+                        $nomor = $halaman_awal + 1;
                         
+                        $sql = $sql." limit $halaman_awal, $batas";
+
                         $query = mysqli_query($conn, $sql);
                         $total_result = mysqli_num_rows($query);
                         if($total_result == 0){
@@ -241,6 +263,36 @@
                     ?>
                     
                 </div>
+                <!-- Pagination -->
+                <nav>
+                    <ul class="pagination justify-content-end">
+                        <?php
+                            if($halaman == 1){
+                                echo "<li class='page-item disabled'><a class='page-link anchor-black' href='#'>Previous</a></li>";
+                            }else{
+                                echo "<li class='page-item'><a class='page-link anchor-black' href='search.php?$header&halaman=$previous'>Previous</a></li>";
+                            }
+                        ?>
+                        <?php
+                            
+                            for($i=1; $i<=$total_halaman; $i++){
+                                if($halaman == $i){
+                                    echo "<li class='page-item disabled'><a class='page-link anchor-black' href='search.php?halaman=$i'>$i</a></li>";
+                                }else{
+                                    echo "<li class='page-item'><a class='page-link anchor-black' href='search.php?$header&halaman=$i'>$i</a></li>";
+                                }
+                                
+                            }
+                        ?>
+                        <?php
+                            if($halaman == $total_halaman){
+                                echo "<li class='page-item disabled'><a class='page-link anchor-black' href='#'>Next</a></li>";
+                            }else{
+                                echo "<li class='page-item'><a class='page-link anchor-black' href='search.php?$header&halaman=$next'>Next</a></li>";
+                            }
+                        ?>
+                    </ul>
+                </nav>
             </div>
             <!-- Hasil Pencarian -->
         </div>

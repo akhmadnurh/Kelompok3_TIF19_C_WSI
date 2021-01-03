@@ -34,19 +34,19 @@
                                 Dashboard
                             </a>
                             <!-- Produk -->
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produk" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produk" aria-expanded="false" aria-controls="produk">
                                 <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
                                 Produk
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="produk" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Data Produk</a>
+                                    <a class="nav-link" href="data-produk.php">Data Produk</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Mbuhhh</a>
                                 </nav>
                             </div>
                             <!-- Transaksi -->
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi" aria-expanded="false" aria-controls="transaksi">
                                 <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
                                 Transaksi
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>

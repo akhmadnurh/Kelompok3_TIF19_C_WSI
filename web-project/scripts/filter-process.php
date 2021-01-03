@@ -1,5 +1,5 @@
 <?php
-    $header = "";
+    session_start();
     if(isset($_GET["kategori"])){
         $kategori = $_GET["kategori"];
         $header = $header."kategori=$kategori";
@@ -20,7 +20,7 @@
             $header = $header."&harga_max=$harga_max";
         }
     }
-
+    $_SESSION["header"] = $header;
     header("Location: search.php?".$header);
 
 ?>

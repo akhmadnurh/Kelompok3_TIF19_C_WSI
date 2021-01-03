@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -91,8 +92,11 @@
     </style>
   </head>
   <body>
-    <?php include "scripts/nav.php"; ?>
-    <?php include "scripts/connection.php"; ?>
+    <?php 
+        include "scripts/nav.php";
+        include "scripts/connection.php"; 
+        $_SESSION["header"] = "";    
+    ?>
     <?php
         $query = ["SELECT id_kategori, nama_kategori from kategori", "SELECT produk.id_produk, produk.id_kategori, nama_barang, bahan, harga, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk"];
     ?>
