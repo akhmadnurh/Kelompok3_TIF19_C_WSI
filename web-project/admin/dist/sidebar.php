@@ -42,7 +42,7 @@
                             <div class="collapse" id="produk" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="data-produk.php">Data Produk</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Kategori</a>
+                                    <a class="nav-link" href="kategori.php">Kategori</a>
                                     <a class="nav-link" href="edit-produk.php">Tambah Produk</a>
                                 </nav>
                             </div>

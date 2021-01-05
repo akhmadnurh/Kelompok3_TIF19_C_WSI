@@ -14,27 +14,22 @@
   <body>
     <?php include "sidebar.php"; ?>
     <?php require_once "connection.php"; ?>
-    <div class="container-fluid">
-        <h1 class="mt-4">Data Produk</h1>
+    <div class="container">
+        <h1 class="mt-4">Data Kategori</h1>
         <!-- Table -->
         <div class="container-fluid">
-            
+            <a href="edit-kategori.php?status=add" class="btn btn-dark mb-2" style="float: right;">Tambah Kategori</a>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th>No</th>
-                        <th>Email</th>
-                        <th>Password</th>
-                        <th>Nama</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Alamat</th>
-                        <th>No. WA</th>
+                        <th>Kategori</th>
                         <th>Action</th> 
                     </tr>
                 </thead>
                 <?php
                     // Query
-                    $sql = "SELECT * FROM user where level='1'";
+                    $sql = "SELECT * FROM kategori";
                     $query = mysqli_query($conn, $sql);
                     
                     
@@ -50,35 +45,20 @@
                     $total_halaman = ceil($total_data / $batas);
                     $nomor = $halaman_awal + 1;
                     // Query data sesuai halaman
-                    $sql = "SELECT * FROM user where level='1' LIMIT $halaman_awal, $batas";
+                    $sql = "SELECT * FROM kategori LIMIT $halaman_awal, $batas";
                     $query = mysqli_query($conn, $sql);
                     while($data = mysqli_fetch_array($query)){
                 ?>      
                         <tr>
                             <td><?php echo $nomor; ?></td>
-                            <td><?php echo $data["email"]; ?></td>
-                            <td><?php echo $data["pass"]; ?></td>
-                            <td><?php echo $data["nama"]; ?></td>
-                            <td><?php echo $data["jenis_kelamin"]; ?></td>
-                            <td><?php echo $data["alamat"]; ?></td>
-                            <td><?php echo $data["nomor_wa"]; ?></td>
+                            <td><?php echo $data["nama_kategori"]; ?></td>
                             <td>
-                                <a href="edit-user.php?status=edit&id_user=<?php echo $data['id_user']; ?>&level=<?php echo $data["level"]; ?>" class="btn btn-link">
+                                <a href="edit-kategori.php?status=edit&id_kategori=<?php echo $data['id_kategori']; ?>" class="btn btn-link">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="javascript:delete_user()" class="btn btn-link">
+                                <a href="delete-kategori.php?id_kategori=<?php echo $data['id_kategori']; ?>" class="btn btn-link">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
-                                <script>
-                                    function delete_user(){
-                                        var status = confirm("Apakah anda yakin ingin menghapusnya?");
-                                        if(status == true){
-                                            location.href = "delete-user.php?id_user=<?php echo $data['id_user']; ?>&level=<?php echo $data["level"]; ?>";
-                                        }else{
-                                            return false;
-                                        }
-                                    }
-                                </script>
                             </td>
                         </tr>
                 <?php
@@ -93,7 +73,7 @@
                         if($halaman == 1){
                             echo "<li class='page-item disabled'><a class='page-link' href='#'>Previous</a></li>";
                         }else{
-                            echo "<li class='page-item'><a class='page-link' href='admin.php?halaman=$previous'>Previous</a></li>";
+                            echo "<li class='page-item'><a class='page-link' href='data-produk.php?halaman=$previous'>Previous</a></li>";
                         }
                     ?>
                     <?php
@@ -102,7 +82,7 @@
                             if($halaman == $i){
                                 echo "<li class='page-item disabled'><a class='page-link' href='data-produk.php?halaman=$i'>$i</a></li>";
                             }else{
-                                echo "<li class='page-item'><a class='page-link' href='admin.php?halaman=$i'>$i</a></li>";
+                                echo "<li class='page-item'><a class='page-link' href='data-produk.php?halaman=$i'>$i</a></li>";
                             }
                         }
                     ?>
@@ -110,7 +90,7 @@
                         if($halaman == $total_halaman){
                             echo "<li class='page-item disabled'><a class='page-link' href='#'>Next</a></li>";
                         }else{
-                            echo "<li class='page-item'><a class='page-link' href='admin.php?halaman=$next'>Next</a></li>";
+                            echo "<li class='page-item'><a class='page-link' href='data-produk.php?halaman=$next'>Next</a></li>";
                         }
                     ?>
                 </ul>

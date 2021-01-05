@@ -63,12 +63,22 @@
                             <td><?php echo $data["alamat"]; ?></td>
                             <td><?php echo $data["nomor_wa"]; ?></td>
                             <td>
-                                <a href="edit-user.php?status=edit&id_user=<?php echo $data['id_user']; ?>" class="btn btn-link">
+                                <a href="edit-user.php?status=edit&id_user=<?php echo $data['id_user']; ?>&level=<?php echo $data["level"]; ?>" class="btn btn-link">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="delete-user.phpid_user=<?php echo $data['id_user']; ?>" class="btn btn-link">
+                                <a href="javascript:delete_user()" class="btn btn-link">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
+                                <script>
+                                    function delete_user(){
+                                        var status = confirm("Apakah anda yakin ingin menghapusnya?");
+                                        if(status == true){
+                                            location.href = "delete-user.php?id_user=<?php echo $data['id_user']; ?>&level=<?php echo $data["level"]; ?>";
+                                        }else{
+                                            return false;
+                                        }
+                                    }
+                                </script>
                             </td>
                         </tr>
                 <?php
