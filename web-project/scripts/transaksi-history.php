@@ -23,8 +23,8 @@
                     <div class="card-header"><h3>Akun</h3></div>
                     <div class="card-body px-0 py-0">
                         <ul class="list-group list-group-flush">
-                            <a href="akun.php" class="list-group-item list-group-item-action active py-3">Akun Saya</a>
-                            <a href="transaksi-history.php" class="list-group-item list-group-item-action py-3">Histori Transaksi</a>
+                            <a href="akun.php" class="list-group-item list-group-item-action py-3">Akun Saya</a>
+                            <a href="transaksi-history.php" class="list-group-item list-group-item-action active py-3">Histori Transaksi</a>
                           </ul>
                     </div>
                 </div>

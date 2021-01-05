@@ -111,7 +111,7 @@
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Slide 1</h5>
+                        <h5>Tabungan</h5>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates enim deleniti tempora natus sequi ipsum autem sint alias nam facilis. Assumenda fugiat sunt facilis molestiae, unde ullam voluptatum commodi ea!</p>
                     </div>
                 </div>
