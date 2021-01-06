@@ -12,6 +12,39 @@
             margin-top: 10rem !important;
             margin-bottom: 10rem !important;
         }
+        .tabContainer {
+            width: 100%;
+            height: auto;
+        }
+        .tabContainer .buttonContainer {
+            height: 15%;
+        }
+        .tabContainer .buttonContainer button {
+            width: calc(100% / 3);
+            height: 100%;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ffffff;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #dfdfdf;
+        }
+        .tabContainer .tabPanel {
+            height: 85%;
+            background-color: #f6f6f6;
+            color: #000000;
+            text-align: center;
+            padding-top: 105px;
+            padding-bottom: 50px;
+            box-sizing: border-box;
+            font-size: 16px;
+            display: none;
+        }
+
     </style>
   </head>
   <body>
@@ -31,35 +64,23 @@
             </div>
             <div class="col-lg-9 col-md-9 col-xl-9">
                 <div class="card">
-                    <div class="card-header"><h3>Informasi Kontak</h3></div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-10">
-                                Nama: Ahmad Dayat<br>
-                                E-mail: adayat00@gmail.com<br>
-                                Tgl Lahir: 01-01-2001<br>
-                                Password: ********<br>
-                                No, Hp: 081234765809<br>
+                    <div class="card-body py-0 px-0">
+                        <div class="tabContainer">
+                            <div class="buttonContainer">
+                                <button onclick="showPanel(0,'#ffffff')">Menunggu</button>
+                                <button onclick="showPanel(1,'#ffffff')">Dikirim</button>
+                                <button onclick="showPanel(2,'#ffffff')">Selesai</button>
                             </div>
-                            <div class="col-2">
-                                <button class="btn btn-outline-dark" type="button">UBAH</button>
+                            <div class="tabPanel">
+                                dd
+                            </div>
+                            <div class="tabPanel">
+                                ww
+                            </div>
+                            <div class="tabPanel">
+                                Review
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="card mt-xl-3">
-                    <div class="card-header"><h3>Alamat Pengiriman</h3></div>
-                    <div class="card-body">
-                        <form action="">
-                            <div class="form-group">
-                                <input class="form-control mb-3 w-50" type="text" placeholder="Provinsi">
-                                <input class="form-control mb-3 w-50" type="text" placeholder="Kabupaten">
-                                <input class="form-control mb-3 w-50" type="text" placeholder="Kecamatan">
-                                <input class="form-control mb-3" type="text" placeholder="Alamat Lengkap">
-                                <input class="form-control mb-3 w-50" type="text" placeholder="Kode Pos">
-                                <button class="btn btn-md btn-dark">Simpan</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -67,6 +88,28 @@
     </div>
 
     <?php include 'footer.php' ?>
+    <script>
+        var tabButttons = document.querySelectorAll(".tabContainer .buttonContainer button");
+        var tabPanels = document.querySelectorAll(".tabContainer .tabPanel");
+
+        function showPanel(panelIndex,colorCode) {
+            tabButttons.forEach(function(node) {
+                node.style.backgroundColor="";
+                node.style.color="";
+                node.style.borderBottom="";
+            });
+            tabButttons[panelIndex].style.backgroundColor=colorCode;
+            tabButttons[panelIndex].style.color="black";
+            tabButttons[panelIndex].style.borderBottom="thick solid black";
+            tabPanels.forEach(function(node) {
+                node.style.display="none";
+            });
+            tabPanels[panelIndex].style.display="block";
+        }
+
+        showPanel(0,'#ffffff');
+    </script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
