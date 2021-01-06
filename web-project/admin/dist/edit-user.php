@@ -33,6 +33,7 @@
         // Code here
         $title = "Tambah User";
 
+        $id_user = "";
         $email = "";
         $pass = "";
         $nama = "";
@@ -41,7 +42,7 @@
         $alamat = "";
         $level = "";
       }
-
+      $status = $_GET["status"];
     ?>
     <div class="container">
       <div class="card" style="margin-top: 100px;">
@@ -50,8 +51,8 @@
         </div>
         <div class="card-body">
           <?php
-            if(isset($_GET["status"])){
-              $status = $_GET["status"];
+            if(isset($_GET["error"])){
+              $status = $_GET["error"];
               if($status == "error-password"){
           ?>
                 <div class="alert alert-warning" role="alert">
@@ -74,7 +75,7 @@
                
             }
           ?>
-          <form action="edit-user-process.php" method="POST">
+          <form action="edit-user-process.php?status=<?php echo $status; if($id_user != "") echo "&id_user=".$id_user; ?>" method="POST">
             <div class="input-group mb-3">
               <span class="input-group-text">Email</span>
               <input type="email" name="email" class="form-control" placeholder="Masukkan email" maxlength="50" value="<?php echo $email; ?>" required>
@@ -85,7 +86,7 @@
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Ulangi Password</span>
-              <input type="password" name="pass2" class="form-control" placeholder="Masukkan password" maxlength="30" required>
+              <input type="password" name="pass2" class="form-control" placeholder="Masukkan password" maxlength="30" value="<?php echo $pass; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Nama Lengkap</span>
@@ -105,7 +106,7 @@
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Alamat</span>
-              <textarea name="keterangan" id="" cols="30" rows="10" placeholder="Masukkan keterangan produk (boleh dikosongi)" class="form-control" required><?php echo $alamat; ?></textarea>
+              <textarea name="alamat" id="alamat" cols="30" rows="10" placeholder="Masukkan keterangan produk (boleh dikosongi)" class="form-control" required><?php echo $alamat; ?></textarea>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Level Akses</span>
