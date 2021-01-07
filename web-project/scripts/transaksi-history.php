@@ -67,9 +67,9 @@
                     <div class="card-body py-0 px-0">
                         <div class="tabContainer">
                             <div class="buttonContainer">
-                                <button onclick="showPanel(0,'#ffffff')">Menunggu</button>
-                                <button onclick="showPanel(1,'#ffffff')">Dikirim</button>
-                                <button onclick="showPanel(2,'#ffffff')">Selesai</button>
+                                <button onclick="showPanel(0,'#007bff')">Menunggu</button>
+                                <button onclick="showPanel(1,'#007bff')">Dikirim</button>
+                                <button onclick="showPanel(2,'#007bff')">Selesai</button>
                             </div>
                             <div class="tabPanel">
                                 dd
@@ -97,17 +97,19 @@
                 node.style.backgroundColor="";
                 node.style.color="";
                 node.style.borderBottom="";
+                node.style.borderColor="";
             });
-            tabButttons[panelIndex].style.backgroundColor=colorCode;
-            tabButttons[panelIndex].style.color="black";
-            tabButttons[panelIndex].style.borderBottom="thick solid black";
+            tabButttons[panelIndex].style.backgroundColor="white";
+            tabButttons[panelIndex].style.color=colorCode;
+            tabButttons[panelIndex].style.borderBottom="thick solid";
+            tabButttons[panelIndex].style.borderColor=colorCode;
             tabPanels.forEach(function(node) {
                 node.style.display="none";
             });
             tabPanels[panelIndex].style.display="block";
         }
 
-        showPanel(0,'#ffffff');
+        showPanel(0,'#007bff');
     </script>
 
     <!-- Optional JavaScript -->
