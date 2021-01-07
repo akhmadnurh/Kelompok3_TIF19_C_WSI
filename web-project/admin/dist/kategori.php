@@ -56,9 +56,19 @@
                                 <a href="edit-kategori.php?status=edit&id_kategori=<?php echo $data['id_kategori']; ?>" class="btn btn-link">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="delete-kategori.php?id_kategori=<?php echo $data['id_kategori']; ?>" class="btn btn-link">
+                                <a href="javascript:delete_cat()" class="btn btn-link">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
+                                <script>
+                                    function delete_cat(){
+                                        var status = confirm("Apakah anda yakin ingin menghapusnya?");
+                                        if(status == true){
+                                            location.href = "delete-kategori.php?id_kategori=<?php echo $data['id_kategori']; ?>";
+                                        }else{
+                                            return false;
+                                        }
+                                    }
+                                </script>
                             </td>
                         </tr>
                 <?php

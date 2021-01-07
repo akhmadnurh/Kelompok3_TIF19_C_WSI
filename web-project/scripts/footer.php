@@ -20,6 +20,10 @@
         .footer a {
             color: #000000;
         }
+        a.disabled {
+            pointer-events: none;
+            cursor: default;
+        }
     </style>
   </head>
   <body>
@@ -59,10 +63,10 @@
             <!-- Kolom Grid 3 -->
             <div class="col-sm-4">
                 <strong>LAYANAN</strong><br>
-                <a href="/">Tentang Kami</a><br>
-                <a href="/">Hubungi Kami</a><br>
-                <a href="/">Bantuan</a><br>
-                <a href="/">Persyaratan & Ketentuan</a>
+                <a href="#" class="disabled">Tentang Kami</a><br>
+                <a href="/" class="disabled">Hubungi Kami</a><br>
+                <a href="/" class="disabled">Bantuan</a><br>
+                <a href="/" class="disabled">Persyaratan & Ketentuan</a>
             </div>
         </div>
       </div>

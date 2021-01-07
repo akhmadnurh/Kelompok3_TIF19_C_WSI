@@ -52,25 +52,25 @@
                     $total_halaman = ceil($total_data / $batas);
                     $nomor = $halaman_awal + 1;
                     // Query data sesuai halaman
-                    $sql = "SELECT * FROM produk LIMIT $halaman_awal, $batas";
+                    $sql = "SELECT * FROM produk inner join kategori on produk.id_kategori = kategori.id_kategori LIMIT $halaman_awal, $batas";
                     $query = mysqli_query($conn, $sql);
                     while($data = mysqli_fetch_array($query)){
                 ?>      
                         <tr>
                             <td><?php echo $nomor; ?></td>
-                            <td><?php echo $data["id_kategori"]; ?></td>
+                            <td><?php echo $data["nama_kategori"]; ?></td>
                             <td><?php echo $data["nama_barang"]; ?></td>
                             <td><?php echo $data["warna"]; ?></td>
                             <td><?php echo $data["bahan"]; ?></td>
-                            <td><?php echo $data["stok"]; ?></td>
                             <td><?php echo $data["harga"]; ?></td>
                             <td><?php echo $data["keterangan"]; ?></td>
+                            <td><?php echo $data["stok"]; ?></td>
                             <td><?php echo $data["best_seller"]; ?></td>
                             <td>
-                                <a href="edit-produk.php?status=edit&id_user=<?php echo $data['id_user']; ?>" class="btn btn-link">
+                                <a href="edit-produk.php?status=edit&id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-link">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="delete-produk.phpid_user=<?php echo $data['id_user']; ?>" class="btn btn-link">
+                                <a href="delete-produk.php?id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-link">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>

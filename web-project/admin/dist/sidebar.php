@@ -73,7 +73,7 @@
                                     <a class="nav-link" href="edit-user.php?status=add">Tambah User</a>
                                 </nav>
                             </div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="logout.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-power-off"></i></div>
                                 Logout
                             </a>  
