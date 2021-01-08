@@ -1,16 +1,3 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-    <title>Hi Valeeqa - Admin</title>
-  </head>
-  <body>
     <?php
       include "sidebar.php";
       require_once "connection.php";
@@ -40,17 +27,11 @@
         $keterangan = $data["keterangan"];
         $best_seller = $data["best_seller"];
 
-        $lebar_dada = $data["lebar_dada"];
-        $panjang = $data["panjang"];
-
-        $gambar = $data["lokasi_gambar"];
-
         
       }else{
         // Code here
         $title = "Tambah Produk";
 
-        $id_produk = "";
         $id_kategori = "";
         $nama_barang = "";
         $warna = "";
@@ -59,24 +40,19 @@
         $stok = "";
         $keterangan = "";
         $best_seller = "";
-
-        $lebar_dada = "";
-        $panjang = "";
-        
-        $gambar = "";
       }
       
     ?>
-    <div class="container">
-      <div class="card">
+    <div class="container-fluid">
+      <div class="card my-4">
         <div class="card-header">
           <h1><?php echo $title; ?></h1>
         </div>
         <div class="card-body">
-          <form action="edit-produk-process.php?id_produk=<?php echo $id_produk; ?>" method="POST" enctype="multipart/form-data">
-            <div class="input-group mb-3">
+          <form action="edit-produk-process.php" method="POST">
+            <div class="input-group mb-3 w-50">
               <span class="input-group-text">Kategori</span>
-              <select name="kategori" id="" class="form-select" required>
+              <select name="kategori" id="" class="custom-select" required>
                 <option value="#">-- Masukkan kategori produk --</option>
                 <?php
                   for($i=0; $i<count($id_kat); $i++){
@@ -88,23 +64,15 @@
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Nama Produk</span>
-              <input type="text" name="nama_barang" class="form-control" placeholder="Masukkan nama produk" maxlength="70" value="<?php echo $nama_barang; ?>" required>
+              <input type="text" class="form-control" placeholder="Masukkan nama produk" maxlength="70" value="<?php echo $nama_barang; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Warna</span>
-              <input type="text" nama="warna" class="form-control" placeholder="Masukkan warna" maxlength="30" value="<?php echo $warna; ?>" required>
+              <input type="text" class="form-control" placeholder="Masukkan warna" maxlength="30" value="<?php echo $warna; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Bahan</span>
               <input type="text" class="form-control" placeholder="Masukkan bahan pakaian" maxlength="30" value="<?php echo $bahan; ?>" required>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text">Lebar Dada</span>
-              <input type="number" class="form-control" placeholder="Masukkan lebar dada(cm)" maxlength="3" value="<?php echo $lebar_dada; ?>" required>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text">Panjang</span>
-              <input type="number" class="form-control" placeholder="Masukkan panjang produk(cm)" maxlength="3" value="<?php echo $panjang; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Harga</span>
@@ -119,33 +87,18 @@
               <textarea name="keterangan" id="" cols="30" rows="10" placeholder="Masukkan keterangan produk (boleh dikosongi)" class="form-control"><?php echo $keterangan; ?></textarea>
             </div>
             <div class="input-group mb-3 ml-4">
-              <div class="form-check form-switch">
-                <input type="checkbox" class="form-check-input" id="best-seller" <?php if($best_seller == 1) echo "checked"; ?>>
-                <label for="best-seller" class="form-check-label" >Best Seller</label>
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="best-seller" <?php if($best_seller == 1) echo "checked"; ?>>
+                <label for="best-seller" class="custom-control-label" >Best Seller</label>
               </div>
             </div>
-            <div class="mb-3">
-              <label for="formFileMultiple" class="form-label">Masukkan Foto</label>
-              <input class="form-control" type="file" id="formFileMultiple" >
-            </div>
-            <div class="mb-3">
-              <img src="http://localhost/Kelompok3_TIF19_C_WSI/web-project/<?php echo $data["lokasi_gambar"]; ?>" alt="" style="width: 230px; height: 345px;">
+            <div class="mb-3 custom-file w-50">
+              <label for="formFileMultiple" class="custom-file-label">Masukkan Foto</label>
+              <input class="custom-file-input" type="file" id="formFileMultiple">
             </div>
             <button class="btn btn-dark" type="submit" style="width: 100%;">Submit</button>
           </form> 
         </div>
       </div>
     </div>
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    -->
-  </body>
-</html>
+<?php include 'footer.php' ?>

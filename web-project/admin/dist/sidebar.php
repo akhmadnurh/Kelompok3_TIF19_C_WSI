@@ -8,75 +8,90 @@
         <meta name="author" content="" />
         <title>Hi Valeeqa - Admin</title>
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <style>
-            .bg-hivaleeqa{
-                background: #FBF1F0;
+            #dataTable_info {
+                display: none;
             }
-            .mtop {
-                margin-top: 70px;
+            #dataTable_paginate {
+                display: none;
+            }
+            #dataTable_filter {
+                display: none;
+            }
+            #dataTable_length {
+                display: none;
             }
         </style>
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-light bg-hivaleeqa">
-        <button class="btn btn-link btn-sm order-1 order-lg-0 ml-3" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-        <a class="navbar-brand h2 mb-0 ml-2" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/index.php"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" width="auto" height="30" class="d-inline-block align-top" alt="Logo Hi Valeeqa"> Hi Valeeqa</a>
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.php">
+                <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa_white.png" alt="Logo Hi Valeeqa" height="20" class="d-inline-block align-center mb-sm-2 mr-2 ml-2" loading="lazy">
+                 Hi Valeeqa
+            </a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Menu</div>
+                            <div class="sb-sidenav-menu-heading">MENU</div>
                             <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
+
                             <!-- Produk -->
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produk" aria-expanded="false" aria-controls="produk">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
                                 Produk
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="produk" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseProducts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="data-produk.php">Data Produk</a>
                                     <a class="nav-link" href="kategori.php">Kategori</a>
-                                    <a class="nav-link" href="edit-produk.php">Tambah Produk</a>
+                                    <a class="nav-link" href="edit-produk.php?status=add">Tambah Produk</a>
                                 </nav>
                             </div>
+
                             <!-- Transaksi -->
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi" aria-expanded="false" aria-controls="transaksi">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransaction" aria-expanded="false" aria-controls="collapseTransaction">
                                 <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
                                 Transaksi
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="transaksi" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Menunggu Pembayaran</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Tabungan</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Menunggu Pengiriman</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Riwayat Transaksi</a>
+                            <div class="collapse" id="collapseTransaction" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="#">Menunggu Pembayaran</a>
+                                    <a class="nav-link" href="#">Menunggu Pengiriman</a>
+                                    <a class="nav-link" href="#">Riwayat Transaksi</a>
+                                    <a class="nav-link" href="#">Tabungan</a>
                                 </nav>
                             </div>
+
                             <!-- User Management -->
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#user-management" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="false" aria-controls="collapseUsers">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 User Management
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="user-management" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseUsers" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="user.php">User</a>
                                     <a class="nav-link" href="admin.php">Admin</a>
                                     <a class="nav-link" href="edit-user.php?status=add">Tambah User</a>
                                 </nav>
                             </div>
+
+                            <!-- Logout -->
                             <a class="nav-link" href="logout.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-power-off"></i></div>
                                 Logout
-                            </a>  
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -85,9 +100,5 @@
                     </div>
                 </nav>
             </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+            <div id="layoutSidenav_content">
+                <main>
