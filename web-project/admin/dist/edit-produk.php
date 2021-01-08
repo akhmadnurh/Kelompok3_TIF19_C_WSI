@@ -27,7 +27,7 @@
         $title = "Edit Produk";
 
         $id_produk = $_GET["id_produk"];
-        $sql = "select * from produk where id_produk='$id_produk'";
+        $sql = "SELECT * FROM produk inner join kategori on produk.id_kategori = kategori.id_kategori inner join gambar on produk.id_produk = gambar.id_produk inner join ukuran on gambar.id_produk = ukuran.id_produk where produk.id_produk='$id_produk'";
         $query = mysqli_query($conn, $sql);
         $data = mysqli_fetch_array($query);
 
@@ -40,11 +40,17 @@
         $keterangan = $data["keterangan"];
         $best_seller = $data["best_seller"];
 
+        $lebar_dada = $data["lebar_dada"];
+        $panjang = $data["panjang"];
+
+        $gambar = $data["lokasi_gambar"];
+
         
       }else{
         // Code here
         $title = "Tambah Produk";
 
+        $id_produk = "";
         $id_kategori = "";
         $nama_barang = "";
         $warna = "";
@@ -53,6 +59,11 @@
         $stok = "";
         $keterangan = "";
         $best_seller = "";
+
+        $lebar_dada = "";
+        $panjang = "";
+        
+        $gambar = "";
       }
       
     ?>
@@ -62,7 +73,7 @@
           <h1><?php echo $title; ?></h1>
         </div>
         <div class="card-body">
-          <form action="edit-produk-process.php" method="POST">
+          <form action="edit-produk-process.php?id_produk=<?php echo $id_produk; ?>" method="POST" enctype="multipart/form-data">
             <div class="input-group mb-3">
               <span class="input-group-text">Kategori</span>
               <select name="kategori" id="" class="form-select" required>
@@ -77,15 +88,23 @@
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Nama Produk</span>
-              <input type="text" class="form-control" placeholder="Masukkan nama produk" maxlength="70" value="<?php echo $nama_barang; ?>" required>
+              <input type="text" name="nama_barang" class="form-control" placeholder="Masukkan nama produk" maxlength="70" value="<?php echo $nama_barang; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Warna</span>
-              <input type="text" class="form-control" placeholder="Masukkan warna" maxlength="30" value="<?php echo $warna; ?>" required>
+              <input type="text" nama="warna" class="form-control" placeholder="Masukkan warna" maxlength="30" value="<?php echo $warna; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Bahan</span>
               <input type="text" class="form-control" placeholder="Masukkan bahan pakaian" maxlength="30" value="<?php echo $bahan; ?>" required>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">Lebar Dada</span>
+              <input type="number" class="form-control" placeholder="Masukkan lebar dada(cm)" maxlength="3" value="<?php echo $lebar_dada; ?>" required>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">Panjang</span>
+              <input type="number" class="form-control" placeholder="Masukkan panjang produk(cm)" maxlength="3" value="<?php echo $panjang; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Harga</span>
@@ -107,7 +126,10 @@
             </div>
             <div class="mb-3">
               <label for="formFileMultiple" class="form-label">Masukkan Foto</label>
-              <input class="form-control" type="file" id="formFileMultiple">
+              <input class="form-control" type="file" id="formFileMultiple" >
+            </div>
+            <div class="mb-3">
+              <img src="http://localhost/Kelompok3_TIF19_C_WSI/web-project/<?php echo $data["lokasi_gambar"]; ?>" alt="" style="width: 230px; height: 345px;">
             </div>
             <button class="btn btn-dark" type="submit" style="width: 100%;">Submit</button>
           </form> 

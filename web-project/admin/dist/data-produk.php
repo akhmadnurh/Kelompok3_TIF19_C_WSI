@@ -27,9 +27,12 @@
                         <th>Nama Barang</th>
                         <th>Warna</th>
                         <th>Bahan</th>
+                        <th>Lebar Dada</th>
+                        <th>Panjang</th>
                         <th>Harga</th>
                         <th>Keterangan</th>
                         <th>Stok</th>
+                        <th>Gambar</th>
                         <th>Best Seller</th>
                         <th>Action</th> 
                     </tr>
@@ -41,7 +44,7 @@
                     
                     
                     // Pagination
-                    $batas = 10;
+                    $batas = 5;
                     $halaman = isset($_GET["halaman"]) ? $_GET["halaman"]: 1;
                     $halaman_awal = $halaman>1 ? ($halaman * $batas) - $batas : 0;// Untuk tiap nomor
                     
@@ -52,7 +55,7 @@
                     $total_halaman = ceil($total_data / $batas);
                     $nomor = $halaman_awal + 1;
                     // Query data sesuai halaman
-                    $sql = "SELECT * FROM produk inner join kategori on produk.id_kategori = kategori.id_kategori LIMIT $halaman_awal, $batas";
+                    $sql = "SELECT * FROM produk inner join kategori on produk.id_kategori = kategori.id_kategori inner join gambar on produk.id_produk = gambar.id_produk inner join ukuran on gambar.id_produk = ukuran.id_produk LIMIT $halaman_awal, $batas";
                     $query = mysqli_query($conn, $sql);
                     while($data = mysqli_fetch_array($query)){
                 ?>      
@@ -62,10 +65,15 @@
                             <td><?php echo $data["nama_barang"]; ?></td>
                             <td><?php echo $data["warna"]; ?></td>
                             <td><?php echo $data["bahan"]; ?></td>
+                            <td><?php echo $data["lebar_dada"]; ?></td>
+                            <td><?php echo $data["panjang"]; ?></td>
                             <td><?php echo $data["harga"]; ?></td>
                             <td><?php echo $data["keterangan"]; ?></td>
                             <td><?php echo $data["stok"]; ?></td>
-                            <td><?php echo $data["best_seller"]; ?></td>
+                            <td>
+                                <img src="http://localhost/Kelompok3_TIF19_C_WSI/web-project/<?php echo $data["lokasi_gambar"]; ?>" alt="" style="width: 230px; height: 345px;">
+                            </td>
+                            <td><?php echo $data["best_seller"] == 1 ? "Ya" : "Tidak"; ?></td>
                             <td>
                                 <a href="edit-produk.php?status=edit&id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-link">
                                     <i class="fas fa-edit"></i>

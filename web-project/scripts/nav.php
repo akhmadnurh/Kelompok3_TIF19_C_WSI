@@ -109,8 +109,10 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/register.php">Registrasi</a>
                         <a class="dropdown-item" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/login.php">Login</a>
+                        <a class="dropdown-item" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/admin/">Admin</a>
                         <a class="dropdown-item" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/akun.php">Akun Saya</a>
                         <a class="dropdown-item" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/transaksi-history.php">History Transaksi</a>
+                        <a class="dropdown-item" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/logout.php">Logout</a>
                     </div>
                     </li>
                 </ul>
