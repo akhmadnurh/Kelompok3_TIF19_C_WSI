@@ -5,7 +5,7 @@
         // Code here
         $title = "Edit User";
         $id_user = $_GET["id_user"];
-        $sql = "SELECT * FROM user where id_user=$id_user";
+        $sql = "select * from user where id_user=$id_user";
         $query = mysqli_query($conn, $sql);
         $data = mysqli_fetch_array($query);
 
@@ -16,6 +16,7 @@
         $wa = $data["nomor_wa"];
         $alamat = $data["alamat"];
         $level = $data["level"];
+
       }else{
         // Code here
         $title = "Tambah User";
@@ -28,6 +29,7 @@
         $wa = "";
         $alamat = "";
         $level = "";
+
       }
       $status = $_GET["status"];
     ?>
@@ -62,7 +64,7 @@
                
             }
           ?>
-          <form action="edit-user-process.php?status=<?php echo $status; if($id_user != "") echo "&id_user=".$id_user; ?>" method="POST">
+          <form action="edit-user-process.php?status=<?php echo $status; if($id_user != "") echo "&id_user=".$id_user; ?>" method="POST" enctype="multipart/form-data">
             <div class="input-group mb-3">
               <span class="input-group-text">Email</span>
               <input type="email" name="email" class="form-control" placeholder="Masukkan email" maxlength="50" value="<?php echo $email; ?>" required>
@@ -82,7 +84,7 @@
             <div class="input-group mb-3 w-25">
               <span class="input-group-text">Jenis Kelamin</span>
               <select name="gender" id="" class="custom-select">
-                  <option value="#" <?php if($gender == "#") echo "selected"; ?>>-- Pilih salah satu --</option>
+                  <option value="#" <?php if($gender == "") echo "selected"; ?>>-- Pilih salah satu --</option>
                   <option value="L" <?php if($gender == "L") echo "selected"; ?>>Laki-Laki</option>
                   <option value="P" <?php if($gender == "P") echo "selected"; ?>>Perempuan</option>
               </select>
@@ -98,7 +100,7 @@
             <div class="input-group mb-3 w-25">
               <span class="input-group-text">Level Akses</span>
               <select name="level" id="" class="custom-select">
-                <option value="#" <?php if($level == "#") echo "selected"; ?>>-- Pilih salah satu --</option>
+                <option value="#" <?php if($level == "") echo "selected"; ?>>-- Pilih salah satu --</option>
                 <option value="1" <?php if($level == "1") echo "selected"; ?>>Admin</option>
                 <option value="0" <?php if($level == "0") echo "selected"; ?>>User</option>
               </select>

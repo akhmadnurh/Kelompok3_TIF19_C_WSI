@@ -27,11 +27,16 @@
         $keterangan = $data["keterangan"];
         $best_seller = $data["best_seller"];
 
+        $panjang = $data["panjang"];
+        $lebar_dada = $data["lebar_dada"];
+
+        $gambar = $data["gambar"];
         
       }else{
         // Code here
         $title = "Tambah Produk";
 
+        $id_produk = "";
         $id_kategori = "";
         $nama_barang = "";
         $warna = "";
@@ -40,6 +45,11 @@
         $stok = "";
         $keterangan = "";
         $best_seller = "";
+
+        $panjang = "";
+        $lebar_dada = "";
+
+        $gambar = "";
       }
       
     ?>
@@ -49,14 +59,14 @@
           <h1><?php echo $title; ?></h1>
         </div>
         <div class="card-body">
-          <form action="edit-produk-process.php" method="POST">
+          <form action="edit-produk-process.php?status=<?php echo $_GET["status"]; ?>&id_produk=<?php echo $id_produk; ?>" method="POST" enctype="multipart/form-data">
             <div class="input-group mb-3 w-50">
               <span class="input-group-text">Kategori</span>
               <select name="kategori" id="" class="custom-select" required>
                 <option value="#">-- Masukkan kategori produk --</option>
                 <?php
                   for($i=0; $i<count($id_kat); $i++){
-                    $selected = $id_kategori != "" ? "selected": "";
+                    $selected = $id_kategori != "" ? "selected" : "";
                     echo "<option value='$id_kat[$i]' $selected>$kat[$i]</option>";
                   }
                 ?>
@@ -64,23 +74,31 @@
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Nama Produk</span>
-              <input type="text" class="form-control" placeholder="Masukkan nama produk" maxlength="70" value="<?php echo $nama_barang; ?>" required>
+              <input type="text" name="nama_barang" class="form-control" placeholder="Masukkan nama produk" maxlength="70" value="<?php echo $nama_barang; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Warna</span>
-              <input type="text" class="form-control" placeholder="Masukkan warna" maxlength="30" value="<?php echo $warna; ?>" required>
+              <input type="text" name="warna" class="form-control" placeholder="Masukkan warna" maxlength="30" value="<?php echo $warna; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Bahan</span>
-              <input type="text" class="form-control" placeholder="Masukkan bahan pakaian" maxlength="30" value="<?php echo $bahan; ?>" required>
+              <input type="text" name="bahan" class="form-control" placeholder="Masukkan bahan pakaian" maxlength="30" value="<?php echo $bahan; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Harga</span>
-              <input type="number" class="form-control" placeholder="Masukkan harga/pcs" maxlength="8" value="<?php echo $harga; ?>" required>
+              <input type="number" name="harga" class="form-control" placeholder="Masukkan harga/pcs" maxlength="8" value="<?php echo $harga; ?>" required>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">Panjang(cm)</span>
+              <input type="number" name="panjang" class="form-control" placeholder="Masukkan panjang pakaian" maxlength="8" value="<?php echo $panjang; ?>" required>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">Lebar Dada(cm)</span>
+              <input type="number" name="lebar-dada" class="form-control" placeholder="Masukkan lebar dada pakaian" maxlength="8" value="<?php echo $lebar_dada; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Stok</span>
-              <input type="text" class="form-control" placeholder="Masukkan stok produk" maxlength="11" value="<?php echo $stok; ?>" required>
+              <input type="text" name="stok"  class="form-control" placeholder="Masukkan stok produk" maxlength="11" value="<?php echo $stok; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Keterangan</span>
@@ -88,13 +106,13 @@
             </div>
             <div class="input-group mb-3 ml-4">
               <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="best-seller" <?php if($best_seller == 1) echo "checked"; ?>>
+                <input type="checkbox" name="best-seller" class="custom-control-input" id="best-seller" <?php if($best_seller == 1) echo "checked"; ?>>
                 <label for="best-seller" class="custom-control-label" >Best Seller</label>
               </div>
             </div>
             <div class="mb-3 custom-file w-50">
               <label for="formFileMultiple" class="custom-file-label">Masukkan Foto</label>
-              <input class="custom-file-input" type="file" id="formFileMultiple">
+              <input class="custom-file-input" type="file" id="formFileMultiple" name="gambar">
             </div>
             <button class="btn btn-dark" type="submit" style="width: 100%;">Submit</button>
           </form> 
