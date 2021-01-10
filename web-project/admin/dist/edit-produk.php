@@ -123,9 +123,9 @@
                 <label for="best-seller" class="custom-control-label" >Best Seller</label>
               </div>
             </div>
-            <div class="mb-3 w-50">
-              <label for="formFileMultiple" class="form-label">Masukkan Foto</label> 
-              <input class="form-control" type="file" id="formFileMultiple" name="gambar">
+            <div class="mb-3 custom-file w-50">
+              <label for="formFileMultiple" class="custom-file-label">Masukkan Foto</label> 
+              <input class="custom-file-input" type="file" id="formFileMultiple" name="gambar">
             </div>
             <?php
               if($_GET["status"] == "edit"){
