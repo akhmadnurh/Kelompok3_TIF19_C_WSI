@@ -66,10 +66,11 @@
                             </a>
                             <div class="collapse" id="collapseTransaction" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="#">Menunggu Pembayaran</a>
-                                    <a class="nav-link" href="#">Menunggu Pengiriman</a>
-                                    <a class="nav-link" href="#">Riwayat Transaksi</a>
-                                    <a class="nav-link" href="#">Tabungan</a>
+                                    <a class="nav-link" href="menunggu-pembayaran.php">Menunggu Pembayaran</a>
+                                    <a class="nav-link" href="menunggu-pengiriman.php">Menunggu Pengiriman</a>
+                                    <a class="nav-link" href="proses-pengiriman.php">Proses Pengiriman</a>
+                                    <a class="nav-link" href="riwayat-transaksi.php">Riwayat Transaksi</a>
+                                    <a class="nav-link" href="tabungan.php">Tabungan</a>
                                 </nav>
                             </div>
 

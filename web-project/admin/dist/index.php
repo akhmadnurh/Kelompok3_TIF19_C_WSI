@@ -1,39 +1,82 @@
-<?php include 'sidebar.php' ?>
+<?php  
+    include 'sidebar.php'; 
+    require_once "connection.php";
+?>
     <div class="container-fluid">
         <h1 class="my-4">Dashboard</h1>
         <div class="row">
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">Menunggu Pembayaran</div>
+                    <div class="card-body">
+                        <?php
+                            $sql = "select * from transaksi where status='belum bayar'";
+                            $query = mysqli_query($conn, $sql);
+                            $data = mysqli_num_rows($query);
+                        ?>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="p-0">Menunggu Pembayaran</div>
+                            <div class="p-0"><?php echo $data; ?></div>
+                        </div>  
+                    </div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <a class="small text-white stretched-link" href="menunggu-pembayaran.php">Lihat Detail</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-warning text-white mb-4">
-                    <div class="card-body">Menunggu Pengiriman</div>
+                    <div class="card-body">
+                        <?php
+                            $sql = "select * from transaksi where status='menunggu kirim'";
+                            $query = mysqli_query($conn, $sql);
+                            $data = mysqli_num_rows($query);
+                        ?>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="p-0">Menunggu Pengiriman</div>
+                            <div class="p-0"><?php echo $data; ?></div>
+                        </div>
+                    </div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <a class="small text-white stretched-link" href="menunggu-pengiriman.php">Lihat Detail</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-info text-white mb-4">
-                    <div class="card-body">Proses Pengiriman</div>
+                    <div class="card-body">
+                        <?php
+                            $sql = "select * from transaksi where status='proses kirim'";
+                            $query = mysqli_query($conn, $sql);
+                            $data = mysqli_num_rows($query);
+                        ?>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="p-0">Proses Pengiriman</div>
+                            <div class="p-0"><?php echo $data; ?></div>
+                        </div>
+                    </div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <a class="small text-white stretched-link" href="proses-pengiriman.php">Lihat Detail</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-secondary text-white mb-4">
-                    <div class="card-body">Tabungan</div>
+                    <div class="card-body">
+                        <?php
+                            $sql = "select * from transaksi where status='belum bayar' and jenis_pembayaran='tabungan'";
+                            $query = mysqli_query($conn, $sql);
+                            $data = mysqli_num_rows($query);
+                        ?>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="p-0">Tabungan</div>
+                            <div class="p-0"><?php echo $data; ?></div>
+                        </div>  
+                    </div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <a class="small text-white stretched-link" href="tabungan.php">Lihat Detail</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
@@ -49,29 +92,46 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Nama</th>
-                                <th>No. WA</th>
-                                <th>Nama Barang</th>
-                                <th>Warna</th>
-                                <th>Harga</th>
-                                <th>Tgl Transaksi</th>
+                                <th>No</th>
+                                <th>Tanggal Transaksi</th>
+                                <th>Nama Pembeli</th>
+                                <th>Alamat</th>
+                                <th>Nomor WA</th>
+                                <th>Jenis Pembayaran</th>
+                                <th>Jenis Pengiriman</th>
+                                <th>Tabungan</th>
+                                <th>Total</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>0812345678</td>
-                                <td>Chayra Abaya</td>
-                                <td>Black</td>
-                                <td>Rp. 140000</td>
-                                <td>20-01-2021</td>
-                                <td>Lunas</td>
-                            </tr>
+                            <?php
+                                // Query
+                                $nomor = 1;
+                                $sql = "SELECT * from transaksi inner join user on transaksi.id_user = user.id_user order by tanggal_transaksi desc limit 3";
+                                $query = mysqli_query($conn, $sql);
+                                while($data = mysqli_fetch_array($query)){
+                            ?>      
+                                    <tr>
+                                        <td><?php echo $nomor; ?></td>
+                                        <td><?php echo $data["tanggal_transaksi"]; ?></td>
+                                        <td><?php echo $data["nama"]; ?></td>
+                                        <td><?php echo $data["alamat"]; ?></td>
+                                        <td><?php echo $data["nomor_wa"]; ?></td>
+                                        <td><?php echo $data["jenis_pembayaran"]; ?></td>
+                                        <td><?php echo $data["jenis_pengiriman"]; ?></td>
+                                        <td><?php echo $data["tabungan"]; ?></td>
+                                        <td><?php echo $data["total"]; ?></td>
+                                        <td><?php echo $data["status"]; ?></td>
+                                    </tr>
+                            <?php
+                                    $nomor++;
+                                }
+                            ?>
                         </tbody>
                     </table>
-                    <ul class="pagination justify-content-end">
-                        <li class="page-item"><a href="#" class="page-link">Selengkapnya</a></li>
+                    <ul class="pagination justify-content-end mt-2">
+                        <li class="page-item"><a href="riwayat-transaksi.php" class="page-link">Selengkapnya</a></li>
                     </ul>
                 </div>
             </div>
