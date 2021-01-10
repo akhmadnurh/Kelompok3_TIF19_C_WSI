@@ -58,7 +58,7 @@
                                     <td><?php echo $data["keterangan"]; ?></td>
                                     <td><?php echo $data["stok"]; ?></td>
                                     <td>
-                                        <img src="http://localhost/Kelompok3_TIF19_C_WSI/web-project/<?php echo $data["lokasi_gambar"]; ?>" alt="" style="width: 60px; height: 90px;">
+                                        <img src="../../<?php echo $data["lokasi_gambar"]; ?>" alt="" style="width: 60px; height: 90px;">
                                     </td>
                                     <td><?php echo $data["best_seller"] == 1 ? "Ya" : "Tidak"; ?></td>
                                     <td>

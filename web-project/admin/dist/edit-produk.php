@@ -30,7 +30,7 @@
         $panjang = $data["panjang"];
         $lebar_dada = $data["lebar_dada"];
 
-        $gambar = $data["gambar"];
+        $gambar = $data["lokasi_gambar"];
         
       }else{
         // Code here
@@ -59,6 +59,19 @@
           <h1><?php echo $title; ?></h1>
         </div>
         <div class="card-body">
+          <?php
+            if(isset($_GET["error"])){
+              if($_GET["error"] == "kategori"){
+          ?>
+                <div class="alert alert-danger">Kategori belum dimasukkan!</div> 
+          <?php
+              }elseif($_GET["error"] == "gambar"){
+          ?>
+                <div class="alert alert-danger">Gambar Belum dimasukkan!</div> 
+          <?php
+              }
+            }
+          ?>
           <form action="edit-produk-process.php?status=<?php echo $_GET["status"]; ?>&id_produk=<?php echo $id_produk; ?>" method="POST" enctype="multipart/form-data">
             <div class="input-group mb-3 w-50">
               <span class="input-group-text">Kategori</span>
@@ -98,7 +111,7 @@
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Stok</span>
-              <input type="text" name="stok"  class="form-control" placeholder="Masukkan stok produk" maxlength="11" value="<?php echo $stok; ?>" required>
+              <input type="number" name="stok"  class="form-control" placeholder="Masukkan stok produk" maxlength="11" value="<?php echo $stok; ?>" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Keterangan</span>
@@ -110,10 +123,16 @@
                 <label for="best-seller" class="custom-control-label" >Best Seller</label>
               </div>
             </div>
-            <div class="mb-3 custom-file w-50">
-              <label for="formFileMultiple" class="custom-file-label">Masukkan Foto</label>
-              <input class="custom-file-input" type="file" id="formFileMultiple" name="gambar">
+            <div class="mb-3 w-50">
+              <label for="formFileMultiple" class="form-label">Masukkan Foto</label> 
+              <input class="form-control" type="file" id="formFileMultiple" name="gambar">
             </div>
+            <?php
+              if($_GET["status"] == "edit"){
+
+                echo "<img src='../../$gambar' alt='' style='width: 230px; height: 345px;' class='mb-3'>";
+              }
+            ?>
             <button class="btn btn-dark" type="submit" style="width: 100%;">Submit</button>
           </form> 
         </div>
