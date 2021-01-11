@@ -47,6 +47,7 @@
                                 Email: adayat00@gmail.com<br>
                                 Jenis Kelamin: Laki - Laki<br>
                                 No. Hp: 081234765809<br>
+                                Alamat:
                             </div>
                             <div class="col-2">
                                 <!-- Button trigger modal -->
@@ -89,6 +90,10 @@
                                 <label for="nohp">No. Hp</label>
                                 <input type="text" name="nohp" class="form-control" value="">
                             </div>
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <textarea name="alamat" class="form-control" id="" cols="30" rows="10" value=""></textarea>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -99,22 +104,6 @@
                 </div>
                 </div>
 
-                <!-- Alamat Pengiriman -->
-                <div class="card mt-xl-3">
-                    <div class="card-header"><h3>Alamat Pengiriman</h3></div>
-                    <div class="card-body">
-                        <form action="">
-                            <div class="form-group">
-                                <input class="form-control mb-3 w-50" type="text" placeholder="Provinsi">
-                                <input class="form-control mb-3 w-50" type="text" placeholder="Kabupaten">
-                                <input class="form-control mb-3 w-50" type="text" placeholder="Kecamatan">
-                                <input class="form-control mb-3" type="text" placeholder="Alamat Lengkap">
-                                <input class="form-control mb-3 w-50" type="text" placeholder="Kode Pos">
-                                <button class="btn btn-md btn-dark">Simpan</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
