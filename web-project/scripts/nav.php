@@ -125,15 +125,15 @@
                                 if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){
                                     // Cek level user
                                     if($_SESSION["level"] == "admin"){
-                                        echo "<a class='dropdown-item' href='http://localhost/web-project/admin/'>Admin</a>";
+                                        echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/admin/'>Admin</a>";
                                     }else{
-                                        echo "<a class='dropdown-item' href='http://localhost/web-project/scripts/akun.php'>Akun Saya</a>";
-                                        echo "<a class='dropdown-item' href='http://localhost/web-project/scripts/transaksi-history.php'>History Transaksi</a>";
+                                        echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/akun.php'>Akun Saya</a>";
+                                        echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/transaksi-history.php'>History Transaksi</a>";
                                     }
-                                    echo "<a class='dropdown-item' href='http://localhost/web-project/scripts/logout.php'>Logout</a>";
+                                    echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/logout.php'>Logout</a>";
                                 }else{
-                                    echo "<a class='dropdown-item' href='http://localhost/web-project/scripts/register.php'>Registrasi</a>";
-                                    echo "<a class='dropdown-item' href='http://localhost/web-project/scripts/login.php'>Login</a>";
+                                    echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/register.php'>Registrasi</a>";
+                                    echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/login.php'>Login</a>";
                                 }
                         ?>
                     </div>
