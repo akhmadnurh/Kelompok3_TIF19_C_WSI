@@ -103,7 +103,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/cart.php"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_bagshop.png" alt="Cart" class="menu-icon"></a>
+                        <?php
+                            if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){
+                                // Cek level user
+                                if($_SESSION["level"] == "user"){
+                                    echo "<a class='nav-link' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/cart.php'><img src='https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_bagshop.png' alt='Cart' class='menu-icon'></a>";
+                                }
+                            }
+                        ?>
+                        
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
