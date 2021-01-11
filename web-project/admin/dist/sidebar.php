@@ -69,8 +69,8 @@
                                     <a class="nav-link" href="menunggu-pembayaran.php">Menunggu Pembayaran</a>
                                     <a class="nav-link" href="menunggu-pengiriman.php">Menunggu Pengiriman</a>
                                     <a class="nav-link" href="proses-pengiriman.php">Proses Pengiriman</a>
-                                    <a class="nav-link" href="riwayat-transaksi.php">Riwayat Transaksi</a>
                                     <a class="nav-link" href="tabungan.php">Tabungan</a>
+                                    <a class="nav-link" href="riwayat-transaksi.php">Riwayat Transaksi</a>
                                 </nav>
                             </div>
 

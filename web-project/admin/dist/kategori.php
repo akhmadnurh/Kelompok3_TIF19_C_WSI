@@ -41,10 +41,10 @@
                                 <td><?php echo $nomor; ?></td>
                                 <td><?php echo $data["nama_kategori"]; ?></td>
                                 <td>
-                                    <a href="edit-kategori.php?status=edit&id_kategori=<?php echo $data['id_kategori']; ?>" class="btn btn-link">
+                                    <a href="edit-kategori.php?status=edit&id_kategori=<?php echo $data['id_kategori']; ?>" class="btn btn-link" title="Edit Kategori">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="javascript:delete_cat()" class="btn btn-link">
+                                    <a href="javascript:delete_cat()" class="btn btn-link" title="Hapus Kategori">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                     <script>

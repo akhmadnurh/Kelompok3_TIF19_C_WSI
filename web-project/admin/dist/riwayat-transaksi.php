@@ -77,16 +77,16 @@
                                 if($halaman == 1){
                                     echo "<li class='page-item disabled'><a class='page-link' href='#'>Previous</a></li>";
                                 }else{
-                                    echo "<li class='page-item'><a class='page-link' href='data-produk.php?halaman=$previous'>Previous</a></li>";
+                                    echo "<li class='page-item'><a class='page-link' href='riwayat-transaksi.php?halaman=$previous'>Previous</a></li>";
                                 }
                             ?>
                             <?php
                                 
                                 for($i=1; $i<=$total_halaman; $i++){
                                     if($halaman == $i){
-                                        echo "<li class='page-item active'><a class='page-link' href='data-produk.php?halaman=$i'>$i</a></li>";
+                                        echo "<li class='page-item active'><a class='page-link' href='riwayat-transaksi.php?halaman=$i'>$i</a></li>";
                                     }else{
-                                        echo "<li class='page-item'><a class='page-link' href='data-produk.php?halaman=$i'>$i</a></li>";
+                                        echo "<li class='page-item'><a class='page-link' href='riwayat-transaksi.php?halaman=$i'>$i</a></li>";
                                     }
                                 }
                             ?>
@@ -94,7 +94,7 @@
                                 if($halaman == $total_halaman){
                                     echo "<li class='page-item disabled'><a class='page-link' href='#'>Next</a></li>";
                                 }else{
-                                    echo "<li class='page-item'><a class='page-link' href='data-produk.php?halaman=$next'>Next</a></li>";
+                                    echo "<li class='page-item'><a class='page-link' href='riwayat-transaksi.php?halaman=$next'>Next</a></li>";
                                 }
                             ?>
                         </ul>
