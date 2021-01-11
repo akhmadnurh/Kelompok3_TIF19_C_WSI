@@ -1,6 +1,6 @@
 <?php
 
-    // session_start();
+    session_start();
     require "connection.php";
     $email = $_POST["email"];
     $pass = $_POST["pwd"];
@@ -14,9 +14,10 @@
         if($result == 1){
                 $data = mysqli_fetch_array($query);
                 //  Atur SESSION + Level Login
+                $_SESSION["login"] = "yes";
+                $_SESSION["level"] = $data["level"] == 1 ? "admin" : "user";
                 header("Location: ../index.php");
-                // $_SESSION["status"] = 1;
-                // $_SESSION["level"] = $data["level"];
+
 
         }else{
             header("Location: login.php?status=error");

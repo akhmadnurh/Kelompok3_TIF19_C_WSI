@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){
+        header("Location: ../index.php");
+    }
+?>
 <!doctype html>
 <html lang="en">
   <head>
