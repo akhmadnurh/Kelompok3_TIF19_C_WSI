@@ -113,7 +113,6 @@
                                 }
                             }
                         ?>
-                        
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -123,6 +122,7 @@
                         <?php
                                 // Cek Session login
                                 if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){
+                                    echo "<span class='dropdown-item disabled'>Hai, ".$_SESSION['nama']."</span><hr style='margin-top: -2px;'>";
                                     // Cek level user
                                     if($_SESSION["level"] == "admin"){
                                         echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/admin/'>Admin</a>";

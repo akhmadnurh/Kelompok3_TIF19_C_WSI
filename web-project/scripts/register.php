@@ -38,7 +38,12 @@
             margin-top: 5%;
         }
         .btn-switcher{
-            background: #FBF1F0;
+            background: #C3A892;
+            color: white;
+        }
+        .btn-switcher:hover{
+            background: #343a40;
+            color: white;
         }
         .btn{
             width: 100%;
@@ -52,7 +57,7 @@
         }
     </style>
   </head>
-  <body style="background:#C3A892;">
+  <body style="background:#343a40;">
     <?php //include "nav.php"; ?>
     <div class="container">
         <center>
@@ -132,7 +137,6 @@
                         <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px; margin-top: 20px; margin-bottom: 30px; background:#C3A892; border: 1px solid #C3A892;">Register</button>
                     </form>
                 </div>
-                
             </center>
 
         </div>

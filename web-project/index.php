@@ -5,7 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <!-- Icon Title -->
+    <link rel="icon" href="../images/hi_valeeqa.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Hi Valeeqa</title>
@@ -179,7 +180,6 @@
                         ?>
                     </div>
                     <a href="scripts/search.php?kategori=best-seller" class="btn more text-center" name="more">More></a>
-
                 </div>
                 
                     <?php
@@ -194,15 +194,19 @@
                         }
                 
                         // Cetak data sesuai kategori
-                        for($i=0; $i<$hasil_urutan; $i++){          
+                        for($i=0; $i<$hasil_urutan; $i++){  
+                            // Filter data sesuai kategori
+                            $id_kategori = $id_kategori_arr[$i];
+                            $filter_data = mysqli_query($conn, "SELECT produk.id_produk, produk.id_kategori, nama_barang, harga, bahan, warna,  best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where produk.id_kategori='$id_kategori'");
+                            if(mysqli_num_rows($filter_data) == 0){
+                                continue;
+                            }        
                     ?>
                             <div class="item-panel">
                                 <h5><?php echo $kategori_arr[$i]; ?></h5>
                                 <div class="row item-list">    
                                     <?php
-                                        // Filter data sesuai kategori
-                                        $id_kategori = $id_kategori_arr[$i];
-                                        $filter_data = mysqli_query($conn, "SELECT produk.id_produk, produk.id_kategori, nama_barang, harga, bahan, warna,  best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk where produk.id_kategori='$id_kategori'");
+                                        
                                         $k = 0;
                                         while($data = mysqli_fetch_array($filter_data)){
                                     ?>
@@ -221,7 +225,7 @@
                                             </div>
                                     <?php
                                             $k++;
-                                            if($k > 4){
+                                            if($k > 3){
                                                 break;
                                             }
                                         }

@@ -16,6 +16,8 @@
                 //  Atur SESSION + Level Login
                 $_SESSION["login"] = "yes";
                 $_SESSION["level"] = $data["level"] == 1 ? "admin" : "user";
+                $_SESSION["id_user"] = $data["id_user"];
+                $_SESSION["nama"] = $data["nama"];
                 header("Location: ../index.php");
 
 

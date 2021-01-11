@@ -29,7 +29,7 @@
             overflow: hidden;
         }
         .login-register-form{
-            border: 1px 
+            border: 1px ;
         }
         form{
             margin-left: 10%;
@@ -38,12 +38,18 @@
             margin-top: 5%;
         }
         .btn-switcher{
-            background: #FBF1F0;
+            background: #C3A892;
+            color: white;
+        }
+        .btn-switcher:hover{
+            background: #343a40;
+            color: white;
         }
         .btn{
             width: 100%;
             height: 60px;
             border-radius: 0px;
+            
         }
         a.btn h3{
             height: 100%;
@@ -52,7 +58,7 @@
         }
     </style>
   </head>
-  <body style="background:#C3A892;">
+  <body style="background:#343a40;">
     <?php //include "nav.php"; ?>
     <div class="container">
         <center>
@@ -60,7 +66,7 @@
                 <div class="login-register-switch">
                     <div class="row text-center no-gutters">
                         <div class="col">
-                            <a href="login.php" class="btn" onclick=" return false;">
+                            <a href="login.php" style="color: #343a40;"class="btn" onclick=" return false;">
                                 <h3>Login</h3>
                             </a>
                         </div>
@@ -99,7 +105,8 @@
                         <label for="pwd">Password: </label>
                         <input type="password" name="pwd" id="password" class="form-control" maxlength="50">
                     </div>
-                    <a href="lupa-password.php" style="text-align: left;">Lupa kata sandi?</a>
+                    <a href="lupa-password.php">Lupa kata sandi?</a><br>
+                    <a href="../index.php">Kembali ke beranda</a>
                     <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px; margin-top: 20px; margin-bottom: 30px; background:#C3A892; border: 1px solid #C3A892;">Login</button>
                 </form>
             </center>
