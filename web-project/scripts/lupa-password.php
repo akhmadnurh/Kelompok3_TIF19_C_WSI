@@ -24,10 +24,27 @@
                 <h3>Lupa Kata Sandi</h3>
             </div>
             <div class="card-body">
+                <?php
+                    if(isset($_GET["status"])){
+                        $status = $_GET["status"];
+                        if($status == "not-found"){
+                ?>
+                            <div class="alert alert-danger">Email belum terdaftar!</div>
+                <?php
+                        }elseif ($status == "success") {
+                ?>
+                            <div class="alert alert-success">
+                                Request berhasil! Mohon tunggu admin untuk menghubungi anda. <br>
+                                Atau juga bisa menghubungi 081111111
+                            </div>
+                <?php
+                        }
+                    }
+                ?>
                 <form action="lupa-password-process.php" method="POST">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" name="email" class="form-control" id="email" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

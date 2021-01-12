@@ -39,6 +39,22 @@
                     <div class="card-header"><h3>Keranjang</h3></div>
                     <div class="card-body px-4 item-body">
                         <?php
+                            // Status ketika barang ditambahkan
+                            if(isset($_GET["status"])){
+                                $status = $_GET["status"];
+                                if($status == "exist"){
+                        ?>
+                                    <div class="alert alert-danger">Tambah barang gagal! Barang sudah ditambahkan sebelumnya.</div>
+                        <?php
+                                }elseif ($status == "success") {
+                        ?>
+                        
+                                    <div class="alert alert-success">Barang berhasil ditambahkan!</div>
+                        <?php
+                                }
+                            }
+                        ?>
+                        <?php
                             require_once "connection.php";
                             $id_user = $_SESSION["id_user"];
                             $sql = "SELECT * FROM cart inner join produk on cart.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_user=$id_user";
@@ -56,20 +72,12 @@
                                                 </div>
                                                 <div class="col-md-6 col-lg-8 col-xl-8">
                                                     <span class="item-judul"><?php echo $data["nama_barang"]; ?></span><br>
-                                                    <span class="item-warna"><?php echo $data["warna"]; ?></span><br><br>
+                                                    <span class="item-warna"><?php echo $data["warna"]; ?></span><br>
+                                                    <span class="item-warna">Jumlah: <?php echo $data["jumlah"]; ?></span><br><br>
                                                     <input type="hidden" name="id_produk" id="id_produk" value="<?php echo $data["id_produk"]; ?>" class="form-control w-25 mt-auto text-center item-input">
-                                                    <input type="number" name="jumlah" id="jumlah" value="<?php echo $data["jumlah"]; ?>" class="form-control w-25 mt-auto text-center item-input">
                                                 </div>
                                                 <div class="col-md-2 col-lg-2 col-xl-2">
                                                     <a href="hapus-cart.php?id-produk=<?php echo $data['id_produk']; ?>" class="btn btn-danger mb-2" style="color: white">Hapus</a>
-                                                    <a onclick="simpan_keranjang()" class="btn btn-dark" style="color: white">Simpan</a>
-                                                    <script>
-                                                        function simpan_keranjang(){
-                                                            var id_produk = document.getElementById("id_produk").value;
-                                                            var jumlah = document.getElementById("jumlah").value;
-                                                            location.href="simpan-cart.php?id-produk="+id_produk+"&jumlah="+jumlah;
-                                                        }
-                                                    </script>
                                                 </div>
 
                                             <div class="ml-auto mr-4">

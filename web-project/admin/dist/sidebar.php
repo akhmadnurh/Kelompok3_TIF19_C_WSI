@@ -91,6 +91,7 @@
                                     <a class="nav-link" href="user.php">User</a>
                                     <a class="nav-link" href="admin.php">Admin</a>
                                     <a class="nav-link" href="edit-user.php?status=add">Tambah User</a>
+                                    <a class="nav-link" href="lupa-password.php">Lupa Password</a>
                                 </nav>
                             </div>
 

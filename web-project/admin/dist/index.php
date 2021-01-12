@@ -81,6 +81,25 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">
+                        <?php
+                            $sql = "select id_user from user where lupa_password='ya'";
+                            $query = mysqli_query($conn, $sql);
+                            $data = mysqli_num_rows($query);
+                        ?>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="p-0">Lupa Password</div>
+                            <div class="p-0"><?php echo $data; ?></div>
+                        </div>  
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="lupa-password.php">Lihat Detail</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="card mb-4">
             <div class="card-header">
