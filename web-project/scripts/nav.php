@@ -129,7 +129,7 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_person.png" alt="Account" class="menu-icon" >    
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <?php
                                             // Cek Session login
                                             if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){

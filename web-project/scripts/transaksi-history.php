@@ -151,7 +151,8 @@
                                                     <span class="trans-jumlah">Jumlah: 1</span>
                                                 </div>
                                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                    <span class="trans-harga">Rp. 140000</span>
+                                                    <span class="trans-harga">Rp. 140000</span><br>
+                                                    <a href="#" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -166,7 +167,8 @@
                                                     <span class="trans-jumlah">Jumlah: 2</span>
                                                 </div>
                                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                    <span class="trans-harga">Rp. 140000</span>
+                                                    <span class="trans-harga">Rp. 140000</span><br>
+                                                    <a href="#" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -202,7 +204,8 @@
                                                     <span class="trans-jumlah">Jumlah: 1</span>
                                                 </div>
                                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                    <span class="trans-harga">Rp. 140000</span>
+                                                    <span class="trans-harga">Rp. 140000</span><br>
+                                                    <a href="#" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -242,7 +245,8 @@
                                                     <span class="trans-jumlah">Jumlah: 1</span>
                                                 </div>
                                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                    <span class="trans-harga">Rp. 140000</span>
+                                                    <span class="trans-harga">Rp. 140000</span><br>
+                                                    <a href="#" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -280,7 +284,8 @@
                                                     <span class="trans-jumlah">Jumlah: 1</span>
                                                 </div>
                                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                    <span class="trans-harga">Rp. 140000</span>
+                                                    <span class="trans-harga">Rp. 140000</span><br>
+                                                    <a href="#" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
                                                 </div>
                                             </div>
                                         </div>
