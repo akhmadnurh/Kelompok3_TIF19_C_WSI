@@ -129,6 +129,7 @@
                                     }else{
                                         echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/akun.php'>Akun Saya</a>";
                                         echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/transaksi-history.php'>History Transaksi</a>";
+                                        echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/ubah-password.php'>Ubah Kata Sandi</a>";
                                     }
                                     echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/logout.php'>Logout</a>";
                                 }else{

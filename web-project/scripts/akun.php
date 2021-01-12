@@ -33,15 +33,14 @@
                         <ul class="list-group list-group-flush">
                             <a href="akun.php" class="list-group-item list-group-item-action active py-3">Akun Saya</a>
                             <a href="transaksi-history.php" class="list-group-item list-group-item-action py-3">Histori Transaksi</a>
+                            <a href="ubah-password.php" class="list-group-item list-group-item-action py-3">Ubah Kata Sandi</a>
                           </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Akun Bagi 2 -->
+            <!-- Informasi Kontak -->
             <div class="col-lg-9 col-md-9 col-xl-9">
-
-                <!-- Informasi Kontak -->
                 <div class="card">
                     <div class="card-header"><h3>Informasi Kontak</h3></div>
                     <div class="card-body">
