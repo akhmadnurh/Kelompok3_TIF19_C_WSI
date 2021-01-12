@@ -107,7 +107,8 @@
                                 </tr>
                             </table>
                     <?php
-                                $total += $data2["harga"];
+                                $hitung = $data2["harga"] * $data2["jumlah"];
+                                $total += $hitung;
                                 $nomor++;
                             }
                         }

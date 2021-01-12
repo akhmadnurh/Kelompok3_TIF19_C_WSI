@@ -84,8 +84,9 @@
                                                 <span class="item-harga">Rp <?php echo number_format($data["harga"], 0, "", "."); ?></span>
                                             </div>
                                         </div>
-                        <?php
-                                    $total += $data["harga"];
+                        <?php       
+                                    $hitung = $data["harga"] * $data["jumlah"];
+                                    $total += $hitung;
                                 }
                             }
                         ?>
