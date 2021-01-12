@@ -118,11 +118,11 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_person.png" alt="Account" class="menu-icon" >
                         </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <?php
                                 // Cek Session login
                                 if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){
-                                    echo "<span class='dropdown-item disabled'>Hai, ".$_SESSION['nama']."</span><hr style='margin-top: -2px;'>";
+                                    echo "<span class='dropdown-item disabled'>Hai, ".$_SESSION['nama']."</span><div class='dropdown-divider'></div>";
                                     // Cek level user
                                     if($_SESSION["level"] == "admin"){
                                         echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/admin/'>Admin</a>";
