@@ -1,3 +1,7 @@
+<?php 
+    session_start(); 
+    require_once("connection.php");
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -43,11 +47,19 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-10">
-                                Nama: Ahmad Dayat<br>
-                                Email: adayat00@gmail.com<br>
-                                Jenis Kelamin: Laki - Laki<br>
-                                No. Hp: 081234765809<br>
-                                Alamat:
+                                <?php
+                                    $id_user = $_SESSION['id_user'];
+                                    $sql = "select * from user where id_user='$id_user'";
+                                    $query = mysqli_query($conn, $sql);
+                                    $data = mysqli_fetch_array($query);
+                                ?>
+                                <p>
+                                    Nama: <?php echo $data["nama"]; ?><br>
+                                    Email: <?php echo $data["email"]; ?><br>
+                                    Jenis Kelamin: <?php echo $data["jenis_kelamin"] == "L" ? "Laki-Laki" : "Perempuan"; ?><br>
+                                    No. HP: <?php echo $data["nomor_wa"]; ?><br>
+                                    Alamat: <?php echo $data["alamat"]; ?><br>
+                                </p>
                             </div>
                             <div class="col-2">
                                 <!-- Button trigger modal -->
@@ -69,37 +81,37 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <form action="" role="form" method="get">
+                    <form action="edit-akun-process.php?id_user=<?php echo $id_user; ?>" role="form" method="POST">
+                        <div class="modal-body">      
                             <div class="form-group">
                                 <label for="nama">Nama</label>
-                                <input type="text" name="nama" class="form-control" value="">
+                                <input type="text" name="nama" class="form-control" value="<?php echo $data["nama"]; ?>" maxlength="50" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" name="email" class="form-control" value="">
+                                <input type="email" name="email" class="form-control" value="<?php echo $data["email"]; ?>" maxlength="50" required>
                             </div>
                             <div class="form-group">
                                 <label for="jk">Jenis Kelamin</label>
                                 <select name="jk" id="jk" class="custom-select">
-                                    <option value="Laki-Laki">Laki - Laki</option>
-                                    <option value="Perempuan">Perempuan</option>
+                                    <option value="L" <?php if($data["jenis_kelamin"] == "L") echo "selected"; ?>>Laki - Laki</option>
+                                    <option value="P" <?php if($data["jenis_kelamin"] == "P") echo "selected"; ?>>Perempuan</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="nohp">No. Hp</label>
-                                <input type="text" name="nohp" class="form-control" value="">
+                                <label for="wa">No. Hp</label>
+                                <input type="text" name="wa" class="form-control" value="<?php echo $data["nomor_wa"]; ?>" maxlength="12" required>
                             </div>
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
-                                <textarea name="alamat" class="form-control" id="" cols="30" rows="10" value=""></textarea>
+                                <textarea name="alamat" class="form-control" id="" cols="30" rows="10"><?php echo $data["alamat"]; ?></textarea>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                        </div>
+                    </form>
                     </div>
                 </div>
                 </div>
