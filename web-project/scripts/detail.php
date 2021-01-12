@@ -127,7 +127,7 @@
             height: 15%;
         }
         .tabContainer .buttonContainer button {
-            width: calc(100% / 3);
+            width: calc(100% / 2);
             height: 100%;
             float: left;
             border: none;
@@ -187,24 +187,24 @@
                 <div class="tabImg">
                     <?php $pic =  $data["lokasi_gambar"] ?>
                     <button onclick="viewPanel(0)"><img src="<?php echo "../".$pic; ?>" class="img-pilih"></button>
-                    <button onclick="viewPanel(1)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" class="img-pilih"></button>
+                    <!-- <button onclick="viewPanel(1)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" class="img-pilih"></button>
                     <button onclick="viewPanel(2)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img3.png" class="img-pilih"></button>
-                    <button onclick="viewPanel(3)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" class="img-pilih"></button>
+                    <button onclick="viewPanel(3)"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" class="img-pilih"></button> -->
                 </div>
             </div>
             <div class="col-sm">
                 <div class="panelImg"><center><img src="<?php echo "../".$pic; ?>" class="img-detail"></center></div>
-                <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" class="img-detail"></center></div>
+                <!-- <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" class="img-detail"></center></div>
                 <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img3.png" class="img-detail"></center></div>
-                <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" class="img-detail"></center></div>
+                <div class="panelImg"><center><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" class="img-detail"></center></div> -->
             </div>
             <div class="col-sm">
                 <p class="judul"><?php echo $data["nama_barang"]; ?></p>
                 <p class="warna"><?php echo $data["warna"]  ?></p>
                 <p class="stok"><?php echo "Stok tersisa: ".$data["stok"];  ?></p>
                 <p class="harga"><?php echo "Rp ".number_format($data["harga"], 0, "", "."); ?></p>
-                <a href=""><div class="btn-detail">PESAN</div></a>
-                <a href=""><div class="btn-detail">NABUNG</div></a>
+                <!-- <a href=""><div class="btn-detail">PESAN</div></a> -->
+                <a href="add-cart.php"><div class="btn-detail">Tambah ke Keranjang</div></a>
             </div>
             <div class="col-sm-auto">
                 <div class="detail-kanan">
@@ -221,7 +221,7 @@
         <div class="buttonContainer">
             <button onclick="showPanel(0,'#ffffff')">Rincian</button>
             <button onclick="showPanel(1,'#ffffff')">Detail Ukuran</button>
-            <button onclick="showPanel(2,'#ffffff')">Ulasan</button>
+            <!-- <button onclick="showPanel(2,'#ffffff')">Ulasan</button> -->
         </div>
         <div class="tabPanel">
             <table class="tb-rincian">
