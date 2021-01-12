@@ -20,7 +20,7 @@
             height: 15%;
         }
         .tabContainer .buttonContainer button {
-            width: calc(100% / 3);
+            width: calc(100% / 5);
             height: 100%;
             float: left;
             border: none;
@@ -38,48 +38,277 @@
             background-color: #f6f6f6;
             color: #000000;
             text-align: center;
-            padding-top: 105px;
-            padding-bottom: 50px;
+            padding-top: 40px;
             box-sizing: border-box;
             font-size: 16px;
             display: none;
         }
 
+        .item-trans{
+            margin-top: 20px;
+            background: #ffffff;
+            height: 100%;
+            border-top: 1px #eee solid;
+            border-bottom: 1px #eee solid;
+        }
+        .item-trans-atas {
+            height: 20%;
+            padding: 20px;
+            vertical-align: center;
+        }
+        .item-trans-tengah {
+            height: 50%;
+        }
+        .item-trans-barang {
+            border-top: 1px #eee solid;
+            padding: 20px;
+            margin-left:20px;
+            margin-right: 20px;
+        }
+        .item-trans-barang img {
+            height: 100px;
+        }
+        .trans-nama {
+            font-size: 24px;
+        }
+        .trans-warna {
+            color: lightgrey;
+            font-size: 14px;
+        }
+        .trans-jumlah {
+            font-size: 14px;
+        }
+        .item-trans-bawah {
+            height: 30%;
+            background: #fbf1f0;
+            border-top: 1px #eee solid;
+            padding: 20px;
+        }
+        .trans-total {
+            font-size: 22px;
+        }
+        .item-trans-kosong {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        .item-trans-kosong img {
+            height: 90px;
+            margin-bottom: 10px;
+        }
     </style>
   </head>
   <body>
     <?php include 'nav.php' ?>
     <div class="container marg">
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-xl-3">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3">
                 <div class="card">
                     <div class="card-header"><h3>Akun</h3></div>
                     <div class="card-body px-0 py-0">
                         <ul class="list-group list-group-flush">
                             <a href="akun.php" class="list-group-item list-group-item-action py-3">Akun Saya</a>
-                            <a href="transaksi-history.php" class="list-group-item list-group-item-action active py-3">Histori Transaksi</a>
+                            <a href="transaksi-history.php" class="list-group-item list-group-item-action active py-3">History Transaksi</a>
                             <a href="ubah-password.php" class="list-group-item list-group-item-action py-3">Ubah Kata Sandi</a>
                           </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-9 col-xl-9">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xl-9">
                 <div class="card">
                     <div class="card-body py-0 px-0">
                         <div class="tabContainer">
                             <div class="buttonContainer">
-                                <button onclick="showPanel(0,'#007bff')">Menunggu</button>
-                                <button onclick="showPanel(1,'#007bff')">Dikirim</button>
-                                <button onclick="showPanel(2,'#007bff')">Selesai</button>
+                                <button onclick="showPanel(0,'#007bff')">Belum Bayar</button>
+                                <button onclick="showPanel(1,'#007bff')">Dikemas</button>
+                                <button onclick="showPanel(2,'#007bff')">Dikirim</button>
+                                <button onclick="showPanel(3,'#007bff')">Selesai</button>
+                                <button onclick="showPanel(4,'#007bff')">Gagal</button>
                             </div>
+
+                            <!-- Belum Bayar -->
                             <div class="tabPanel">
-                                dd
+                                <!-- Item 1 -->
+                                <div class="item-trans">
+                                    <div class="item-trans-atas">
+                                        <div class="row">
+                                            <div class="col text-left">
+                                                <span class="id-transaksi">T00001</span>
+                                            </div>
+                                            <div class="col text-right">
+                                                <span class="status">Menunggu Pembayaran</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-trans-tengah">
+                                        <div class="item-trans-barang">
+                                            <div class="row">
+                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png">
+                                                </div>
+                                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                    <span class="trans-nama">Chayra Abaya</span><br>
+                                                    <span class="trans-warna">Black</span><br>
+                                                    <span class="trans-jumlah">Jumlah: 1</span>
+                                                </div>
+                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                    <span class="trans-harga">Rp. 140000</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-trans-barang">
+                                            <div class="row">
+                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img3.png">
+                                                </div>
+                                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                    <span class="trans-nama">Chayra Abaya 2</span><br>
+                                                    <span class="trans-warna">White</span><br>
+                                                    <span class="trans-jumlah">Jumlah: 2</span>
+                                                </div>
+                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                    <span class="trans-harga">Rp. 140000</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-trans-bawah text-right">
+                                        <span class="trans-total">Total: Rp. 320000</span><br>
+                                        <a href="#" class="btn btn-primary mt-3">Bayar</a>
+                                        <a href="#" class="btn btn-dark mt-3">Batalkan</a>
+                                        <a href="#" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                    </div>
+                                </div>
+                                <!-- Item 2 -->
+                                <div class="item-trans">
+                                    <div class="item-trans-atas">
+                                        <div class="row">
+                                            <div class="col text-left">
+                                                <span class="id-transaksi">T00002</span>
+                                            </div>
+                                            <div class="col text-right">
+                                                <span class="status">Menunggu Pembayaran</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-trans-tengah">
+                                        <div class="item-trans-barang">
+                                            <div class="row">
+                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img1.png">
+                                                </div>
+                                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                    <span class="trans-nama">Chayra Abaya 3</span><br>
+                                                    <span class="trans-warna">Black</span><br>
+                                                    <span class="trans-jumlah">Jumlah: 1</span>
+                                                </div>
+                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                    <span class="trans-harga">Rp. 140000</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-trans-bawah text-right">
+                                        <span class="trans-total">Total: Rp. 140000</span><br>
+                                        <a href="#" class="btn btn-primary mt-3">Bayar</a>
+                                        <a href="#" class="btn btn-dark mt-3">Batalkan</a>
+                                        <a href="#" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Dikemas -->
                             <div class="tabPanel">
-                                ww
+                                <!-- Item -->
+                                <div class="item-trans">
+                                    <div class="item-trans-atas">
+                                        <div class="row">
+                                            <div class="col text-left">
+                                                <span class="id-transaksi">T00003</span>
+                                            </div>
+                                            <div class="col text-right">
+                                                <span class="status">Menunggu Pengiriman</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-trans-tengah">
+                                        <div class="item-trans-barang">
+                                            <div class="row">
+                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img1.png">
+                                                </div>
+                                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                    <span class="trans-nama">Chayra Abaya 3</span><br>
+                                                    <span class="trans-warna">Black</span><br>
+                                                    <span class="trans-jumlah">Jumlah: 1</span>
+                                                </div>
+                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                    <span class="trans-harga">Rp. 140000</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-trans-bawah text-right">
+                                        <span class="trans-total">Total: Rp. 140000</span><br>
+                                        <a href="#" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Dikirim -->
                             <div class="tabPanel">
-                                Review
+                                <!-- Item -->
+                                <div class="item-trans">
+                                    <div class="item-trans-atas">
+                                        <div class="row">
+                                            <div class="col text-left">
+                                                <span class="id-transaksi">T00003</span>
+                                            </div>
+                                            <div class="col text-right">
+                                                <span class="status">Sedang Dikirim</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-trans-tengah">
+                                        <div class="item-trans-barang">
+                                            <div class="row">
+                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img1.png">
+                                                </div>
+                                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                    <span class="trans-nama">Chayra Abaya 3</span><br>
+                                                    <span class="trans-warna">Black</span><br>
+                                                    <span class="trans-jumlah">Jumlah: 1</span>
+                                                </div>
+                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                    <span class="trans-harga">Rp. 140000</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-trans-bawah text-right">
+                                        <span class="trans-total">Total: Rp. 140000</span><br>
+                                        <span class="btn btn-secondary mt-3">No. Resi: JNT 987654321</span>
+                                        <a href="#" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Selesai -->
+                            <div class="tabPanel">
+                                <!-- Tidak Ada Transaksi -->
+                                <div class="item-trans-kosong text-center">
+                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_shopping_list.png" alt="Tidak Ada Pesanan"><br>
+                                    <span class="trans-kosong">Tidak Ada Pesanan</span>
+                                </div>
+                            </div>
+
+                            <!-- Gagal -->
+                            <div class="tabPanel">
+                                <!-- Tidak Ada Transaksi -->
+                                <div class="item-trans-kosong text-center">
+                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_shopping_list.png" alt="Tidak Ada Pesanan"><br>
+                                    <span class="trans-kosong">Tidak Ada Pesanan</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -102,7 +331,7 @@
             });
             tabButttons[panelIndex].style.backgroundColor="white";
             tabButttons[panelIndex].style.color=colorCode;
-            tabButttons[panelIndex].style.borderBottom="thick solid";
+            tabButttons[panelIndex].style.borderBottom="medium solid";
             tabButttons[panelIndex].style.borderColor=colorCode;
             tabPanels.forEach(function(node) {
                 node.style.display="none";

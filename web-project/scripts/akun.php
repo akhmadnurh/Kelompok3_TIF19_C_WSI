@@ -32,7 +32,7 @@
                     <div class="card-body px-0 py-0">
                         <ul class="list-group list-group-flush">
                             <a href="akun.php" class="list-group-item list-group-item-action active py-3">Akun Saya</a>
-                            <a href="transaksi-history.php" class="list-group-item list-group-item-action py-3">Histori Transaksi</a>
+                            <a href="transaksi-history.php" class="list-group-item list-group-item-action py-3">History Transaksi</a>
                             <a href="ubah-password.php" class="list-group-item list-group-item-action py-3">Ubah Kata Sandi</a>
                           </ul>
                     </div>
