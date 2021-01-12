@@ -50,7 +50,6 @@
                             }else{
                                 while($data = mysqli_fetch_array($query)){  
                         ?>
-                                    <form action="simpan-keranjang.php?id-produk=<?php echo $data['id_produk']; ?>" method="GET">
                                         <div class="row item-produk">
                                                 <div class="col-md-4 col-lg-2 col-xl-2">
                                                     <img src="../<?php echo $data['lokasi_gambar'];?>" alt="Gambar" class="w-100">
@@ -58,23 +57,31 @@
                                                 <div class="col-md-6 col-lg-8 col-xl-8">
                                                     <span class="item-judul"><?php echo $data["nama_barang"]; ?></span><br>
                                                     <span class="item-warna"><?php echo $data["warna"]; ?></span><br><br>
-                                                    <input type="number" name="jumlah" value="<?php echo $data["jumlah"]; ?>" class="form-control w-25 mt-auto text-center item-input">
+                                                    <input type="hidden" name="id_produk" id="id_produk" value="<?php echo $data["id_produk"]; ?>" class="form-control w-25 mt-auto text-center item-input">
+                                                    <input type="number" name="jumlah" id="jumlah" value="<?php echo $data["jumlah"]; ?>" class="form-control w-25 mt-auto text-center item-input">
                                                 </div>
                                                 <div class="col-md-2 col-lg-2 col-xl-2">
-                                                    <a href="hapus-keranjang.php?id-produk=<?php echo $data['id_produk']; ?>" class="btn btn-danger mb-2" style="color: white">Hapus</a>
-                                                    <button type="submit" class="btn btn-dark" style="color: white">Simpan</button>
+                                                    <a href="hapus-cart.php?id-produk=<?php echo $data['id_produk']; ?>" class="btn btn-danger mb-2" style="color: white">Hapus</a>
+                                                    <a onclick="simpan_keranjang()" class="btn btn-dark" style="color: white">Simpan</a>
+                                                    <script>
+                                                        function simpan_keranjang(){
+                                                            var id_produk = document.getElementById("id_produk").value;
+                                                            var jumlah = document.getElementById("jumlah").value;
+                                                            location.href="simpan-cart.php?id-produk="+id_produk+"&jumlah="+jumlah;
+                                                        }
+                                                    </script>
                                                 </div>
+
                                             <div class="ml-auto mr-4">
                                                 <span class="item-harga">Rp <?php echo number_format($data["harga"], 0, "", "."); ?></span>
                                             </div>
                                         </div>
-                                    </form>
-
                         <?php
                                     $total += $data["harga"];
                                 }
                             }
                         ?>
+                       
                     </div>
                 </div>
             </div>
