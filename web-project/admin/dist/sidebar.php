@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION["level"]) or $_SESSION["level"] != "admin"){
+        header("Location: ../../index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -88,6 +94,12 @@
                                 </nav>
                             </div>
 
+                            <!-- Kembali ke Client Area -->
+                            <a class="nav-link" href="../../index.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                                Client Area
+                            </a>
+
                             <!-- Logout -->
                             <a class="nav-link" href="logout.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-power-off"></i></div>
@@ -97,7 +109,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Username
+                        <?php echo $_SESSION["nama"]; ?>
                     </div>
                 </nav>
             </div>
