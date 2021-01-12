@@ -24,7 +24,7 @@
                 <h3>Lupa Kata Sandi</h3>
             </div>
             <div class="card-body">
-                <form>
+                <form action="lupa-password-process.php" method="POST">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email">

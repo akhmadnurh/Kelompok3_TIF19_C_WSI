@@ -43,18 +43,30 @@
                         <h3>Ubah Kata Sandi</h3>
                     </div>
                     <div class="card-body">
-                        <form action="">
+                        <?php
+                            if(isset($_GET["status"])){
+                                $status = $_GET["status"];
+                                if($status == "error-pwd-old"){
+                                    echo "<div class='alert alert-danger'>Password lama tidak sesuai!</div>";
+                                }elseif ($status == "error-pwd-new"){
+                                    echo "<div class='alert alert-danger'>Verifikasi password baru tidak cocok!</div>";
+                                }elseif($status == "berhasil"){
+                                    echo "<div class='alert alert-success'>Password berhasil diubah!</div>";
+                                }
+                            }
+                        ?>
+                        <form action="ubah-password-process.php" method="POST">
                             <div class="form-group">
                                 <label for="passwordLama">Kata Sandi Lama</label>
-                                <input type="password" name="passwordLama" class="form-control">
+                                <input type="password" name="passwordLama" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="passwordBaru">Masukkan Kata Sandi Baru</label>
-                                <input type="password" name="passwordBaru" class="form-control">
+                                <input type="password" name="passwordBaru" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="passwordBaruCek">Masukkan Ulang Kata Sandi Baru</label>
-                                <input type="password" name="passwordBaruCek" class="form-control">
+                                <input type="password" name="passwordBaruCek" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-dark">Simpan</button>
                         </form>
