@@ -45,7 +45,7 @@
                     <div class="card-header"><h3>Informasi Kontak</h3></div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-10">
+                            <div class="col-md-10">
                                 <?php
                                     $id_user = $_SESSION['id_user'];
                                     $sql = "select * from user where id_user='$id_user'";
@@ -60,7 +60,7 @@
                                     Alamat: <?php echo $data["alamat"]; ?><br>
                                 </p>
                             </div>
-                            <div class="col-2">
+                            <div class="col-md-2">
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModalCenter">
                                 UBAH

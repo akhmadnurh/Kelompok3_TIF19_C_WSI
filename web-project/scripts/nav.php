@@ -11,7 +11,7 @@
     <!-- Icon Title -->
     <link rel="icon" type="image/png" href="../images/hi_valeeqa.png">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <style>
         .ml-5 {
             margin-left: 8rem !important;
@@ -92,56 +92,68 @@
         }
     </style>
         <nav class="navbar navbar-expand-xl navbar-light bg-light py-2 fixed-top" style="background: white !important">
-        <div class="contain">
-            <a class="navbar-brand h2 mb-0" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/index.php"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" width="auto" height="30" class="d-inline-block align-top mt-2" alt="Logo Hi Valeeqa">Hi Valeeqa</a>
-            <div class="collapse navbar-collapse"><ul class="mr-auto"></ul></div>
-            <form class="form-inline my-2 my-lg-0" method="GET" action="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/search-process.php">
-                <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" name="search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_search.png" alt="search" class="search-icon"></button>
-            </form>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <?php
-                            if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){
-                                // Cek level user
-                                if($_SESSION["level"] == "user"){
-                                    echo "<a class='nav-link' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/cart.php'><img src='https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_bagshop.png' alt='Cart' class='menu-icon'></a>";
-                                }
-                            }
-                        ?>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_person.png" alt="Account" class="menu-icon" >
-                        </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <?php
-                                // Cek Session login
+            <div class="contain">
+                <a class="navbar-brand h2 mb-0" href="http://localhost/Kelompok3_TIF19_C_WSI/web-project/index.php"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hi_valeeqa.png" width="auto" height="30" class="d-inline-block align-top mt-2" alt="Logo Hi Valeeqa">Hi Valeeqa</a>
+                
+                
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navAccount" aria-controls="navAccount" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navAccount">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <form class="form-inline my-2 my-lg-0" method="GET" action="http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/search-process.php">
+                                <div class="row">
+                                    <div class=" col-md-7 col-xs-7">
+                                        <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" name="search"> 
+                                    </div>
+                                    <div class="col-md-3 col-xs-3 ">
+                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_search.png" alt="search" class="search-icon"></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <?php
                                 if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){
-                                    echo "<span class='dropdown-item disabled'>Hai, ".$_SESSION['nama']."</span><div class='dropdown-divider'></div>";
                                     // Cek level user
-                                    if($_SESSION["level"] == "admin"){
-                                        echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/admin/'>Admin</a>";
-                                    }else{
-                                        echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/akun.php'>Akun Saya</a>";
-                                        echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/transaksi-history.php'>History Transaksi</a>";
-                                        echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/ubah-password.php'>Ubah Kata Sandi</a>";
+                                    if($_SESSION["level"] == "user"){
+                                        echo "<a class='nav-link' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/cart.php'><img src='https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_bagshop.png' alt='Cart' class='menu-icon'></a>";
                                     }
-                                    echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/logout.php'>Logout</a>";
-                                }else{
-                                    echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/register.php'>Registrasi</a>";
-                                    echo "<a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/login.php'>Login</a>";
                                 }
-                        ?>
-                    </div>
-                    </li>
-                </ul>
+                            ?>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_person.png" alt="Account" class="menu-icon" >    
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <?php
+                                            // Cek Session login
+                                            if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){
+                                                echo "<li><span class='dropdown-item disabled'>Hai, ".$_SESSION['nama']."</span><div class='dropdown-divider'></div></li>";
+                                                // Cek level user
+                                                if($_SESSION["level"] == "admin"){
+                                                    echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/admin/'>Admin</a></li>";
+                                                }else{
+                                                    echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/akun.php'>Akun Saya</a></li>";
+                                                    echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/transaksi-history.php'>History Transaksi</a></li>";
+                                                    echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/ubah-password.php'>Ubah Kata Sandi</a></li>";
+                                                }
+                                                echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/logout.php'>Logout</a></li>";
+                                            }else{
+                                                echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/register.php'>Registrasi</a></li>";
+                                                echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/login.php'>Login</a></li>";
+                                            }
+                                    ?>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
         </nav>
         <nav class="navbar navbar-expand-lg navbar-light bg-navbar fixed-top a">
             <div class="container-fluid">
@@ -167,7 +179,8 @@
         </nav>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
 </html>
