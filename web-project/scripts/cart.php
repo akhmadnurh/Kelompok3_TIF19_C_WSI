@@ -105,7 +105,7 @@
                                 <td><span class="item-total">Rp <?php echo number_format($total, 0, "", "."); ?></span></td>
                             </tr>
                         </table>
-                        <center><a href="#" class="btn btn-dark btn-lg">Checkout</a></center>
+                        <center><a href="checkout.php" class="btn btn-dark btn-lg">Checkout</a></center>
                     </div>
                 </div>
             </div>

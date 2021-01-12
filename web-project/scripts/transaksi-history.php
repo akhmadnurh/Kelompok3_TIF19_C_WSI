@@ -175,9 +175,8 @@
                                     </div>
                                     <div class="item-trans-bawah text-right">
                                         <span class="trans-total">Total: Rp. 320000</span><br>
-                                        <a href="#" class="btn btn-primary mt-3">Bayar</a>
                                         <a href="#" class="btn btn-dark mt-3">Batalkan</a>
-                                        <a href="#" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                        <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                     </div>
                                 </div>
                                 <!-- Item 2 -->
@@ -212,9 +211,8 @@
                                     </div>
                                     <div class="item-trans-bawah text-right">
                                         <span class="trans-total">Total: Rp. 140000</span><br>
-                                        <a href="#" class="btn btn-primary mt-3">Bayar</a>
                                         <a href="#" class="btn btn-dark mt-3">Batalkan</a>
-                                        <a href="#" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                        <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +251,7 @@
                                     </div>
                                     <div class="item-trans-bawah text-right">
                                         <span class="trans-total">Total: Rp. 140000</span><br>
-                                        <a href="#" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                        <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                     </div>
                                 </div>
                             </div>
@@ -293,7 +291,7 @@
                                     <div class="item-trans-bawah text-right">
                                         <span class="trans-total">Total: Rp. 140000</span><br>
                                         <span class="btn btn-secondary mt-3">No. Resi: JNT 987654321</span>
-                                        <a href="#" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                        <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                     </div>
                                 </div>
                             </div>
