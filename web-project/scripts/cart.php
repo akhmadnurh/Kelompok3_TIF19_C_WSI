@@ -38,38 +38,43 @@
                 <div class="card">
                     <div class="card-header"><h3>Keranjang</h3></div>
                     <div class="card-body px-4 item-body">
-                        <div class="row item-produk">
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png" alt="contoh" class="w-100">
-                            </div>
-                            <div class="col-md-6 col-lg-8 col-xl-8">
-                                <span class="item-judul">Chayra Abaya</span><br>
-                                <span class="item-warna">Black</span><br><br>
-                                <input type="number" value="1" class="form-control w-25 mt-auto text-center item-input">
-                            </div>
-                            <div class="col-md-2 col-lg-2 col-xl-2">
-                                <button class="btn btn-danger" type="button">Hapus</button>
-                            </div>
-                            <div class="ml-auto mr-4">
-                                <span class="item-harga">Rp. 150000</span>
-                            </div>
-                        </div>
-                        <div class="row item-produk">
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img2.png" alt="contoh" class="w-100">
-                            </div>
-                            <div class="col-md-6 col-lg-8 col-xl-8">
-                                <span class="item-judul">Chayra Abaya</span><br>
-                                <span class="item-warna">Black</span><br><br>
-                                <input type="number" value="1" class="form-control w-25 mt-auto text-center item-input">
-                            </div>
-                            <div class="col-md-2 col-lg-2 col-xl-2">
-                                <button class="btn btn-danger" type="button">Hapus</button>
-                            </div>
-                            <div class="ml-auto mr-4">
-                                <span class="item-harga">Rp. 150000</span>
-                            </div>
-                        </div>
+                        <?php
+                            require_once "connection.php";
+                            $id_user = $_SESSION["id_user"];
+                            $sql = "SELECT * FROM cart inner join produk on cart.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_user=$id_user";
+                            $query = mysqli_query($conn, $sql);
+                            $count = mysqli_num_rows($query);
+                            $total = 0;
+                            if($count < 1){
+                                echo "<h1>Keranjang Belanja Kosong</h1>";
+                            }else{
+                                while($data = mysqli_fetch_array($query)){  
+                        ?>
+                                    <form action="simpan-keranjang.php?id-produk=<?php echo $data['id_produk']; ?>" method="GET">
+                                        <div class="row item-produk">
+                                                <div class="col-md-4 col-lg-2 col-xl-2">
+                                                    <img src="../<?php echo $data['lokasi_gambar'];?>" alt="Gambar" class="w-100">
+                                                </div>
+                                                <div class="col-md-6 col-lg-8 col-xl-8">
+                                                    <span class="item-judul"><?php echo $data["nama_barang"]; ?></span><br>
+                                                    <span class="item-warna"><?php echo $data["warna"]; ?></span><br><br>
+                                                    <input type="number" name="jumlah" value="<?php echo $data["jumlah"]; ?>" class="form-control w-25 mt-auto text-center item-input">
+                                                </div>
+                                                <div class="col-md-2 col-lg-2 col-xl-2">
+                                                    <a href="hapus-keranjang.php?id-produk=<?php echo $data['id_produk']; ?>" class="btn btn-danger mb-2" style="color: white">Hapus</a>
+                                                    <button type="submit" class="btn btn-dark" style="color: white">Simpan</button>
+                                                </div>
+                                            <div class="ml-auto mr-4">
+                                                <span class="item-harga">Rp <?php echo number_format($data["harga"], 0, "", "."); ?></span>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                        <?php
+                                    $total += $data["harga"];
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -82,7 +87,7 @@
                         <table class="table justify-content-between">
                             <tr>
                                 <td>Total</td>
-                                <td><span class="item-total">Rp. 300000</span></td>
+                                <td><span class="item-total">Rp <?php echo number_format($total, 0, "", "."); ?></span></td>
                             </tr>
                         </table>
                         <center><a href="#" class="btn btn-dark btn-lg">Checkout</a></center>
