@@ -90,6 +90,34 @@
         .carousel-item img {
             margin-top: -140px;
         }
+        .carousel-fade .carousel-item {
+            opacity: 0;
+            transition-duration: .6s;
+            transition-property: opacity;
+        }
+
+        .carousel-fade .carousel-item.active,
+        .carousel-fade .carousel-item-next.carousel-item-left,
+        .carousel-fade .carousel-item-prev.carousel-item-right {
+            opacity: 1;
+        }
+
+        .carousel-fade .active.carousel-item-left,
+        .carousel-fade .active.carousel-item-right {
+            opacity: 0;
+        }
+
+        .carousel-fade .carousel-item-next,
+        .carousel-fade .carousel-item-prev,
+        .carousel-fade .carousel-item.active,
+        .carousel-fade .active.carousel-item-left,
+        .carousel-fade .active.carousel-item-prev {
+            transform: translateX(0);
+            transform: translate3d(0, 0, 0);
+        }
+        .mb-7 {
+            margin-bottom: 15rem;
+        }
     </style>
   </head>
   <body>
@@ -102,7 +130,7 @@
         $query = ["SELECT id_kategori, nama_kategori from kategori", "SELECT produk.id_produk, produk.id_kategori, nama_barang, bahan, harga, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk"];
     ?>
         <!-- Slider -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -111,9 +139,11 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Tabungan</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates enim deleniti tempora natus sequi ipsum autem sint alias nam facilis. Assumenda fugiat sunt facilis molestiae, unde ullam voluptatum commodi ea!</p>
+                    <div class="carousel-caption d-none d-md-block mb-7">
+                        <h1 class="display-4">Yumna Dress</h1>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                        </p>
                     </div>
                 </div>
                 <div class="carousel-item">
