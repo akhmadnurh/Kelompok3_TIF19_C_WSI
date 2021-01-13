@@ -117,10 +117,9 @@
                         <li class="nav-item">
                             <?php
                                 if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){
-                                    // Cek level user
-                                    if($_SESSION["level"] == "user"){
+                                    
                                         echo "<a class='nav-link' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/cart.php'><img src='https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_bagshop.png' alt='Cart' class='menu-icon'></a>";
-                                    }
+                                    
                                 }
                             ?>
                         </li>
@@ -135,13 +134,10 @@
                                             if(isset($_SESSION["login"]) and $_SESSION["login"] == "yes"){
                                                 echo "<li><span class='dropdown-item disabled'>Hai, ".$_SESSION['nama']."</span><div class='dropdown-divider'></div></li>";
                                                 // Cek level user
-                                                if($_SESSION["level"] == "admin"){
-                                                    echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/admin/'>Admin</a></li>";
-                                                }else{
+                                                    if($_SESSION["level"] == "admin") echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/admin/'>Admin</a></li>";
                                                     echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/akun.php'>Akun Saya</a></li>";
                                                     echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/transaksi-history.php'>History Transaksi</a></li>";
                                                     echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/ubah-password.php'>Ubah Kata Sandi</a></li>";
-                                                }
                                                 echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/logout.php'>Logout</a></li>";
                                             }else{
                                                 echo "<li><a class='dropdown-item' href='http://localhost/Kelompok3_TIF19_C_WSI/web-project/scripts/register.php'>Registrasi</a></li>";
