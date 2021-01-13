@@ -51,6 +51,14 @@
                         
                                     <div class="alert alert-success">Barang berhasil ditambahkan!</div>
                         <?php
+                                }elseif ($status == "minus") {
+                        ?>
+                                    <div class="alert alert-danger">Jumlah tidak boleh minus!</div>
+                        <?php
+                                }elseif ($status == "unavailable") {
+                        ?>
+                                    <div class="alert alert-danger">Jumlah melebihi stok!</div>
+                        <?php
                                 }
                             }
                         ?>
