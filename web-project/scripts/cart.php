@@ -18,7 +18,7 @@
             border-bottom: 1px solid #eeeeee;
         }
         .item-harga {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: bold;
         }
         .item-judul {
@@ -75,22 +75,23 @@
                                 while($data = mysqli_fetch_array($query)){  
                         ?>
                                         <div class="row item-produk">
-                                                <div class="col-md-4 col-lg-2 col-xl-2">
+                                                <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
                                                     <img src="../<?php echo $data['lokasi_gambar'];?>" alt="Gambar" class="w-100">
                                                 </div>
-                                                <div class="col-md-6 col-lg-8 col-xl-8">
+                                                <div class="col-sm-7 col-md-7 col-lg-7 col-xl-7">
                                                     <span class="item-judul"><?php echo $data["nama_barang"]; ?></span><br>
                                                     <span class="item-warna"><?php echo $data["warna"]; ?></span><br>
                                                     <span class="item-warna">Jumlah: <?php echo $data["jumlah"]; ?></span><br><br>
                                                     <input type="hidden" name="id_produk" id="id_produk" value="<?php echo $data["id_produk"]; ?>" class="form-control w-25 mt-auto text-center item-input">
                                                 </div>
-                                                <div class="col-md-2 col-lg-2 col-xl-2">
+                                                <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
                                                     <a href="hapus-cart.php?id-produk=<?php echo $data['id_produk']; ?>" class="btn btn-danger mb-2" style="color: white">Hapus</a>
+                                                    <div class="mt-sm-5">
+                                                        <span class="item-harga">Rp <?php echo number_format($data["harga"], 0, "", "."); ?></span>
+                                                    </div>
                                                 </div>
 
-                                            <div class="ml-auto mr-4">
-                                                <span class="item-harga">Rp <?php echo number_format($data["harga"], 0, "", "."); ?></span>
-                                            </div>
+                                            
                                         </div>
                         <?php       
                                     $hitung = $data["harga"] * $data["jumlah"];
