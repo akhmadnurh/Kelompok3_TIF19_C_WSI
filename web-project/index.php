@@ -150,7 +150,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/slider/yumna.png" alt="Second slide">
+                    <img class="d-block w-100" src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/slider/chayra.png" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block mb-7">
                         <h1 class="display-4 font-weight-bold">
                             Chayra Abaya <br>
