@@ -138,7 +138,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/slider/slider1.1.png" alt="First slide">
+                    <img class="d-block w-100" src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/slider/yumna.png" alt="First slide">
                     <div class="carousel-caption d-none d-md-block mb-7">
                         <h1 class="display-4">Yumna Dress</h1>
                         <p class="lead">
