@@ -88,7 +88,7 @@
             height: 560px;
         }
         .carousel-item img {
-            margin-top: -140px;
+            margin-top: -50px;
         }
         .carousel-fade .carousel-item {
             opacity: 0;
@@ -138,7 +138,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="First slide">
+                    <img class="d-block w-100" src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/slider/slider1.png" alt="First slide">
                     <div class="carousel-caption d-none d-md-block mb-7">
                         <h1 class="display-4">Yumna Dress</h1>
                         <p class="lead">
