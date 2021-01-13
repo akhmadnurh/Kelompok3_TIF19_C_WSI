@@ -18,6 +18,7 @@
                                 <th>Jenis Pengiriman</th>
                                 <th>Tabungan</th>
                                 <th>Total</th>
+                                <th>Nomor Resi</th>
                                 <th>Status</th>
                                 <!-- <th>Action</th>  -->
                             </tr>
@@ -54,6 +55,7 @@
                                     <td><?php echo $data["jenis_pengiriman"]; ?></td>
                                     <td><?php echo $data["tabungan"]; ?></td>
                                     <td><?php echo $data["total"]; ?></td>
+                                    <td><?php echo $data["resi"]; ?></td>
                                     <td><?php echo $data["status"]; ?></td>
                                     <!-- <td>
                                         <a href="edit-produk.php?status=edit&id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-link">

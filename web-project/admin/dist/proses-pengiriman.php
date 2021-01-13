@@ -18,8 +18,9 @@
                                 <th>Jenis Pengiriman</th>
                                 <th>Tabungan</th>
                                 <th>Total</th>
+                                <th>No. Resi</th>
                                 <th>Status</th>
-                                <!-- <th>Action</th>  -->
+                                <th>Action</th> 
                             </tr>
                         </thead>
                         <?php
@@ -54,16 +55,41 @@
                                     <td><?php echo $data["jenis_pengiriman"]; ?></td>
                                     <td><?php echo $data["tabungan"]; ?></td>
                                     <td><?php echo $data["total"]; ?></td>
+                                    <td><?php echo $data["resi"]; ?></td>
                                     <td><?php echo $data["status"]; ?></td>
-                                    <!-- <td>
-                                        <a href="edit-produk.php?status=edit&id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-link">
-                                            <i class="fas fa-edit"></i>
+                                    <td>
+                                        <a href="#" class="btn btn-dark mb-1" data-toggle="modal" data-target="#konfirmasi">
+                                            Selesai
                                         </a>
-                                        <a href="delete-produk.php?id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-link">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
-                                    </td> -->
+                                    </td>
                                 </tr>
+                                <!-- Modal Konfirmasi pembayaran -->
+                                <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="konfirmasi" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Konfirmasi Transaksi</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">      
+                                                <div class="form-group">
+                                                    <span>Transaksi selesai?</span>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                <button type="button" onclick="konfirmasi_transaksi()" class="btn btn-dark">Konfirmasi</button>
+                                            </div>
+                                            <script>
+                                                function konfirmasi_transaksi(){
+                                                    location.href = "konfirmasi-transaksi.php?status=konfirmasi&id_transaksi=<?php echo $data["id_transaksi"]; ?>";
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
                         <?php
                                 $nomor++;
                             }
