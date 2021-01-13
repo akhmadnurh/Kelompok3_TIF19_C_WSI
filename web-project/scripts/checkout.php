@@ -19,6 +19,10 @@
         .table > tbody > tr > td {
             vertical-align: middle;
         }
+        .total {
+            font-size: 24px;
+            text-align: right;
+        }
     </style>
 
     <title>Checkout</title>
@@ -41,7 +45,7 @@
                           
                         ?>
                         <tr>
-                            <td>Nama</td>
+                            <td width="20%">Nama</td>
                             <td><?php echo $data["nama"];  ?></td>
                         </tr>
                         <tr>
@@ -90,7 +94,7 @@
                                 </thead>
                                 <tr>
                                     <td rowspan="4" width="20%"><img src="../<?php echo $data2["lokasi_gambar"]; ?>" class="w-100"></td>
-                                    <td>Nama Barang</td>
+                                    <td width="20%">Nama Barang</td>
                                     <td><?php echo $data2["nama_barang"]; ?></td>
                                 </tr>
                                 <tr>
@@ -117,8 +121,8 @@
                     
 
                     <table class="table mt-2">
-                        <tr class="table-secondary">
-                            <td>Total</td>
+                        <tr class="table-secondary total">
+                            <td>Total:</td>
                             <td>Rp <?php echo number_format($total, 0, "", "."); ?></td>
                         </tr>
                     </table>
