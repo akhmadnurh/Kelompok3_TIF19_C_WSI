@@ -116,7 +116,7 @@
             transform: translate3d(0, 0, 0);
         }
         .mb-7 {
-            margin-bottom: 15rem;
+            margin-bottom: 10rem;
         }
     </style>
   </head>
@@ -140,17 +140,25 @@
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/slider/yumna.png" alt="First slide">
                     <div class="carousel-caption d-none d-md-block mb-7">
-                        <h1 class="display-4">Yumna Dress</h1>
+                        <h1 class="display-4 font-weight-bold">
+                            Yumna Dress <br>
+                            oleh Hi Valeeqa
+                        </h1>
                         <p class="lead">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                            <a class="btn btn-light btn-lg" href="scripts/search.php?kategori=2" role="button">Belanja Yuk!</a>
                         </p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Slide 2</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates enim deleniti tempora natus sequi ipsum autem sint alias nam facilis. Assumenda fugiat sunt facilis molestiae, unde ullam voluptatum commodi ea!</p>
+                    <img class="d-block w-100" src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/slider/yumna.png" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block mb-7">
+                        <h1 class="display-4 font-weight-bold">
+                            Chayra Abaya <br>
+                            oleh Hi Valeeqa
+                        </h1>
+                        <p class="lead">
+                            <a class="btn btn-light btn-lg" href="scripts/search.php?kategori=1" role="button">Belanja Yuk!</a>
+                        </p>
                     </div>
                 </div>
                 <div class="carousel-item">
