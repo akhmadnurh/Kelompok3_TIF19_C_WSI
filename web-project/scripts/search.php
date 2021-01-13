@@ -186,6 +186,7 @@
                         $query = mysqli_query($conn, $sql);
                         $data = mysqli_fetch_array($query);
                         $nama_kategori = $data["nama_kategori"];
+                        $_SESSION["header"] = "kategori=$kategori";
                     }
 
                     // Filter sesuai header
