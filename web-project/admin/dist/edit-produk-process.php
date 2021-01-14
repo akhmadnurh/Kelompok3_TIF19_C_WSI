@@ -9,6 +9,7 @@
     $warna = $_POST["warna"];
     $bahan = $_POST["bahan"];
     $harga = $_POST["harga"];
+    
     $panjang = $_POST["panjang"];
     $lebar_dada = $_POST["lebar-dada"];
     $stok = $_POST["stok"];
@@ -20,12 +21,17 @@
     }
     
     $error_gambar = $status == "edit" ? 0 : $_FILES["gambar"]["error"];
-
+    if(intval($harga) < 0){
+        header("Location: edit-produk.php?id_produk=$id_produk&status=$status&error=harga");
+        return 0;
+    }
     if($kategori == "#"){
-        header("Location: edit-produk.php?status=$status&error=kategori");
+        header("Location: edit-produk.php?id_produk=$id_produk&status=$status&error=kategori");
+        return 0;
     }
     if($error_gambar == 4){
-        header("Location: edit-produk.php?status=$status&error=gambar");
+        header("Location: edit-produk.php?id_produk=$id_produk&status=$status&error=gambar");
+        return 0;
     }else{
         $gambar_tmp = $_FILES["gambar"]["tmp_name"];
         $gambar = $_FILES["gambar"]["name"];
@@ -72,7 +78,7 @@
 
         // Tambah gambar
         $lokasi_gambar_dst = "images/product-img/".$gambar;
-        $sql4 = "insert into gambar values($id_produk, $kategori, '$lokasi_gambar_dst')";
+        $sql4 = "insert into gambar values($id_produk, '$lokasi_gambar_dst')";
         $query4 = mysqli_query($conn, $sql4);    
         move_uploaded_file($gambar_tmp, "../../".$lokasi_gambar_dst);
 

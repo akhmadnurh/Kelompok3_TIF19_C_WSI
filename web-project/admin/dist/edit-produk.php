@@ -67,7 +67,11 @@
           <?php
               }elseif($_GET["error"] == "gambar"){
           ?>
-                <div class="alert alert-danger">Gambar Belum dimasukkan!</div> 
+                <div class="alert alert-danger">Gambar elum dimasukkan!</div> 
+          <?php
+              }elseif($_GET["error"] == "harga"){
+          ?>
+                <div class="alert alert-danger">Harga tidak boleh minus!</div> 
           <?php
               }
             }
@@ -79,7 +83,7 @@
                 <option value="#">-- Masukkan kategori produk --</option>
                 <?php
                   for($i=0; $i<count($id_kat); $i++){
-                    $selected = $id_kategori != "" ? "selected" : "";
+                    $selected = $id_kategori != "" ? ($id_kat[$i] == $id_kategori ? "selected" : "")  : "";
                     echo "<option value='$id_kat[$i]' $selected>$kat[$i]</option>";
                   }
                 ?>

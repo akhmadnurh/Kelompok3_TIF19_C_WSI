@@ -42,7 +42,7 @@
                             $total_halaman = ceil($total_data / $batas);
                             $nomor = $halaman_awal + 1;
                             // Query data sesuai halaman
-                            $sql = "SELECT * FROM produk inner join kategori on produk.id_kategori = kategori.id_kategori inner join gambar on produk.id_produk = gambar.id_produk inner join ukuran on gambar.id_produk = ukuran.id_produk LIMIT $halaman_awal, $batas";
+                            $sql = "SELECT * FROM produk inner join kategori on produk.id_kategori = kategori.id_kategori inner join gambar on produk.id_produk = gambar.id_produk inner join ukuran on gambar.id_produk = ukuran.id_produk order by produk.id_produk LIMIT $halaman_awal, $batas";
                             $query = mysqli_query($conn, $sql);
                             while($data = mysqli_fetch_array($query)){
                         ?>      
