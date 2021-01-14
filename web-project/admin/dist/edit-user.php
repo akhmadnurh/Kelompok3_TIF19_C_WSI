@@ -64,7 +64,7 @@
                
             }
           ?>
-          <form action="edit-user-process.php?status=<?php echo $status; if($id_user != "") echo "&id_user=".$id_user; ?>" method="POST" enctype="multipart/form-data">
+          <form action="edit-user-process.php?status=<?php echo $status; if($id_user != '') echo '&id_user='.$id_user; ?>" method="POST">
             <div class="input-group mb-3">
               <span class="input-group-text">Email</span>
               <input type="email" name="email" class="form-control" placeholder="Masukkan email" maxlength="50" value="<?php echo $email; ?>" required>

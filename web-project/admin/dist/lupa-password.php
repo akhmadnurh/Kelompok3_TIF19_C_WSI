@@ -50,19 +50,9 @@
                                     <td><?php echo $data["alamat"]; ?></td>
                                     <td><?php echo $data["nomor_wa"]; ?></td>
                                     <td>
-                                        <a href="javascript:konfirmasi_user()" class="btn btn-dark">
+                                        <a href="lupa-password-process.php?id_user=<?php echo $data['id_user']; ?>" class="btn btn-dark" onclick="return confirm('Apakah anda yakin? Ingat, sebelum menekan tombol ini, anda terlebih dahulu harus menghubungi customer!')">
                                             Konfirmasi
                                         </a>
-                                        <script>
-                                            function konfirmasi_user(){
-                                                var status = confirm("Apakah anda yakin? Ingat, sebelum menekan tombol ini, anda terlebih dahulu harus menghubungi customer!");
-                                                if(status == true){
-                                                    location.href = "lupa-password-process.php?id_user=<?php echo $data['id_user']; ?>";
-                                                }else{
-                                                    return false;
-                                                }
-                                            }
-                                        </script>
                                     </td>
                                 </tr>
                         <?php

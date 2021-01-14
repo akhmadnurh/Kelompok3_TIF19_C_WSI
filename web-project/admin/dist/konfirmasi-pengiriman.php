@@ -6,7 +6,7 @@
     if($_GET["status"] == "batal"){
         $sql = "update transaksi set status='gagal' where id_transaksi=$id_transaksi";
     }elseif ($_GET["status"] == "konfirmasi") {
-        $resi = $_GET["resi"] == "" ? "-" : $_GET["resi"];
+        $resi = $_POST["resi"] == "" ? "-" : $_POST["resi"];
         $sql = "update transaksi set status='proses kirim', resi='$resi' where id_transaksi=$id_transaksi";
     }
     $query = mysqli_query($conn, $sql);

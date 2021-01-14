@@ -7,7 +7,7 @@
         $sql = "update transaksi set status='gagal' where id_transaksi=$id_transaksi";
     }elseif ($_GET["status"] == "konfirmasi") {
         $status = $_GET["dbstatus"];
-        $tabungan = $_GET["tabungan"];
+        $tabungan = $_GET["hasil"];
 
         $sql = "update transaksi set status='$status', tabungan=$tabungan where id_transaksi=$id_transaksi";
     }

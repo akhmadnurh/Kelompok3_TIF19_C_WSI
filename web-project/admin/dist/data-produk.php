@@ -65,7 +65,7 @@
                                         <a href="edit-produk.php?status=edit&id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-link" title="Edit Produk">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="delete-produk.php?id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-link" title="Hapus Produk">
+                                        <a href="delete-produk.php?id_produk=<?php echo $data['id_produk']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapusnya?')" class="btn btn-link" title="Hapus Produk">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </td>

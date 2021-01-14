@@ -56,82 +56,16 @@
                                     <td><?php echo $data["total"]; ?></td>
                                     <td><?php echo $data["status"]; ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-dark mb-1" data-toggle="modal" data-target="#tabungan">
+                                        <a href="tambah-tabungan.php?id_transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-dark mb-1">
                                             Tambah
                                         </a>
-                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#batal">
+                                        <a href="konfirmasi-tabungan.php?status=batal&id_transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin membatalkan transaksi?')">
                                             Batalkan
                                         </a>
                                         
 
                                     </td>
                                 </tr> 
-                                <!-- Modal batal -->
-                                <div class="modal fade" id="batal" tabindex="-1" role="dialog" aria-labelledby="batal" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Batalkan Transaksi</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">      
-                                                <div class="form-group">
-                                                    <span>Apakah anda yakin ingin membatalkannya??</span>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                    <button type="button" onclick="batal_pembayaran()" class="btn btn-dark">Konfirmasi</button>
-                                            </div>
-                                            <script>
-                                                function batal_pembayaran(){
-                                                    location.href = "konfirmasi-tabungan.php?status=batal&id_transaksi=<?php echo $data['id_transaksi'];?>";
-                                                }
-                                            </script>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <!-- Modal Konfirmasi pembayaran -->
-                                <div class="modal fade" id="tabungan" tabindex="-1" role="dialog" aria-labelledby="tabungan" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Konfirmasi Pembayaran</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">      
-                                                <div class="form-group">
-                                                    <span>Tabungan awal: Rp <?php echo number_format($data["tabungan"], 0, "", "."); ?></span><br>
-                                                    <label for="tabungan_tambah">Tambah tabungan</label>
-                                                    <input type="number" class="form-control" name="tabungan_tambah" id="tabungan_tambah">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                <button type="button" onclick="konfirmasi_tabungan()" class="btn btn-dark">Konfirmasi</button>
-                                            </div>
-                                            <script>
-                                                function konfirmasi_tabungan(){
-                                                    var tabungan_awal = parseInt('<?php echo $data["tabungan"]; ?>');
-                                                    var total = parseInt('<?php echo $data["total"]; ?>');
-                                                    var tabungan_tambah = parseInt(document.getElementById("tabungan_tambah").value);
-                                                    var hasil = parseInt(tabungan_awal + tabungan_tambah);
-                                                    var status;
-                                                    if(hasil >= total){
-                                                        status = "menunggu kirim";
-                                                    }else{
-                                                        status = "belum bayar";
-                                                    }
-                                                    location.href = "konfirmasi-tabungan.php?status=konfirmasi&id_transaksi=<?php echo $data["id_transaksi"]; ?>&dbstatus="+status+"&tabungan="+hasil;
-                                                }
-                                            </script>
-                                        </div>
-                                    </div>
-                                </div>
                         <?php
                                 $nomor++;
                             }

@@ -9,7 +9,7 @@
     $wa = $_POST["wa"];
     $alamat = $_POST["alamat"];
     $level = $_POST["level"];
-    $id_user = $_SESSION["id_user"];
+    $id_user = $_GET["id_user"];
 
     if($pass != $pass2){
         header("Location: edit-user.php?error=error-password");

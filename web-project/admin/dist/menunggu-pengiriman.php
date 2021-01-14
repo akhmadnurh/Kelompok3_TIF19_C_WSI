@@ -57,70 +57,14 @@
                                     <td><?php echo $data["total"]; ?></td>
                                     <td><?php echo $data["status"]; ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-dark mb-1" data-toggle="modal" data-target="#no-resi">
+                                        <a href="resi.php?id_transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-dark mb-1">
                                             Konfirmasi
                                         </a>
-                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#batal">
+                                        <a href="konfirmasi-pengiriman.php?status=batal&id_transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin membatalkan transaksi?')">
                                             Batalkan
                                         </a>
-                                        
-
                                     </td>
                                 </tr> 
-                                <!-- Modal batal -->
-                                <div class="modal fade" id="batal" tabindex="-1" role="dialog" aria-labelledby="batal" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Batalkan Transaksi</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">      
-                                                <div class="form-group">
-                                                    <span>Apakah anda yakin ingin membatalkannya??</span>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <form action="konfirmasi-pengiriman.php?status=batal&id_transaksi=<?php echo $data['id_transaksi'];  ?>" method="POST">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                    <button type="submit" class="btn btn-dark">Konfirmasi</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <!-- Modal nomor resi -->
-                                <div class="modal fade" id="no-resi" tabindex="-1" role="dialog" aria-labelledby="no-resi" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Masukkan Nomor Resi</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">      
-                                                <div class="form-group">
-                                                    <input type="hidden" name="id_produk" id="id_produk" class="form-control" value="<?php echo $id_produk; ?>">
-                                                    <label for="resi">No. Resi</label>
-                                                    <input type="text" name="resi" id="resi" class="form-control"  maxlength="15" placeholder="Boleh dikosongi jika metode pengiriman COD" required>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                <button type="button" onclick="konfirmasi_pengiriman()" class="btn btn-dark">Konfirmasi</button>
-                                            </div>
-                                            <script>
-                                                function konfirmasi_pengiriman(){
-                                                    var resi = document.getElementById("resi").value;
-                                                    location.href = "konfirmasi-pengiriman.php?status=konfirmasi&id_transaksi=<?php echo $data["id_transaksi"]; ?>&resi="+resi;
-                                                }
-                                            </script>
-                                        </div>
-                                    </div>
-                                </div>
                         <?php
                                 $nomor++;
                             }
