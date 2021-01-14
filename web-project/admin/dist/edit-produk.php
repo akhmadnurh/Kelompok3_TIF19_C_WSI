@@ -67,7 +67,7 @@
           <?php
               }elseif($_GET["error"] == "gambar"){
           ?>
-                <div class="alert alert-danger">Gambar elum dimasukkan!</div> 
+                <div class="alert alert-danger">Gambar belum dimasukkan!</div> 
           <?php
               }elseif($_GET["error"] == "harga"){
           ?>
