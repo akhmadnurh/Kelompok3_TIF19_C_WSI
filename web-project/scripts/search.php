@@ -202,7 +202,7 @@
                 <div class="row">
                     <?php
                         // Pagination
-                        $batas = 3;
+                        $batas = 6;
                         $halaman = isset($_GET["halaman"]) ? $_GET["halaman"]: 1;
                         $halaman_awal = $halaman>1 ? ($halaman * $batas) - $batas : 0;// Untuk tiap nomor
                         // Mengatur Filter + Pagination

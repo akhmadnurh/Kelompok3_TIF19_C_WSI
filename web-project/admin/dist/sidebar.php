@@ -102,7 +102,7 @@
                             </a>
 
                             <!-- Logout -->
-                            <a class="nav-link" href="logout.php">
+                            <a class="nav-link" href="logout.php" onclick="return confirm('Apakah anda yakin ingin Logout?')">
                                 <div class="sb-nav-link-icon"><i class="fas fa-power-off"></i></div>
                                 Logout
                             </a>
