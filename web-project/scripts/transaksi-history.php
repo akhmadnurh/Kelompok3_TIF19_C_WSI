@@ -264,7 +264,6 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="#" class="btn btn-dark mt-3">Batalkan</a>
                                                     <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
@@ -278,7 +277,7 @@
                             <!-- Dikirim -->
                             <div class="tabPanel">
                                 <?php
-                                    $sql_dikirim = "select id_transaksi from transaksi where id_user=$id_user and status='proses kirim'";
+                                    $sql_dikirim = "select id_transaksi, resi from transaksi where id_user=$id_user and status='proses kirim'";
                                     $query_dikirim = mysqli_query($conn, $sql_dikirim);
                                     $data_dikirim_count = mysqli_num_rows($query_dikirim);
                                     if($data_dikirim_count == 0){
@@ -336,7 +335,7 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="#" class="btn btn-dark mt-3">Batalkan</a>
+                                                    <a href="#" class="btn btn-dark mt-3" disabled><?php echo $data_dikirim["resi"]; ?></a>
                                                     <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
@@ -408,7 +407,6 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="#" class="btn btn-dark mt-3">Batalkan</a>
                                                     <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
@@ -480,7 +478,6 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="#" class="btn btn-dark mt-3">Batalkan</a>
                                                     <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
