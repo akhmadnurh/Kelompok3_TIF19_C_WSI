@@ -59,6 +59,14 @@
                         ?>
                                     <div class="alert alert-danger">Jumlah melebihi stok!</div>
                         <?php
+                                }elseif ($status == "pembayaran"){
+                        ?>
+                                    <div class="alert alert-danger">Harap masukkan jenis pembayaran!</div>
+                        <?php
+                                }elseif ($status == "pengiriman"){
+                        ?>
+                                    <div class="alert alert-danger">Harap masukkan jenis pengiriman!</div>
+                        <?php
                                 }
                             }
                         ?>
@@ -109,59 +117,59 @@
                 <div class="card">
                     <div class="card-header text-center"><h3>Pembayaran</h3></div>
                     <div class="card-body">
-                        <div class="table-responsive-sm">
-                            <!-- Total -->
-                            <table class="table">
-                                <tr>
-                                    <td>Total Produk:</td>
-                                    <td class="text-right"><span class="item-total">Rp <?php echo number_format($total, 0, "", "."); ?></span></td>
-                                </tr>
-                            </table>
+                        <form action="checkout.php" method="POST">
+                            <div class="table-responsive-sm">
+                                <!-- Total -->
+                                <table class="table">
+                                    <tr>
+                                        <td>Total Produk:</td>
+                                        <td class="text-right"><span class="item-total">Rp <?php echo number_format($total, 0, "", "."); ?></span></td>
+                                    </tr>
+                                </table>
+                                <!-- Pengiriman -->
+                                <table class="table mt-4">
+                                    <thead class="thead-dark"><th>Jenis Pengiriman</th></thead>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="kirimKurir" name="jenis-pengiriman" value="kurir" class="custom-control-input">
+                                                <label class="custom-control-label" for="kirimKurir">Kurir</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="kirimCOD" name="jenis-pengiriman" value="cod" class="custom-control-input">
+                                                <label class="custom-control-label" for="kirimCOD">COD</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
 
-                            <!-- Pengiriman -->
-                            <table class="table mt-4">
-                                <thead class="thead-dark"><th>Jenis Pengiriman</th></thead>
-                                <tr>
-                                    <td>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="kirimKurir" name="pengiriman" class="custom-control-input">
-                                            <label class="custom-control-label" for="kirimKurir">Kurir</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="kirimCOD" name="pengiriman" class="custom-control-input">
-                                            <label class="custom-control-label" for="kirimCOD">COD</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <!-- Jenis Pembayaran -->
-                            <table class="table mt-4">
-                                <thead class="thead-dark">
-                                    <th>Jenis Pembayaran</th>
-                                </thead>
-                                <tr>
-                                    <td>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="bayarCash" name="pembayaran" class="custom-control-input">
-                                            <label class="custom-control-label" for="bayarCash">Cash</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="bayarNabung" name="pembayaran" class="custom-control-input">
-                                            <label class="custom-control-label" for="bayarNabung">Tabungan</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                                <!-- Jenis Pembayaran -->
+                                <table class="table mt-4">
+                                    <thead class="thead-dark">
+                                        <th>Jenis Pembayaran</th>
+                                    </thead>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="bayarCash" name="jenis-pembayaran" value="cash" class="custom-control-input">
+                                                <label class="custom-control-label" for="bayarCash">Cash</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="bayarNabung" name="jenis-pembayaran" value="tabungan" class="custom-control-input">
+                                                <label class="custom-control-label" for="bayarNabung">Tabungan</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         <!-- <h4>Jenis Pembayaran</h4>
                         <div class="custom-control custom-radio">
                             <input type="radio" id="bayarCash" name="customRadio" class="custom-control-input">
@@ -171,7 +179,8 @@
                             <input type="radio" id="bayarNabung" name="customRadio" class="custom-control-input">
                             <label class="custom-control-label" for="bayarNabung">Tabungan</label>
                         </div> -->
-                        <center><a href="checkout.php" class="btn btn-dark btn-lg">Checkout</a></center>
+                            <center><button type="submit" class="btn btn-dark btn-lg">Checkout</button></center>
+                        </form>
                     </div>
                 </div>
             </div>

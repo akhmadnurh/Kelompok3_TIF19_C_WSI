@@ -82,22 +82,60 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive-sm">
+                            <?php
+                                if(isset($_GET["id-transaksi"])){
+                                    $id_transaksi = $_GET["id-transaksi"];
+                                    $rincian_query = mysqli_query($conn, "select jenis_pengiriman, jenis_pembayaran from transaksi where id_transaksi=$id_transaksi");
+                                    $data_rincian = mysqli_fetch_array($rincian_query);
+
+                                    $jenis_pembayaran = $data_rincian["jenis_pembayaran"];
+                                    $jenis_pengiriman = $data_rincian["jenis_pengiriman"];
+                                }else{
+                                    if(isset($_POST["jenis-pembayaran"])){
+                                        $jenis_pembayaran = $_POST["jenis-pembayaran"];
+                                    }else{
+                                        echo "<script>location.href = 'cart.php?status=pembayaran'</script>";
+                                    }
+
+                                    if(isset($_POST["jenis-pengiriman"])){
+                                        $jenis_pengiriman = $_POST["jenis-pengiriman"];
+                                    }else{
+                                        echo "<script>location.href = 'cart.php?status=pengiriman'</script>";
+                                    }
+                                }
+                                
+                            
+                            ?>
+                            <!-- Pengiriman -->
+                            <table class="table table-bordered">
+                                <thead class="thead-dark"><th colspan="2">Pembayaran</th></thead>
+                                <tr>
+                                    <td width="30%">Jenis Pembayaran:</td>
+                                    <td class="text-right"><?php echo $jenis_pembayaran; ?></td>
+                                </tr>
+                            </table>
                             <!-- Pengiriman -->
                             <table class="table table-bordered">
                                 <thead class="thead-dark"><th colspan="2">Pengiriman</th></thead>
                                 <tr>
                                     <td width="30%">Jenis Pengiriman:</td>
-                                    <td class="text-right">Kurir</td>
+                                    <td class="text-right"><?php echo $jenis_pengiriman; ?></td>
                                 </tr>
                                 <tr>
                                     <td width="30%">Biaya Pengiriman:</td>
-                                    <td class="text-right">Rp. 20000</td>
+                                    <td class="text-right">Rp <?php echo $jenis_pengiriman == "cod" ? "0" : number_format(20000, 0, "", ".") ?></td>
                                 </tr>
                             </table>
 
                             <!-- Pesanan -->
                             <?php
-                                $sql = "SELECT * FROM cart inner join produk on cart.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_user=$id_user";
+                                if(isset($_GET["id-transaksi"])){
+                                    $id_transaksi = $_GET["id-transaksi"];
+                                    $sql = "SELECT * FROM detail_transaksi inner join produk on detail_transaksi.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_transaksi=$id_transaksi";
+
+                                }else{
+                                    $sql = "SELECT * FROM cart inner join produk on cart.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_user=$id_user";
+                                }
                                 $query2 = mysqli_query($conn, $sql);
                                 $count = mysqli_num_rows($query2);
                                 $total = 0;
@@ -155,50 +193,61 @@
             </div>
 
             <div class="col-sm-4">
-                <!-- Lanjutkan -->
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3>Lanjutkan</h3>
-                    </div>
-                    <div class="card-body">
-                        Jika telah yakin dengan pesanan silahkan lanjutkan pembayaran.
-                        <center><a href="" class="btn btn-success mt-sm-3">Lanjutkan Pembayaran ></a></center>
-                    </div>
-                </div>
-                <!-- Transfer -->
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3>Transfer</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive-sm">
-                            <table class="table">
-                                <tr>
-                                    <td>Bank Tujuan</td>
-                                    <td>BNI</td>
-                                </tr>
-                                <tr>
-                                    <td>Atas Nama</td>
-                                    <td>Akhmad Nur Dayat</td>
-                                </tr>
-                                <tr>
-                                    <td>No. Rekening</td>
-                                    <td>07818298938</td>
-                                </tr>
-                            </table>
+                <?php
+                    if(!isset($_GET["id-transaksi"])){
+                ?>
+                        <!-- Lanjutkan -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h3>Lanjutkan</h3>
+                            </div>
+                            <div class="card-body">
+                                Jika telah yakin dengan pesanan silahkan lanjutkan pembayaran.
+                                <center><a href="" class="btn btn-success mt-sm-3">Lanjutkan Pembayaran ></a></center>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Konfirmasi -->
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3>Konfirmasi</h3>
-                    </div>
-                    <div class="card-body">
-                        Konfirmasi pembayaran dengan mengirim foto struk transfer ke whatsapp kami di nomor <b>085784197425</b> atau klik dibawah ini. <br>
-                        <a href="https://wa.me/6285784197425?text=Halo%20Hi%20Valeeqa,%20Saya%20aku%20mengonfirmasi%20pembayaran%20untuk%20Kode%20Transaksi%201" class="btn btn-success w-100 mt-4">Konfirmasi Bukti Transfer</a>
-                    </div>
-                </div>
+                <?php
+                    }else{
+                ?>
+                        <!-- Transfer -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h3>Transfer</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive-sm">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Bank Tujuan</td>
+                                            <td>BNI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Atas Nama</td>
+                                            <td>Akhmad Nur Dayat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. Rekening</td>
+                                            <td>07818298938</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Konfirmasi -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h3>Konfirmasi</h3>
+                            </div>
+                            <div class="card-body">
+                                Konfirmasi pembayaran dengan mengirim foto struk transfer ke whatsapp kami di nomor <b>085784197425</b> atau klik dibawah ini. <br>
+                                <a href="https://wa.me/085784197425?text=Halo%20Hi%20Valeeqa,%20Saya%20<?php echo $data['nama']; ?>%20mengonfirmasi%20pembayaran%20untuk%20Kode%20Transaksi%20<?php echo $id_transaksi; ?>.%20Terima%20kasih%20^^" class="btn btn-success w-100 mt-4">Konfirmasi Bukti Transfer</a>
+                            </div>
+                        </div>
+                <?php
+                    }
+                ?>
+                
+                
             </div>
         </div>
         

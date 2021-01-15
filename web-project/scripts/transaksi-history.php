@@ -193,7 +193,7 @@
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
                                                     <a href="#" class="btn btn-dark mt-3">Batalkan</a>
-                                                    <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_bb; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
@@ -264,7 +264,7 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_dikemas; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
@@ -336,7 +336,7 @@
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
                                                     <a href="#" class="btn btn-dark mt-3" disabled><?php echo $data_dikirim["resi"]; ?></a>
-                                                    <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_dikirim; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
@@ -407,7 +407,7 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_selesai; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
@@ -478,7 +478,7 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_gagal; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
