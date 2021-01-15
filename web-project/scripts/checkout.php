@@ -82,7 +82,20 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive-sm">
+                            <!-- Pengiriman -->
+                            <table class="table table-bordered">
+                                <thead class="thead-dark"><th colspan="2">Pengiriman</th></thead>
+                                <tr>
+                                    <td width="30%">Jenis Pengiriman:</td>
+                                    <td class="text-right">Kurir</td>
+                                </tr>
+                                <tr>
+                                    <td width="30%">Biaya Pengiriman:</td>
+                                    <td class="text-right">Rp. 20000</td>
+                                </tr>
+                            </table>
 
+                            <!-- Pesanan -->
                             <?php
                                 $sql = "SELECT * FROM cart inner join produk on cart.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_user=$id_user";
                                 $query2 = mysqli_query($conn, $sql);
@@ -142,10 +155,20 @@
             </div>
 
             <div class="col-sm-4">
-                <!-- Pembayaran -->
+                <!-- Lanjutkan -->
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h3>Pembayaran</h3>
+                        <h3>Lanjutkan</h3>
+                    </div>
+                    <div class="card-body">
+                        Jika telah yakin dengan pesanan silahkan lanjutkan pembayaran.
+                        <center><a href="" class="btn btn-success mt-sm-3">Lanjutkan Pembayaran ></a></center>
+                    </div>
+                </div>
+                <!-- Transfer -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Transfer</h3>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive-sm">
