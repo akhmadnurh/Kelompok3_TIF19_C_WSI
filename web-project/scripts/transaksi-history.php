@@ -134,198 +134,361 @@
                             <!-- Belum Bayar -->
                             <div class="tabPanel">
                                 <?php
-                                    $sql_belum_bayar = "select id_transaksi from transaksi where id_user=3";
+                                    $sql_belum_bayar = "select id_transaksi from transaksi where id_user=$id_user and status='belum bayar'";
                                     $query_belum_bayar = mysqli_query($conn, $sql_belum_bayar);
-                                    // $data_belum_bayar = mysqli_num_rows($query_belum_bayar);
-                                    
-                                    while($data_belum_bayar = mysqli_fetch_array($query_belum_bayar)){
-                                        $id_transaksi = $data_belum_bayar['id_transaksi'];
+                                    $data_belum_bayar_count = mysqli_num_rows($query_belum_bayar);
+                                    if($data_belum_bayar_count == 0){
                                 ?>
-                                        <!-- Transaksi -->
-                                        <div class="item-trans">
-                                            <div class="item-trans-atas">
-                                                <div class="row">
-                                                    <div class="col text-left">
-                                                        <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi; ?></span>
-                                                    </div>
-                                                    <div class="col text-right">
-                                                        <span class="status">Menunggu Pembayaran</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Detail transaksi -->
-                                            <div class="item-trans-tengah">
-                                                    <?php
-                                                        $sql_detail_bb = "select * from detail_transaksi inner join produk on detail_transaksi.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_transaksi=$id_transaksi";
-                                                        $query_detail_bb = mysqli_query($conn, $sql_detail_bb);
-                                                        $total = 0;
-                                                        while($data_detail_bb = mysqli_fetch_array($query_detail_bb)){
-                                                            $total += ($data_detail_bb["harga"] * $data_detail_bb["jumlah"]);
-                                                    ?>
-                                                            <div class="item-trans-barang">  
-                                                                <div class="row">
-                                                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
-                                                                        <img src="../<?php echo $data_detail_bb['lokasi_gambar']; ?>">
-                                                                    </div>
-                                                                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
-                                                                        <span class="trans-nama"><?php echo $data_detail_bb["nama_barang"]; ?></span><br>
-                                                                        <span class="trans-warna"><?php echo $data_detail_bb["warna"]; ?></span><br>
-                                                                        <span class="trans-jumlah">Jumlah: <?php echo $data_detail_bb["jumlah"]; ?></span>
-                                                                    </div>
-                                                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                                        <span class="trans-harga">Rp <?php echo number_format($data_detail_bb["harga"], 0, "", "."); ?></span><br>
-                                                                        <a href="detail.php?id-produk=<?php echo $data_detail_bb['id_produk']; ?>" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>       
-                                                    <?php
-                                                        }
-                                                    ?>
-                                            </div>
-                                            <div class="item-trans-bawah text-right">
-                                                <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                <a href="#" class="btn btn-dark mt-3">Batalkan</a>
-                                                <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
-                                            </div>
+                                        <!-- Tidak Ada Transaksi -->
+                                        <div class="item-trans-kosong text-center">
+                                            <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_shopping_list.png" alt="Tidak Ada Pesanan"><br>
+                                            <span class="trans-kosong">Tidak Ada Pesanan</span>
                                         </div>
                                 <?php
-                                        
+                                    }else{
+                                        while($data_belum_bayar = mysqli_fetch_array($query_belum_bayar)){
+                                            $id_transaksi_bb = $data_belum_bayar['id_transaksi'];
+                                    ?>
+                                            <!-- Transaksi -->
+                                            <div class="item-trans">
+                                                <div class="item-trans-atas">
+                                                    <div class="row">
+                                                        <div class="col text-left">
+                                                            <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_bb; ?></span>
+                                                        </div>
+                                                        <div class="col text-right">
+                                                            <span class="status">Menunggu Pembayaran</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Detail transaksi -->
+                                                <div class="item-trans-tengah">
+                                                        <?php
+                                                            $sql_detail_bb = "select * from detail_transaksi inner join produk on detail_transaksi.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_transaksi=$id_transaksi_bb";
+                                                            $query_detail_bb = mysqli_query($conn, $sql_detail_bb);
+                                                            $total = 0;
+                                                            while($data_detail_bb = mysqli_fetch_array($query_detail_bb)){
+                                                                $total += ($data_detail_bb["harga"] * $data_detail_bb["jumlah"]);
+                                                        ?>
+                                                                <div class="item-trans-barang">  
+                                                                    <div class="row">
+                                                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                                            <img src="../<?php echo $data_detail_bb['lokasi_gambar']; ?>">
+                                                                        </div>
+                                                                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                                            <span class="trans-nama"><?php echo $data_detail_bb["nama_barang"]; ?></span><br>
+                                                                            <span class="trans-warna"><?php echo $data_detail_bb["warna"]; ?></span><br>
+                                                                            <span class="trans-jumlah">Jumlah: <?php echo $data_detail_bb["jumlah"]; ?></span>
+                                                                        </div>
+                                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                                            <span class="trans-harga">Rp <?php echo number_format($data_detail_bb["harga"], 0, "", "."); ?></span><br>
+                                                                            <a href="detail.php?id-produk=<?php echo $data_detail_bb['id_produk']; ?>" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>       
+                                                        <?php
+                                                            }
+                                                        ?>
+                                                </div>
+                                                <div class="item-trans-bawah text-right">
+                                                    <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
+                                                    <a href="#" class="btn btn-dark mt-3">Batalkan</a>
+                                                    <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                </div>
+                                            </div>
+                                    <?php
+                                            
+                                        }
                                     }
-                                ?>
-                                
-                                <!-- Item 2
-                                <div class="item-trans">
-                                    <div class="item-trans-atas">
-                                        <div class="row">
-                                            <div class="col text-left">
-                                                <span class="id-transaksi">T00002</span>
-                                            </div>
-                                            <div class="col text-right">
-                                                <span class="status">Menunggu Pembayaran</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-trans-tengah">
-                                        <div class="item-trans-barang">
-                                            <div class="row">
-                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
-                                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img1.png">
-                                                </div>
-                                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
-                                                    <span class="trans-nama">Chayra Abaya 3</span><br>
-                                                    <span class="trans-warna">Black</span><br>
-                                                    <span class="trans-jumlah">Jumlah: 1</span>
-                                                </div>
-                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                    <span class="trans-harga">Rp. 140000</span><br>
-                                                    <a href="#" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-trans-bawah text-right">
-                                        <span class="trans-total">Total: Rp. 140000</span><br>
-                                        <a href="#" class="btn btn-dark mt-3">Batalkan</a>
-                                        <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
-                                    </div>
-                                </div> -->
+                                    ?>
                             </div>
 
                             <!-- Dikemas -->
                             <div class="tabPanel">
-                                <!-- Item -->
-                                <div class="item-trans">
-                                    <div class="item-trans-atas">
-                                        <div class="row">
-                                            <div class="col text-left">
-                                                <span class="id-transaksi">T00003</span>
-                                            </div>
-                                            <div class="col text-right">
-                                                <span class="status">Menunggu Pengiriman</span>
-                                            </div>
+                                <?php
+                                    $sql_dikemas = "select id_transaksi from transaksi where id_user=$id_user and status='menunggu kirim'";
+                                    $query_dikemas = mysqli_query($conn, $sql_dikemas);
+                                    $data_dikemas_count = mysqli_num_rows($query_dikemas);
+                                    if($data_dikemas_count == 0){
+                                ?>
+                                        <!-- Tidak Ada Transaksi -->
+                                        <div class="item-trans-kosong text-center">
+                                            <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_shopping_list.png" alt="Tidak Ada Pesanan"><br>
+                                            <span class="trans-kosong">Tidak Ada Pesanan</span>
                                         </div>
-                                    </div>
-                                    <div class="item-trans-tengah">
-                                        <div class="item-trans-barang">
-                                            <div class="row">
-                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
-                                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img1.png">
+                                <?php
+                                    }else{
+                                        while($data_dikemas = mysqli_fetch_array($query_dikemas)){
+                                            $id_transaksi_dikemas = $data_dikemas['id_transaksi'];
+                                    ?>
+                                            <!-- Transaksi -->
+                                            <div class="item-trans">
+                                                <div class="item-trans-atas">
+                                                    <div class="row">
+                                                        <div class="col text-left">
+                                                            <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_dikemas; ?></span>
+                                                        </div>
+                                                        <div class="col text-right">
+                                                            <span class="status">Sedang Diproses</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
-                                                    <span class="trans-nama">Chayra Abaya 3</span><br>
-                                                    <span class="trans-warna">Black</span><br>
-                                                    <span class="trans-jumlah">Jumlah: 1</span>
+                                                <!-- Detail transaksi -->
+                                                <div class="item-trans-tengah">
+                                                        <?php
+                                                            $sql_detail_dikemas = "select * from detail_transaksi inner join produk on detail_transaksi.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_transaksi=$id_transaksi_dikemas";
+                                                            $query_detail_dikemas = mysqli_query($conn, $sql_detail_dikemas);
+                                                            $total = 0;
+                                                            while($data_detail_dikemas = mysqli_fetch_array($query_detail_dikemas)){
+                                                                $total += ($data_detail_dikemas["harga"] * $data_detail_dikemas["jumlah"]);
+                                                        ?>
+                                                                <div class="item-trans-barang">  
+                                                                    <div class="row">
+                                                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                                            <img src="../<?php echo $data_detail_dikemas['lokasi_gambar']; ?>">
+                                                                        </div>
+                                                                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                                            <span class="trans-nama"><?php echo $data_detail_dikemas["nama_barang"]; ?></span><br>
+                                                                            <span class="trans-warna"><?php echo $data_detail_dikemas["warna"]; ?></span><br>
+                                                                            <span class="trans-jumlah">Jumlah: <?php echo $data_detail_dikemas["jumlah"]; ?></span>
+                                                                        </div>
+                                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                                            <span class="trans-harga">Rp <?php echo number_format($data_detail_dikemas["harga"], 0, "", "."); ?></span><br>
+                                                                            <a href="detail.php?id-produk=<?php echo $data_detail_dikemas['id_produk']; ?>" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>       
+                                                        <?php
+                                                            }
+                                                        ?>
                                                 </div>
-                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                    <span class="trans-harga">Rp. 140000</span><br>
-                                                    <a href="#" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
+                                                <div class="item-trans-bawah text-right">
+                                                    <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
+                                                    <a href="#" class="btn btn-dark mt-3">Batalkan</a>
+                                                    <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-trans-bawah text-right">
-                                        <span class="trans-total">Total: Rp. 140000</span><br>
-                                        <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
-                                    </div>
-                                </div>
+                                    <?php
+                                            
+                                        }
+                                    }
+                                    ?>
                             </div>
 
                             <!-- Dikirim -->
                             <div class="tabPanel">
-                                <!-- Item -->
-                                <div class="item-trans">
-                                    <div class="item-trans-atas">
-                                        <div class="row">
-                                            <div class="col text-left">
-                                                <span class="id-transaksi">T00003</span>
-                                            </div>
-                                            <div class="col text-right">
-                                                <span class="status">Sedang Dikirim</span>
-                                            </div>
+                                <?php
+                                    $sql_dikirim = "select id_transaksi from transaksi where id_user=$id_user and status='proses kirim'";
+                                    $query_dikirim = mysqli_query($conn, $sql_dikirim);
+                                    $data_dikirim_count = mysqli_num_rows($query_dikirim);
+                                    if($data_dikirim_count == 0){
+                                ?>
+                                        <!-- Tidak Ada Transaksi -->
+                                        <div class="item-trans-kosong text-center">
+                                            <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_shopping_list.png" alt="Tidak Ada Pesanan"><br>
+                                            <span class="trans-kosong">Tidak Ada Pesanan</span>
                                         </div>
-                                    </div>
-                                    <div class="item-trans-tengah">
-                                        <div class="item-trans-barang">
-                                            <div class="row">
-                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
-                                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img1.png">
+                                <?php
+                                    }else{
+                                        while($data_dikirim = mysqli_fetch_array($query_dikirim)){
+                                            $id_transaksi_dikirim = $data_dikirim['id_transaksi'];
+                                    ?>
+                                            <!-- Transaksi -->
+                                            <div class="item-trans">
+                                                <div class="item-trans-atas">
+                                                    <div class="row">
+                                                        <div class="col text-left">
+                                                            <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_dikirim; ?></span>
+                                                        </div>
+                                                        <div class="col text-right">
+                                                            <span class="status">Sedang Dikirim</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
-                                                    <span class="trans-nama">Chayra Abaya 3</span><br>
-                                                    <span class="trans-warna">Black</span><br>
-                                                    <span class="trans-jumlah">Jumlah: 1</span>
+                                                <!-- Detail transaksi -->
+                                                <div class="item-trans-tengah">
+                                                        <?php
+                                                            $sql_detail_dikirim = "select * from detail_transaksi inner join produk on detail_transaksi.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_transaksi=$id_transaksi_dikirim";
+                                                            $query_detail_dikirim = mysqli_query($conn, $sql_detail_dikirim);
+                                                            $total = 0;
+                                                            while($data_detail_dikirim = mysqli_fetch_array($query_detail_dikirim)){
+                                                                $total += ($data_detail_dikirim["harga"] * $data_detail_dikirim["jumlah"]);
+                                                        ?>
+                                                                <div class="item-trans-barang">  
+                                                                    <div class="row">
+                                                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                                            <img src="../<?php echo $data_detail_dikirim['lokasi_gambar']; ?>">
+                                                                        </div>
+                                                                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                                            <span class="trans-nama"><?php echo $data_detail_dikirim["nama_barang"]; ?></span><br>
+                                                                            <span class="trans-warna"><?php echo $data_detail_dikirim["warna"]; ?></span><br>
+                                                                            <span class="trans-jumlah">Jumlah: <?php echo $data_detail_dikirim["jumlah"]; ?></span>
+                                                                        </div>
+                                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                                            <span class="trans-harga">Rp <?php echo number_format($data_detail_dikirim["harga"], 0, "", "."); ?></span><br>
+                                                                            <a href="detail.php?id-produk=<?php echo $data_detail_dikirim['id_produk']; ?>" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>       
+                                                        <?php
+                                                            }
+                                                        ?>
                                                 </div>
-                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                    <span class="trans-harga">Rp. 140000</span><br>
-                                                    <a href="#" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
+                                                <div class="item-trans-bawah text-right">
+                                                    <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
+                                                    <a href="#" class="btn btn-dark mt-3">Batalkan</a>
+                                                    <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-trans-bawah text-right">
-                                        <span class="trans-total">Total: Rp. 140000</span><br>
-                                        <span class="btn btn-secondary mt-3">No. Resi: JNT 987654321</span>
-                                        <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
-                                    </div>
-                                </div>
+                                    <?php
+                                            
+                                        }
+                                    }
+                                    ?>
                             </div>
 
                             <!-- Selesai -->
                             <div class="tabPanel">
-                                <!-- Tidak Ada Transaksi -->
-                                <div class="item-trans-kosong text-center">
-                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_shopping_list.png" alt="Tidak Ada Pesanan"><br>
-                                    <span class="trans-kosong">Tidak Ada Pesanan</span>
-                                </div>
+                                <?php
+                                    $sql_selesai = "select id_transaksi from transaksi where id_user=$id_user and status='selesai'";
+                                    $query_selesai = mysqli_query($conn, $sql_selesai);
+                                    $data_selesai_count = mysqli_num_rows($query_selesai);
+                                    if($data_selesai_count == 0){
+                                ?>
+                                        <!-- Tidak Ada Transaksi -->
+                                        <div class="item-trans-kosong text-center">
+                                            <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_shopping_list.png" alt="Tidak Ada Pesanan"><br>
+                                            <span class="trans-kosong">Tidak Ada Pesanan</span>
+                                        </div>
+                                <?php
+                                    }else{
+                                        while($data_selesai = mysqli_fetch_array($query_selesai)){
+                                            $id_transaksi_selesai = $data_selesai['id_transaksi'];
+                                    ?>
+                                            <!-- Transaksi -->
+                                            <div class="item-trans">
+                                                <div class="item-trans-atas">
+                                                    <div class="row">
+                                                        <div class="col text-left">
+                                                            <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_selesai; ?></span>
+                                                        </div>
+                                                        <div class="col text-right">
+                                                            <span class="status">Selesai</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Detail transaksi -->
+                                                <div class="item-trans-tengah">
+                                                        <?php
+                                                            $sql_detail_selesai = "select * from detail_transaksi inner join produk on detail_transaksi.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_transaksi=$id_transaksi_selesai";
+                                                            $query_detail_selesai = mysqli_query($conn, $sql_detail_selesai);
+                                                            $total = 0;
+                                                            while($data_detail_selesai = mysqli_fetch_array($query_detail_selesai)){
+                                                                $total += ($data_detail_selesai["harga"] * $data_detail_selesai["jumlah"]);
+                                                        ?>
+                                                                <div class="item-trans-barang">  
+                                                                    <div class="row">
+                                                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                                            <img src="../<?php echo $data_detail_selesai['lokasi_gambar']; ?>">
+                                                                        </div>
+                                                                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                                            <span class="trans-nama"><?php echo $data_detail_selesai["nama_barang"]; ?></span><br>
+                                                                            <span class="trans-warna"><?php echo $data_detail_selesai["warna"]; ?></span><br>
+                                                                            <span class="trans-jumlah">Jumlah: <?php echo $data_detail_selesai["jumlah"]; ?></span>
+                                                                        </div>
+                                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                                            <span class="trans-harga">Rp <?php echo number_format($data_detail_selesai["harga"], 0, "", "."); ?></span><br>
+                                                                            <a href="detail.php?id-produk=<?php echo $data_detail_selesai['id_produk']; ?>" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>       
+                                                        <?php
+                                                            }
+                                                        ?>
+                                                </div>
+                                                <div class="item-trans-bawah text-right">
+                                                    <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
+                                                    <a href="#" class="btn btn-dark mt-3">Batalkan</a>
+                                                    <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                </div>
+                                            </div>
+                                    <?php
+                                            
+                                        }
+                                    }
+                                    ?>
                             </div>
 
                             <!-- Gagal -->
                             <div class="tabPanel">
-                                <!-- Tidak Ada Transaksi -->
-                                <div class="item-trans-kosong text-center">
-                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_shopping_list.png" alt="Tidak Ada Pesanan"><br>
-                                    <span class="trans-kosong">Tidak Ada Pesanan</span>
-                                </div>
+                                <?php
+                                    $sql_gagal = "select id_transaksi from transaksi where id_user=$id_user and status='gagal'";
+                                    $query_gagal = mysqli_query($conn, $sql_gagal);
+                                    $data_gagal_count = mysqli_num_rows($query_gagal);
+                                    if($data_gagal_count == 0){
+                                ?>
+                                        <!-- Tidak Ada Transaksi -->
+                                        <div class="item-trans-kosong text-center">
+                                            <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/hivaleeqa_shopping_list.png" alt="Tidak Ada Pesanan"><br>
+                                            <span class="trans-kosong">Tidak Ada Pesanan</span>
+                                        </div>
+                                <?php
+                                    }else{
+                                        while($data_gagal = mysqli_fetch_array($query_gagal)){
+                                            $id_transaksi_gagal = $data_gagal['id_transaksi'];
+                                    ?>
+                                            <!-- Transaksi -->
+                                            <div class="item-trans">
+                                                <div class="item-trans-atas">
+                                                    <div class="row">
+                                                        <div class="col text-left">
+                                                            <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_gagal; ?></span>
+                                                        </div>
+                                                        <div class="col text-right">
+                                                            <span class="status">Menunggu Pembayaran</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Detail transaksi -->
+                                                <div class="item-trans-tengah">
+                                                        <?php
+                                                            $sql_detail_gagal = "select * from detail_transaksi inner join produk on detail_transaksi.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_transaksi=$id_transaksi_gagal";
+                                                            $query_detail_gagal = mysqli_query($conn, $sql_detail_gagal);
+                                                            $total = 0;
+                                                            while($data_detail_gagal = mysqli_fetch_array($query_detail_gagal)){
+                                                                $total += ($data_detail_gagal["harga"] * $data_detail_gagal["jumlah"]);
+                                                        ?>
+                                                                <div class="item-trans-barang">  
+                                                                    <div class="row">
+                                                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                                            <img src="../<?php echo $data_detail_gagal['lokasi_gambar']; ?>">
+                                                                        </div>
+                                                                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                                            <span class="trans-nama"><?php echo $data_detail_gagal["nama_barang"]; ?></span><br>
+                                                                            <span class="trans-warna"><?php echo $data_detail_gagal["warna"]; ?></span><br>
+                                                                            <span class="trans-jumlah">Jumlah: <?php echo $data_detail_gagal["jumlah"]; ?></span>
+                                                                        </div>
+                                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                                            <span class="trans-harga">Rp <?php echo number_format($data_detail_gagal["harga"], 0, "", "."); ?></span><br>
+                                                                            <a href="detail.php?id-produk=<?php echo $data_detail_gagal['id_produk']; ?>" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>       
+                                                        <?php
+                                                            }
+                                                        ?>
+                                                </div>
+                                                <div class="item-trans-bawah text-right">
+                                                    <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
+                                                    <a href="#" class="btn btn-dark mt-3">Batalkan</a>
+                                                    <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                </div>
+                                            </div>
+                                    <?php
+                                            
+                                        }
+                                    }
+                                    ?>
                             </div>
                         </div>
                     </div>
