@@ -1,3 +1,8 @@
+<?php 
+    session_start(); 
+    require_once "connection.php";
+    $id_user = $_SESSION["id_user"];
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -125,61 +130,70 @@
                                 <button onclick="showPanel(4,'#007bff')">Gagal</button>
                             </div>
 
+                            
                             <!-- Belum Bayar -->
                             <div class="tabPanel">
-                                <!-- Item 1 -->
-                                <div class="item-trans">
-                                    <div class="item-trans-atas">
-                                        <div class="row">
-                                            <div class="col text-left">
-                                                <span class="id-transaksi">T00001</span>
+                                <?php
+                                    $sql_belum_bayar = "select id_transaksi from transaksi where id_user=3";
+                                    $query_belum_bayar = mysqli_query($conn, $sql_belum_bayar);
+                                    // $data_belum_bayar = mysqli_num_rows($query_belum_bayar);
+                                    
+                                    while($data_belum_bayar = mysqli_fetch_array($query_belum_bayar)){
+                                        $id_transaksi = $data_belum_bayar['id_transaksi'];
+                                ?>
+                                        <!-- Transaksi -->
+                                        <div class="item-trans">
+                                            <div class="item-trans-atas">
+                                                <div class="row">
+                                                    <div class="col text-left">
+                                                        <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi; ?></span>
+                                                    </div>
+                                                    <div class="col text-right">
+                                                        <span class="status">Menunggu Pembayaran</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col text-right">
-                                                <span class="status">Menunggu Pembayaran</span>
+                                            <!-- Detail transaksi -->
+                                            <div class="item-trans-tengah">
+                                                    <?php
+                                                        $sql_detail_bb = "select * from detail_transaksi inner join produk on detail_transaksi.id_produk = produk.id_produk inner join gambar on produk.id_produk = gambar.id_produk where id_transaksi=$id_transaksi";
+                                                        $query_detail_bb = mysqli_query($conn, $sql_detail_bb);
+                                                        $total = 0;
+                                                        while($data_detail_bb = mysqli_fetch_array($query_detail_bb)){
+                                                            $total += ($data_detail_bb["harga"] * $data_detail_bb["jumlah"]);
+                                                    ?>
+                                                            <div class="item-trans-barang">  
+                                                                <div class="row">
+                                                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
+                                                                        <img src="../<?php echo $data_detail_bb['lokasi_gambar']; ?>">
+                                                                    </div>
+                                                                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
+                                                                        <span class="trans-nama"><?php echo $data_detail_bb["nama_barang"]; ?></span><br>
+                                                                        <span class="trans-warna"><?php echo $data_detail_bb["warna"]; ?></span><br>
+                                                                        <span class="trans-jumlah">Jumlah: <?php echo $data_detail_bb["jumlah"]; ?></span>
+                                                                    </div>
+                                                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
+                                                                        <span class="trans-harga">Rp <?php echo number_format($data_detail_bb["harga"], 0, "", "."); ?></span><br>
+                                                                        <a href="detail.php?id-produk=<?php echo $data_detail_bb['id_produk']; ?>" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>       
+                                                    <?php
+                                                        }
+                                                    ?>
+                                            </div>
+                                            <div class="item-trans-bawah text-right">
+                                                <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
+                                                <a href="#" class="btn btn-dark mt-3">Batalkan</a>
+                                                <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="item-trans-tengah">
-                                        <div class="item-trans-barang">
-                                            <div class="row">
-                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
-                                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img4.png">
-                                                </div>
-                                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
-                                                    <span class="trans-nama">Chayra Abaya</span><br>
-                                                    <span class="trans-warna">Black</span><br>
-                                                    <span class="trans-jumlah">Jumlah: 1</span>
-                                                </div>
-                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                    <span class="trans-harga">Rp. 140000</span><br>
-                                                    <a href="#" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-trans-barang">
-                                            <div class="row">
-                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right">
-                                                    <img src="https://raw.githubusercontent.com/monokuro49/Kelompok3_TIF19_C_WSI/master/web-project/images/detail/img3.png">
-                                                </div>
-                                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 text-left">
-                                                    <span class="trans-nama">Chayra Abaya 2</span><br>
-                                                    <span class="trans-warna">White</span><br>
-                                                    <span class="trans-jumlah">Jumlah: 2</span>
-                                                </div>
-                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-right">
-                                                    <span class="trans-harga">Rp. 140000</span><br>
-                                                    <a href="#" class="btn btn-outline-dark btn-sm mt-4">Detail Produk</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-trans-bawah text-right">
-                                        <span class="trans-total">Total: Rp. 320000</span><br>
-                                        <a href="#" class="btn btn-dark mt-3">Batalkan</a>
-                                        <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
-                                    </div>
-                                </div>
-                                <!-- Item 2 -->
+                                <?php
+                                        
+                                    }
+                                ?>
+                                
+                                <!-- Item 2
                                 <div class="item-trans">
                                     <div class="item-trans-atas">
                                         <div class="row">
@@ -214,7 +228,7 @@
                                         <a href="#" class="btn btn-dark mt-3">Batalkan</a>
                                         <a href="checkout.php" class="btn btn-info mt-3">Rincian Pesanan</a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <!-- Dikemas -->
