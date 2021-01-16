@@ -67,6 +67,11 @@
                         ?>
                                     <div class="alert alert-danger">Harap masukkan jenis pengiriman!</div>
                         <?php
+                                }elseif($status == "stok"){
+                                    $brg = $_GET["barang"];
+                        ?>
+                                    <div class="alert alert-danger">Jumlah pesanan untuk <strong><?php echo $brg; ?></strong> melebihi stok yang tersedia, harap melakukan pemesanan ulang!</div>
+                        <?php
                                 }
                             }
                         ?>

@@ -123,7 +123,8 @@
                                 </tr>
                                 <tr>
                                     <td width="30%">Biaya Pengiriman:</td>
-                                    <td class="text-right">Rp <?php echo $jenis_pengiriman == "cod" ? "0" : number_format(20000, 0, "", ".") ?></td>
+                                    <?php $ongkir = $jenis_pengiriman == "cod" ? 0 : 20000; ?>
+                                    <td class="text-right">Rp <?php echo number_format($ongkir, 0, "", "."); ?></td>
                                 </tr>
                             </table>
 
@@ -177,6 +178,7 @@
                                         $total += $hitung;
                                         $nomor++;
                                     }
+                                        $grand_total = $total + $ongkir;
                                 }
                                         
                             ?>
@@ -184,7 +186,7 @@
                             <table class="table mt-2">
                                 <tr>
                                     <td class="total text-left">Total:</td>
-                                    <td class="total text-right">Rp <?php echo number_format($total, 0, "", "."); ?></td>
+                                    <td class="total text-right">Rp <?php echo isset($grand_total) ? number_format($grand_total, 0, "", ".") : 0; ?></td>
                                 </tr>
                             </table>
                         </div>
@@ -202,8 +204,13 @@
                                 <h3>Lanjutkan</h3>
                             </div>
                             <div class="card-body">
-                                Jika telah yakin dengan pesanan silahkan lanjutkan pembayaran.
-                                <center><a href="" class="btn btn-success mt-sm-3">Lanjutkan Pembayaran ></a></center>
+                                <form action="checkout-process.php" method="POST">
+                                    Jika telah yakin dengan pesanan silahkan lanjutkan pembayaran.
+                                    <input type="hidden" name="jenis-pembayaran" value="<?php echo $jenis_pembayaran; ?>">
+                                    <input type="hidden" name="jenis-pengiriman" value="<?php echo $jenis_pengiriman; ?>">
+                                    <input type="hidden" name="total" value="<?php echo $grand_total; ?>">
+                                    <center><button type="submit" class="btn btn-success mt-sm-3">Lanjutkan Pembayaran ></button></center>
+                                </form>
                             </div>
                         </div>
                 <?php
@@ -245,14 +252,9 @@
                         </div>
                 <?php
                     }
-                ?>
-                
-                
+                ?>       
             </div>
         </div>
-        
-
-        
     </div>
     <?php include 'footer.php'; ?>
 
