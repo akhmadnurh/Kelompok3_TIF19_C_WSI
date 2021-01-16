@@ -9,7 +9,7 @@
                 <div class="card bg-danger text-white mb-4">
                     <div class="card-body">
                         <?php
-                            $sql = "select * from transaksi where status='belum bayar'";
+                            $sql = "select * from transaksi where status='belum bayar' and jenis_pembayaran='cash'";
                             $query = mysqli_query($conn, $sql);
                             $data = mysqli_num_rows($query);
                         ?>

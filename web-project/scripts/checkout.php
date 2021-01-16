@@ -85,7 +85,7 @@
                             <?php
                                 if(isset($_GET["id-transaksi"])){
                                     $id_transaksi = $_GET["id-transaksi"];
-                                    $rincian_query = mysqli_query($conn, "select jenis_pengiriman, jenis_pembayaran from transaksi where id_transaksi=$id_transaksi");
+                                    $rincian_query = mysqli_query($conn, "select jenis_pengiriman, jenis_pembayaran, tabungan from transaksi where id_transaksi=$id_transaksi");
                                     $data_rincian = mysqli_fetch_array($rincian_query);
 
                                     $jenis_pembayaran = $data_rincian["jenis_pembayaran"];
@@ -113,6 +113,16 @@
                                     <td width="30%">Jenis Pembayaran:</td>
                                     <td class="text-right"><?php echo $jenis_pembayaran; ?></td>
                                 </tr>
+                                <?php
+                                    if($jenis_pembayaran == "tabungan" and isset($_GET["id-transaksi"])){
+                                ?>
+                                        <tr>
+                                            <td width="30%">Tabungan Saat Ini:</td>
+                                            <td class="text-right">Rp <?php echo number_format($data_rincian["tabungan"], 0, "", "."); ?></td>
+                                        </tr>
+                                <?php
+                                    }
+                                ?>
                             </table>
                             <!-- Pengiriman -->
                             <table class="table table-bordered">

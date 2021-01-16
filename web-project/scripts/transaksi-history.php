@@ -134,7 +134,7 @@
                             <!-- Belum Bayar -->
                             <div class="tabPanel">
                                 <?php
-                                    $sql_belum_bayar = "select id_transaksi from transaksi where id_user=$id_user and status='belum bayar'";
+                                    $sql_belum_bayar = "select * from transaksi where id_user=$id_user and status='belum bayar'";
                                     $query_belum_bayar = mysqli_query($conn, $sql_belum_bayar);
                                     $data_belum_bayar_count = mysqli_num_rows($query_belum_bayar);
                                     if($data_belum_bayar_count == 0){
@@ -190,10 +190,21 @@
                                                             }
                                                         ?>
                                                 </div>
-                                                <div class="item-trans-bawah text-right">
-                                                    <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="#" class="btn btn-dark mt-3">Batalkan</a>
-                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_bb; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                <div class="item-trans-bawah ">
+                                                    <div class="text-left" style="float: left;">
+                                                        <?php
+                                                            if($data_belum_bayar["jenis_pembayaran"] == "tabungan"){
+                                                        ?>
+                                                                <span style="font-size: 16px">Tabungan: Rp <?php echo number_format($data_belum_bayar["tabungan"], 0, "", "."); ?></span>
+                                                        <?php
+                                                            }
+                                                        ?>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
+                                                        <a href="checkout-cancel.php?id-transaksi=<?php echo $id_transaksi_bb ?>" class="btn btn-dark mt-3" onclick="return confirm('Apakah anda yakin untuk membatalkan pesanan?')">Batalkan</a>
+                                                        <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_bb; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                     <?php
