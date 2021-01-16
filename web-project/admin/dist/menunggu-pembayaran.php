@@ -59,10 +59,13 @@
                                     <td>
                                         <a href="konfirmasi-pembayaran.php?status=konfirmasi&id_transaksi=<?php echo $data['id_transaksi']; ?>" onclick="return confirm('Konfirmasi pembayaran telah lunas?')" class="btn btn-dark mb-2">
                                             Konfirmasi
-                                        </button>
+                                        </a>
+                                        <a href="detail-transaksi.php?id-transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-secondary mb-2">
+                                            Detail
+                                        </a>
                                         <a href="konfirmasi-pembayaran.php?status=batal&id_transaksi=<?php echo $data['id_transaksi']; ?>" onclick="return confirm('Apakah anda yakin ingin membatalkannya?')" class="btn btn-danger">
                                             Batalkan
-                                        </button>
+                                        </a>
 
                                     </td>
                                 </tr> 

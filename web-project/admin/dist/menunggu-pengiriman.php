@@ -60,6 +60,9 @@
                                         <a href="resi.php?id_transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-dark mb-1">
                                             Konfirmasi
                                         </a>
+                                        <a href="detail-transaksi.php?id-transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-secondary mb-2">
+                                            Detail
+                                        </a>
                                         <a href="konfirmasi-pengiriman.php?status=batal&id_transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin membatalkan transaksi?')">
                                             Batalkan
                                         </a>

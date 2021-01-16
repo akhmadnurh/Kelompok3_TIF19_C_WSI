@@ -20,7 +20,7 @@
                                 <th>Total</th>
                                 <th>Nomor Resi</th>
                                 <th>Status</th>
-                                <!-- <th>Action</th>  -->
+                                <th>Action</th> 
                             </tr>
                         </thead>
                         <?php
@@ -57,6 +57,11 @@
                                     <td><?php echo $data["total"]; ?></td>
                                     <td><?php echo $data["resi"]; ?></td>
                                     <td><?php echo $data["status"]; ?></td>
+                                    <td>
+                                        <a href="detail-transaksi.php?id-transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-secondary mb-2">
+                                                Detail
+                                            </a>
+                                    </td>
                                     <!-- <td>
                                         <a href="edit-produk.php?status=edit&id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-link">
                                             <i class="fas fa-edit"></i>

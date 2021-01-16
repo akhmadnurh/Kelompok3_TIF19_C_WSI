@@ -61,6 +61,9 @@
                                         <a href="konfirmasi-transaksi.php?status=konfirmasi&id_transaksi=<?php echo  $data['id_transaksi']; ?>" class="btn btn-dark mb-1" onclick="return confirm('Transaksi selesai?')">
                                             Selesai
                                         </a>
+                                        <a href="detail-transaksi.php?id-transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-secondary mb-2">
+                                            Detail
+                                        </a>
                                         <a href="resi.php?id_transaksi=<?php echo  $data['id_transaksi']; ?>" class="btn btn-primary mb-1">
                                             Edit Resi
                                         </a>
