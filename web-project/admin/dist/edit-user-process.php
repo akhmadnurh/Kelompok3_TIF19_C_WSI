@@ -22,7 +22,7 @@
     }
     $status = $_GET["status"];
     if($status == "edit"){
-        $sql = "UPDATE user SET email='$email', pass='$pass',  nama='$nama', jenis_kelamin='$gender', alamat='$alamat', nomor_wa='$wa', level=  $level WHERE id_user=$id_user";
+        $sql = "UPDATE user SET email='$email', pass='$pass',  nama='$nama', jenis_kelamin='$gender', alamat='$alamat', nomor_wa='$wa', level=$level WHERE id_user=$id_user";
     }elseif($status == "add"){
         $sql = "INSERT INTO user VALUES (NULL, '$email', '$pass', '$nama', '$gender', '$alamat', '$wa', $level, 'tidak')";
     }

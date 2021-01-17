@@ -55,6 +55,20 @@
                                         <a href="lupa-password-process.php?id_user=<?php echo $data['id_user']; ?>" class="btn btn-dark" onclick="return confirm('Apakah anda yakin? Ingat, sebelum menekan tombol ini, anda terlebih dahulu harus menghubungi customer!')">
                                             Konfirmasi
                                         </a>
+                                        <?php
+                                            // Angka WA
+                                            $wa_asal = $data["nomor_wa"];
+                                            if(substr($wa_asal, 0, 1) == "0"){
+                                                $wa_edit = "62".substr($wa_asal, 1);
+                                            }elseif(substr($wa_asal, 0, 3) == "+62"){
+                                                $wa_edit = substr($wa_asal, 1);
+                                            }else{
+                                                $wa_edit = $wa_asal;
+                                            }
+                                        ?>
+                                        <a href="https://wa.me/<?php echo $wa_edit; ?>?text=Halo%20<?php echo $data['nama']; ?>,%20Admin%20Hi%20Valeeqa%20di%20sini%20^^" class="btn btn-info">
+                                            Hubungi
+                                        </a>
                                     </td>
                                 </tr>
                         <?php
