@@ -30,10 +30,8 @@
                             Hi Valeeqa
                         </h5>
                         <hr>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda quidem doloremque dolorum quam similique molestias facilis iusto. A rem, maxime distinctio quos quod voluptas, animi tenetur illum repellendus consectetur aliquid?
-                        </p>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla architecto incidunt, inventore consequuntur esse. Minus ipsa eligendi commodi corrupti voluptates, odio maiores iste? Quo eos vero culpa minus voluptatibus?
+                        Hi Valeeqa merupakan online shop yang berfokus pada penjualan gamis. Hi Valeeqa mempunyai satu program yang dapat meringankan pembeli yaitu tabungan. Tabungan ini memungkinkan pembeli untuk membeli gamis yang diinginkan dengan cara menabung dengan jangka waktu yang ditentukan tanpa ada biaya tambahan.
                         </p>
                     </div>
                 </div>
