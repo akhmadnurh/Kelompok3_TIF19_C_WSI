@@ -8,7 +8,7 @@
     if($email == "" || $pass == "" ){
         header("Location: login.php?status=error");
     }else{
-        $query = mysqli_query($conn, "SELECT * FROM user WHERE pass='$pass'");
+        $query = mysqli_query($conn, "SELECT * FROM user WHERE pass='$pass' and email='$email'");
         $result = mysqli_num_rows($query);
         
         if($result == 1){
