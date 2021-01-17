@@ -6,6 +6,8 @@
       $query = mysqli_query($conn, $sql);
       $data = mysqli_fetch_array($query);
     ?>
+    <!-- Icon Title -->
+    <link rel="icon" href="../../images/hi_valeeqa.png">
     <div class="container">
       <div class="card my-4 mt-4">
         <div class="card-header">

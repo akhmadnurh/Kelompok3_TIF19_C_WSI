@@ -2,6 +2,8 @@
     include 'sidebar.php'; 
     require_once "connection.php";
 ?>
+    <!-- Icon Title -->
+    <link rel="icon" href="../../images/hi_valeeqa.png">
     <div class="container-fluid">
         <h1 class="my-4">Dashboard</h1>
         <div class="row">

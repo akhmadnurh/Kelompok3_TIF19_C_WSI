@@ -33,6 +33,8 @@
       }
       $status = $_GET["status"];
     ?>
+    <!-- Icon Title -->
+    <link rel="icon" href="../../images/hi_valeeqa.png">
     <div class="container-fluid">
       <div class="card my-4">
         <div class="card-header">

@@ -1,5 +1,7 @@
 <?php include "sidebar.php" ?>
     <?php require_once "connection.php"; ?>
+    <!-- Icon Title -->
+    <link rel="icon" href="../../images/hi_valeeqa.png">
     <div class="container-fluid">
         <h1 class="my-4">Riwayat Transaksi</h1>
         <!-- Table -->

@@ -3,6 +3,8 @@
       require_once "connection.php";
       $id_transaksi = $_GET["id_transaksi"];
     ?>
+    <!-- Icon Title -->
+    <link rel="icon" href="../../images/hi_valeeqa.png">
     <div class="container">
       <div class="card my-4 mt-4">
         <div class="card-header">
