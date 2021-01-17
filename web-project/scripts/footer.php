@@ -63,10 +63,8 @@
             <!-- Kolom Grid 3 -->
             <div class="col-sm-4">
                 <strong>LAYANAN</strong><br>
-                <a href="#" class="disabled">Tentang Kami</a><br>
-                <a href="/" class="disabled">Hubungi Kami</a><br>
-                <a href="/" class="disabled">Bantuan</a><br>
-                <a href="/" class="disabled">Persyaratan & Ketentuan</a>
+                <a href="tentang-kami.php">Tentang Kami</a><br>
+                <a href="hubungi-kami.php">Hubungi Kami</a><br>
             </div>
         </div>
       </div>
