@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label>Alamat Toko</label>
-                        <textarea style="resize: none;" disabled class="form-control bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quaerat consequatur doloribus modi culpa rerum incidunt</textarea>
+                        <textarea style="resize: none;" disabled class="form-control bg-light">Jember, Jawa Timur, Indonesia</textarea>
                     </div>
                 </div>
             </div>
