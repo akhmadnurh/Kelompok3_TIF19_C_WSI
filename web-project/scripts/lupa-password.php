@@ -17,7 +17,10 @@
     <title>Lupa Kata Sandi</title>
   </head>
   <body>
-    <?php include 'nav.php' ?>
+    <?php 
+        include 'nav.php';
+        require_once "connection.php"; 
+    ?>
 
     <div class="container marg">
         <div class="card w-50 mx-auto">
@@ -33,10 +36,15 @@
                             <div class="alert alert-danger">Email belum terdaftar!</div>
                 <?php
                         }elseif ($status == "success") {
+                            $email = $_GET["email"];
+                            $nama = $_GET["nama"];
+                            $sql_wa = "select nomor_wa from rekening";
+                            $query_wa = mysqli_query($conn, $sql_wa);
+                            $data_wa = mysqli_fetch_array($query_wa);
                 ?>
                             <div class="alert alert-success">
                                 Request berhasil! Mohon tunggu admin untuk menghubungi anda. <br>
-                                Atau juga bisa menghubungi 081111111
+                                Atau juga bisa menghubungi admin dengan klik <a href="https://wa.me/<?php echo $data_wa["nomor_wa"]; ?>?text=Halo%20Hi%20Valeeqa,%20saya%20<?php  echo $nama ?>%20dengan%20email%20<?php echo $email ?>%20ingin%20menanyakan%20terkait%20lupa%20password%20pada%20akun%20saya.%20Tolong%20segera%20diproses%20ya...">di sini</a>
                             </div>
                 <?php
                         }

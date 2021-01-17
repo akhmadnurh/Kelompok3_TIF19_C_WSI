@@ -233,19 +233,24 @@
                                 <h3>Transfer</h3>
                             </div>
                             <div class="card-body">
+                                <?php
+                                    $sql_wa = "select * from rekening";
+                                    $query_wa = mysqli_query($conn, $sql_wa);
+                                    $data_wa = mysqli_fetch_array($query_wa);
+                                ?>
                                 <div class="table-responsive-sm">
                                     <table class="table">
                                         <tr>
                                             <td>Bank Tujuan</td>
-                                            <td>BNI</td>
+                                            <td><?php echo $data_wa["bank"]; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Atas Nama</td>
-                                            <td>Akhmad Nur Dayat</td>
+                                            <td><?php echo $data_wa["nama"]; ?></td>
                                         </tr>
                                         <tr>
                                             <td>No. Rekening</td>
-                                            <td>07818298938</td>
+                                            <td><?php echo $data_wa["rekening"]; ?></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -258,7 +263,7 @@
                             </div>
                             <div class="card-body">
                                 Konfirmasi pembayaran dengan mengirim foto struk transfer ke whatsapp kami di nomor <b>085784197425</b> atau klik dibawah ini. <br>
-                                <a href="https://wa.me/085784197425?text=Halo%20Hi%20Valeeqa,%20Saya%20<?php echo $data['nama']; ?>%20mengonfirmasi%20pembayaran%20untuk%20Kode%20Transaksi%20<?php echo $id_transaksi; ?>.%20Terima%20kasih%20^^" class="btn btn-success w-100 mt-4">Konfirmasi Bukti Transfer</a>
+                                <a href="https://wa.me/<?php echo $data_wa['nomor_wa'];?>?text=Halo%20Hi%20Valeeqa,%20saya%20<?php echo $data['nama']; ?>%20mengonfirmasi%20pembayaran%20untuk%20Kode%20Transaksi%20<?php echo $id_transaksi; ?>.%20Terima%20kasih%20^^" class="btn btn-success w-100 mt-4">Konfirmasi Bukti Transfer</a>
                             </div>
                         </div>
                 <?php
