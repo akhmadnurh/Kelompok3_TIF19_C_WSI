@@ -51,6 +51,8 @@
             margin-right: 8px;
             margin-bottom: 10px;
             font-size: 14px;
+            max-height: 4em;
+            height: 4em;
         }
         .garis {
             height: 1px;
@@ -247,11 +249,14 @@
                                     <div class="result">
                                         <a href="detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
                                                 <?php 
-                                                $pic = "../".$data["lokasi_gambar"];
-                                                echo "<div class='result-img'><img src='$pic' alt='' class='w-100'></div>"; 
-                                                echo "<div class='judul'><b>".$data["nama_barang"]."</b><div class='garis'></div>"; 
-                                                echo $data["bahan"]." - ".$data["warna"]."</div><br>"; 
-                                                echo "<div class='result-cost'>Rp. ".$data["harga"]."</div>";
+                                                    $pic = "../".$data["lokasi_gambar"];
+                                                    $judul = strlen($data["nama_barang"]) > 14 ? substr($data["nama_barang"], 0, 14)."..." : $data["nama_barang"];
+                                                    $bahan = strlen($data["bahan"]) > 10 ? substr($data["bahan"], 0, 10)."..." : $data["bahan"];
+                                                    $warna = strlen($data["warna"]) > 7 ? substr($data["warna"], 0, 7)."..." : $data["warna"];
+                                                    echo "<div class='result-img'><img src='$pic' alt='' class='w-100'></div>"; 
+                                                    echo "<div class='judul'><b>".$judul."</b><div class='garis'></div>"; 
+                                                    echo $bahan." - ".$warna."</div><br>"; 
+                                                    echo "<div class='result-cost'>Rp ".number_format($data["harga"], 0, "", ".")."</div>";
                                             ?>
                                         </a>
                                     </div>
