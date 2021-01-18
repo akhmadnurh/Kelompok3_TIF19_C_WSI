@@ -30,6 +30,7 @@
         .result{
             width: 100%;
             border: 3px solid #ffffff;
+            overflow: hidden;
         }
         .result:hover{
             border: 3px solid #fbf1f0;
@@ -37,6 +38,10 @@
         .result-img{
             padding: 5px;
             text-align: center;
+            width: 230px;
+            height: 345px;
+            margin-right: auto;
+            margin-left: auto;
         }
         .result-cost{
             background: #fbf1f0;

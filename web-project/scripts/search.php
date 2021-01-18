@@ -37,6 +37,7 @@
             margin-bottom: 20px;
             padding-top: 8px;
             border: 3px solid #ffffff;
+            overflow: hidden;
         }
         .result:hover {
             border: 3px solid #fbf1f0;
@@ -44,6 +45,10 @@
         .result-img{
             padding: 5px;
             text-align: center;
+            width: 230px;
+            height: 345px;
+            margin-right: auto;
+            margin-left: auto;
         }
         .judul {
             margin-top: 8px;
