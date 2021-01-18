@@ -130,7 +130,7 @@
               </div>
             </div>
             <div class="mb-3 form-group w-50">
-              <label for="formFileMultiple" class="form-control-label">Masukkan Foto</label> 
+              <label for="formFileMultiple" class="form-control-label">Masukkan Foto <b>(Rasio Ukuran Foto 2:3)</b></label> 
               <input class="form-control-file" type="file" id="formFileMultiple" name="gambar">
             </div>
             <?php

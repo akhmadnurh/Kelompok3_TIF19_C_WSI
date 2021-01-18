@@ -42,11 +42,8 @@
             border: 3px solid #fbf1f0;
         }
         .result-img{
-            width: 230px;
-            height: 345px;
-            margin-right: auto;
-            margin-left: auto;
-
+            padding: 5px;
+            text-align: center;
         }
         .judul {
             margin-top: 8px;
@@ -251,7 +248,7 @@
                                         <a href="detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
                                                 <?php 
                                                 $pic = "../".$data["lokasi_gambar"];
-                                                echo "<center><img src='$pic' alt='' class='result-img'></center>"; 
+                                                echo "<div class='result-img'><img src='$pic' alt='' class='w-100'></div>"; 
                                                 echo "<div class='judul'><b>".$data["nama_barang"]."</b><div class='garis'></div>"; 
                                                 echo $data["bahan"]." - ".$data["warna"]."</div><br>"; 
                                                 echo "<div class='result-cost'>Rp. ".$data["harga"]."</div>";

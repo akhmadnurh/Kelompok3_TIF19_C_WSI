@@ -24,21 +24,19 @@
         .item-panel{
             margin-top:5em;
         }
+        .row {
+            height:100%;
+        }
         .result{
             width: 100%;
-            margin-bottom: 20px;
-            padding-top: 8px;
             border: 3px solid #ffffff;
         }
         .result:hover{
             border: 3px solid #fbf1f0;
         }
         .result-img{
-            width: 230px;
-            height: 345px;
-            margin-right: auto;
-            margin-left: auto;
-
+            padding: 5px;
+            text-align: center;
         }
         .result-cost{
             background: #fbf1f0;
@@ -189,19 +187,19 @@
             ?>
                 <div class="item-panel">
                     <h5>Best Seller</h5>
-                    <div class="row item-list">
+                    <div class="row">
                     <!-- Cetak data berulang 4 -->
                         <?php 
                             $best_seller = mysqli_query($conn,"SELECT produk.id_produk, nama_barang, harga, bahan, warna, best_seller, lokasi_gambar from produk inner join gambar on produk.id_produk = gambar.id_produk order by best_seller desc");
                             $i = 1;
                             while($data = mysqli_fetch_array($best_seller)){
                         ?>
-                                <div class="col-sm-3">
+                                <div class="col-sm-3 mb-3 mt-1">
                                     <div class="result">
                                         <a href="scripts/detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
                                             <?php 
                                                $pic = $data["lokasi_gambar"];
-                                               echo "<center><img src='$pic' alt='' class='result-img'></center>"; 
+                                               echo "<div class='result-img'><img src='$pic' alt='' class='w-100'></div>"; 
                                                echo "<div class='judul'><b>".$data["nama_barang"]."</b><div class='garis'></div>"; 
                                                echo $data["bahan"]." - ".$data["warna"]."</div><br>"; 
                                                echo "<div class='result-cost'>Rp ".number_format($data["harga"], 0, "", ".")."</div>";
@@ -217,7 +215,7 @@
                             }
                         ?>
                     </div>
-                    <a href="scripts/search.php?kategori=best-seller" class="btn more text-center" name="more">More></a>
+                    <a href="scripts/search.php?kategori=best-seller" class="btn more text-center" name="more">More ></a>
                 </div>
                 
                     <?php
@@ -242,18 +240,18 @@
                     ?>
                             <div class="item-panel">
                                 <h5><?php echo $kategori_arr[$i]; ?></h5>
-                                <div class="row item-list">    
+                                <div class="row">    
                                     <?php
                                         
                                         $k = 0;
                                         while($data = mysqli_fetch_array($filter_data)){
                                     ?>
-                                            <div class="col-sm-3 col-md-3">
+                                            <div class="col-sm-3 mb-3 mt-1">
                                                 <div class="result">
                                                     <a href="scripts/detail.php?id-produk=<?php echo $data['id_produk']; ?>" class="anchor-black">
                                                         <?php 
                                                             $pic = $data["lokasi_gambar"];
-                                                            echo "<center><img src='$pic' alt='' class='result-img'></center>"; 
+                                                            echo "<div class='result-img'><img src='$pic' alt='' class='w-100'></div>"; 
                                                             echo "<div class='judul'><b>".$data["nama_barang"]."</b><div class='garis'></div>"; 
                                                             echo $data["bahan"]." - ".$data["warna"]."</div><br>"; 
                                                             echo "<div class='result-cost'>Rp ".number_format($data["harga"], 0, "", ".")."</div>";
@@ -269,7 +267,7 @@
                                         }
                                     ?>
                                 </div>
-                                <a href="scripts/search.php?kategori=<?php echo $id_kategori;?>" class="btn more text-center">More></a>
+                                <a href="scripts/search.php?kategori=<?php echo $id_kategori;?>" class="btn more text-center">More ></a>
                             </div>
                         <?php
                         } 
