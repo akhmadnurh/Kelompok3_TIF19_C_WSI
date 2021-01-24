@@ -97,7 +97,7 @@
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">Alamat</span>
-              <textarea name="alamat" id="alamat" cols="30" rows="10" placeholder="Masukkan keterangan produk (boleh dikosongi)" class="form-control" required><?php echo $alamat; ?></textarea>
+              <textarea name="alamat" id="alamat" cols="30" rows="10" placeholder="Alamat" class="form-control" required><?php echo $alamat; ?></textarea>
             </div>
             <div class="input-group mb-3 w-25">
               <span class="input-group-text">Level Akses</span>
